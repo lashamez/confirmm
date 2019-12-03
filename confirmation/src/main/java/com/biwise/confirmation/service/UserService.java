@@ -4,7 +4,7 @@ import com.biwise.confirmation.domain.dto.UserDto;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
     UserDto save(UserDto user);
     List<UserDto> findAll();
@@ -15,4 +15,6 @@ public interface UserService {
     UserDto findByUserId(String userId);
 
     UserDto update(UserDto userDto);
+
+    void sendInvitationToAccountant(String name, String email, String accountant);
 }

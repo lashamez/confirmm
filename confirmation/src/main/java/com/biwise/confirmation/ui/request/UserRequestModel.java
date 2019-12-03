@@ -1,70 +1,22 @@
 package com.biwise.confirmation.ui.request;
 
+import lombok.Data;
+import javax.validation.constraints.*;
+
+@Data
 public class UserRequestModel {
-    private String userName;
+    @Email(message = "Email should be valid")
+    private String email;
+
+    @NotBlank(message = "First name is required")
+    @Size(min = 1, max = 50, message = "First name length must be in range 1-50")
     private String firstName;
+    @NotBlank(message = "Last name is required")
+    @Size(min = 1, max = 50, message = "Last name length must be in range 1-50")
     private String lastName;
+
+    @NotBlank(message = "Password is required")
+    @Size(min = 4, max = 50,message = "Password length must be in range 4-50")
     private String password;
-    private Integer age;
-    private Integer salary;
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Integer salary) {
-        this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "UserRequestModel{" +
-                "userName='" + userName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", password='" + password + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                '}';
-    }
 }

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionAdvice {
 
     @ExceptionHandler(Exception.class)
-    public ApiResponse handleNotFoundException(RuntimeException ex) {
-        return new ApiResponse<Exception>(400, new Message(MessageType.error,"Bad request"),  null);
+    public ApiResponse handleNotFoundException(Exception ex) {
+        return new ApiResponse<>(400, new Message(MessageType.error,ex.getMessage()),  null);
     }
 
 }

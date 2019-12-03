@@ -1,12 +1,21 @@
 package com.biwise.confirmation.domain.entity;
 
 
+import lombok.Data;
+import lombok.ToString;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
 
 @Entity
 @Table(name = "user")
-public class UserEntity {
-
+@Data
+public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
@@ -17,75 +26,57 @@ public class UserEntity {
     @Column(nullable = false)
     private String lastName;
     @Column(nullable = false, unique = true)
-    private String userName;
+    private String email;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
-    private Integer salary;
-    @Column(nullable = false)
-    private Integer age;
+    @ManyToMany
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<RoleEntity> roles;
 
-    public Long getId() {
-        return id;
+    @OneToMany(mappedBy = "manager")
+    private Collection<CompanyEntity> ownedCompanies;
+
+    @ManyToMany(mappedBy = "accountants")
+    private Collection<CompanyEntity> accountantCompanies;
+
+    @Column
+    private boolean enabled;
+
+    private Date registerDate;
+
+    @PrePersist
+    void registerDate() {
+        registerDate = new Date();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    public String getFirstName() {
-        return firstName;
+    @Override
+    public String getUsername() {
+        return email;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
     }
 
-    public String getLastName() {
-        return lastName;
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public long getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Integer salary) {
-        this.salary = salary;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 }

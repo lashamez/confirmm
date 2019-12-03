@@ -18,11 +18,22 @@ public class Utils {
         return generateRandomString(length);
     }
 
+    public String generateCompanyId(int length) {
+        return generateRandomString(length);
+    }
     private String generateRandomString(int length) {
         StringBuilder returnValue = new StringBuilder();
         for (int i = 0; i < length; i++) {
             returnValue.append(ALPHABET.charAt(RANDOM.nextInt(ALPHABET.length())));
         }
         return returnValue.toString();
+    }
+
+    public String generateInvitationToken(int length) {
+        return generateRandomString(length);
+    }
+
+    public String generateConfirmationToken(int length) {
+        return generateRandomString(length);
     }
 }

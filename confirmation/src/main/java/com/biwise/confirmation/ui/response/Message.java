@@ -1,27 +1,16 @@
 package com.biwise.confirmation.ui.response;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@ToString
+
 public class Message {
     private MessageType messageType;
     private String message;
 
-    public Message(MessageType messageType, String message) {
-        this.messageType = messageType;
-        this.message = message;
-    }
-
-    public MessageType getMessageType() {
-        return messageType;
-    }
-
-    public void setMessageType(MessageType messageType) {
-        this.messageType = messageType;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }
