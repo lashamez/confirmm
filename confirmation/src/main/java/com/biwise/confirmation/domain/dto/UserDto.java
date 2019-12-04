@@ -1,10 +1,9 @@
 package com.biwise.confirmation.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.Date;
 
@@ -20,6 +19,7 @@ public class UserDto {
     private String password;
     private Date registerDate;
     private boolean enabled;
+    private String langKey;
     private Collection<CompanyDto> ownedCompanies;
     private Collection<CompanyDto> accountantCompanies;
 

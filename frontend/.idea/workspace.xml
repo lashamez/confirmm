@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6139e939-9e4a-4fb4-9a23-0918481a8d17" name="Default Changelist" comment="" />
+    <list default="true" id="6139e939-9e4a-4fb4-9a23-0918481a8d17" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../admin/src/main/java/com/biwise/admin/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/SpringApplicationContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/AppProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/AuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/AuthorizationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/SecurityConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserRepositoryUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ConfirmationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ConfirmationApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/config/ExceptionAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/config/ExceptionAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/domain/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/domain/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/domain/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/domain/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/request/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/request/LoginModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/request/UserRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/request/UserRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/ApiResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/UserRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/UserRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RouterComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RouterComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/user/EditUserComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/EditUserComponent.jsx" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -12,12 +44,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/user/AddUserComponent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+            <state relative-caret-position="360">
+              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -26,10 +58,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/service/ApiService.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/user/EditUserComponent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+            <state relative-caret-position="273">
+              <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -40,7 +81,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/LoginDialog.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="480">
               <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -52,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/NavBar.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="270">
               <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -61,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/user/ListUserComponent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+            <state relative-caret-position="471">
+              <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -73,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/RouterComponent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+            <state relative-caret-position="288">
+              <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
               <folding>
                 <element signature="e#0#73#0" expanded="true" />
               </folding>
@@ -88,7 +129,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="105">
               <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -100,7 +141,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Messager.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="1425">
               <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -130,7 +171,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -144,11 +185,11 @@
         <option value="$PROJECT_DIR$/src/components/user/AddUserComponent.jsx" />
         <option value="$PROJECT_DIR$/src/components/user/ListUserComponent.jsx" />
         <option value="$PROJECT_DIR$/src/components/Messager.jsx" />
-        <option value="$PROJECT_DIR$/src/components/user/EditUserComponent.jsx" />
         <option value="$PROJECT_DIR$/src/components/LoginDialog.jsx" />
         <option value="$PROJECT_DIR$/src/components/NavBar.jsx" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/RouterComponent.jsx" />
+        <option value="$PROJECT_DIR$/src/components/user/EditUserComponent.jsx" />
       </list>
     </option>
   </component>
@@ -165,17 +206,17 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2249" />
-    <option name="y" value="32" />
-    <option name="width" value="1851" />
-    <option name="height" value="1040" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,22 +258,27 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v12.0.0/bin/node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -275,6 +321,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574930491147</updated>
       <workItem from="1574930492220" duration="38284000" />
+      <workItem from="1575269266457" duration="2791000" />
     </task>
     <task id="LOCAL-00001" summary="initial frontend">
       <created>1575037645239</created>
@@ -287,18 +334,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38284000" />
+    <option name="totallyTimeSpent" value="41075000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945416" />
+      <window_info id="npm" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32925585" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32925585" />
@@ -306,6 +350,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32925585" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -315,6 +363,9 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
     <MESSAGE value="initial frontend" />
     <option name="LAST_COMMIT_MESSAGE" value="initial frontend" />
   </component>
@@ -350,13 +401,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/MessageBar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="18" selection-start-line="11" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/user/MessageBar.jsx" />
     <entry file="file://$PROJECT_DIR$/node_modules/react-router-dom/umd/react-router-dom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -364,9 +409,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LoginDialog.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LoginDialog.js" />
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -374,57 +417,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/service/ApiService.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="1" lean-forward="true" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Messager.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/AddUserComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/EditUserComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/ListUserComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/LoginDialog.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="480">
           <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
@@ -434,7 +429,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/NavBar.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
+        <state relative-caret-position="270">
           <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
@@ -444,7 +439,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="105">
           <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -452,12 +447,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Messager.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/service/ApiService.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/user/AddUserComponent.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/user/EditUserComponent.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/RouterComponent.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+        <state relative-caret-position="288">
+          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
           <folding>
             <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/user/ListUserComponent.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

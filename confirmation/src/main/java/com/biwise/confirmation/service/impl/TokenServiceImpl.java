@@ -9,8 +9,8 @@ import com.biwise.confirmation.domain.entity.VerificationTokenEntity;
 import com.biwise.confirmation.repository.InvitationTokenRepository;
 import com.biwise.confirmation.repository.VerificationTokenRepository;
 import com.biwise.confirmation.service.TokenService;
+import com.biwise.confirmation.ui.response.UserRest;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;

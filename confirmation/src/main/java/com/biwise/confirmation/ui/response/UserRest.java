@@ -13,6 +13,7 @@ public class UserRest {
     private String email;
     private Date registerDate;
     private boolean enabled;
+    private String langKey;
     @JsonManagedReference
     private Collection<CompanyRest> ownedCompanies;
     @JsonManagedReference

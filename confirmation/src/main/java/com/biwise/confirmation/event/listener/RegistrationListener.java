@@ -4,6 +4,7 @@ import com.biwise.confirmation.domain.dto.UserDto;
 import com.biwise.confirmation.event.OnRegistrationCompleteEvent;
 import com.biwise.confirmation.service.TokenService;
 import com.biwise.confirmation.service.UserService;
+import com.biwise.confirmation.ui.response.UserRest;
 import com.biwise.confirmation.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;

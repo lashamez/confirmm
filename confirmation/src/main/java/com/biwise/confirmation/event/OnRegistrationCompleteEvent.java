@@ -1,6 +1,7 @@
 package com.biwise.confirmation.event;
 
 import com.biwise.confirmation.domain.dto.UserDto;
+import com.biwise.confirmation.ui.response.UserRest;
 import lombok.Data;
 import org.springframework.context.ApplicationEvent;
 

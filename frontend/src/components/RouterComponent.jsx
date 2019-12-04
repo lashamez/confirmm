@@ -25,6 +25,13 @@ class RouterComponent extends Component {
             this.setState({message: null})
         }
     }
+    componentWillUnmount() {
+        this.setState({message: null})
+    }
+
+    componentDidMount() {
+        this.setState({message: null})
+    }
 
     render() {
 

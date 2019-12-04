@@ -4,6 +4,7 @@ import com.biwise.confirmation.domain.dto.InvitationTokenDto;
 import com.biwise.confirmation.domain.dto.Token;
 import com.biwise.confirmation.domain.dto.UserDto;
 import com.biwise.confirmation.domain.dto.VerificationTokenDto;
+import com.biwise.confirmation.ui.response.UserRest;
 
 public interface TokenService {
     void createVerificationToken(UserDto user, String token);

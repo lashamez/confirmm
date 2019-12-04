@@ -3,7 +3,6 @@ import ApiService from "../service/ApiService";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
 
 class EditUserComponent extends Component {
 
@@ -66,14 +65,10 @@ class EditUserComponent extends Component {
     }
 
     render() {
-        let mess;
-        if (this.state.message != null) {
-            mess = successBar(this.state.message)
-        }
+
         return (
             <div>
                 <Typography variant="h4" style={style}>Edit User</Typography>
-                {mess}
                 <form>
 
                     <TextField type="text" placeholder="username" fullWidth margin="normal" name="userName" disabled={true} label="Username" readOnly={true} value={this.state.userName}/>
@@ -98,11 +93,5 @@ const style ={
     display: 'flex',
     justifyContent: 'center'
 }
-function successBar(message) {
-    return (
-        <SnackbarContent
-            message={message}
-        />
-    );
-}
+
 export default EditUserComponent;

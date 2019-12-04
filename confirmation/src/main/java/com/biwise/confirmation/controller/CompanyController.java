@@ -3,14 +3,18 @@ package com.biwise.confirmation.controller;
 import com.biwise.confirmation.domain.dto.CompanyDto;
 import com.biwise.confirmation.domain.dto.UserDto;
 import com.biwise.confirmation.event.OnInvitationCompleteEvent;
-import com.biwise.confirmation.event.OnRegistrationCompleteEvent;
 import com.biwise.confirmation.service.CompanyService;
 import com.biwise.confirmation.service.UserService;
+import com.biwise.confirmation.ui.errors.CompanyAlreadyUsedException;
+import com.biwise.confirmation.ui.errors.CompanyNotFoundException;
 import com.biwise.confirmation.ui.request.CompanyRequestModel;
 import com.biwise.confirmation.ui.response.*;
+import com.biwise.confirmation.utils.HeaderUtils;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@SuppressWarnings("unchecked")
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("company")
 public class CompanyController {
-
+    @Value("${confirmation.clientApp.name}")
+    private String applicationName;
     private ModelMapper modelMapper = new ModelMapper();
     private final CompanyService companyService;
     private final UserService userService;
@@ -40,20 +46,12 @@ public class CompanyController {
     }
 
     @PostMapping("")
-    public ApiResponse<CompanyRest> saveCompany(@RequestBody @Valid CompanyRequestModel company, Errors errors, Principal principal) {
-        if (errors.hasErrors()) {
-            return new ApiResponse<>(HttpStatus.BAD_REQUEST.value(), new Message(MessageType.error, errors.getAllErrors().get(0).getDefaultMessage()), null);
-        }
+    public ResponseEntity<RestMessage<CompanyRest>> saveCompany(@RequestBody @Valid CompanyRequestModel company, Principal principal) {
         if (companyService.findOne(company.getName())!=null) {
-            return new ApiResponse<>(HttpStatus.CONFLICT.value(), new Message( MessageType.error,"Username already exists"), null);
+            throw new CompanyAlreadyUsedException();
         }
         CompanyDto companyDto = modelMapper.map(company, CompanyDto.class);
         UserDto manager = userService.findOne(principal.getName());
-        companyDto.setManager(manager);
-        if (manager == null) {
-            return new ApiResponse<>(HttpStatus.FORBIDDEN.value(), new Message( MessageType.error,"Manager not found"), null);
-        }
-
         companyDto.setManager(manager);
 
         company.getAccountantMails().forEach(accountant -> {
@@ -67,42 +65,43 @@ public class CompanyController {
 
         CompanyDto savedCompany = companyService.save(companyDto);
         CompanyRest companyRest = modelMapper.map(savedCompany, CompanyRest.class);
-        return new ApiResponse<>(HttpStatus.OK.value(), new Message(MessageType.success, "Company created successfully"), companyRest);
+        return ResponseEntity.ok(new RestMessage(companyRest, MessageType.success, "Company created successfully"));
     }
 
     @GetMapping("")
-    public ApiResponse<List<CompanyRest>> getAllCompanies() {
+    public ResponseEntity<RestMessage<List<CompanyRest>>> getAllCompanies() {
         List<CompanyRest> result = new ArrayList<>();
         List<CompanyDto> allCompanies = companyService.findAll();
         allCompanies.forEach(companyDto -> {
             CompanyRest companyRest = modelMapper.map(companyDto, CompanyRest.class);
             result.add(companyRest);
         });
-        return new ApiResponse<>(HttpStatus.OK.value(), new Message(MessageType.info, "Companies fetched successfully"), result);
+        return ResponseEntity.ok().body(new RestMessage(result, MessageType.info,"Company fetched successfully."));
     }
+
     @GetMapping("/{id}")
-    public ApiResponse<CompanyRest> getOne(@PathVariable String id) {
+    public ResponseEntity<RestMessage<CompanyRest>> getOne(@PathVariable String id) {
         CompanyDto companyDto = companyService.findByCompanyId(id);
         if (companyDto == null) {
-            return new ApiResponse<>(HttpStatus.NOT_FOUND.value(), new Message(MessageType.error, "Company doesn't exist"), null);
+            throw new CompanyNotFoundException(id);
         }
         CompanyRest returnValue = modelMapper.map(companyDto, CompanyRest.class);
-
-        return new ApiResponse<>(HttpStatus.OK.value(), new Message(MessageType.info,"Company fetched successfully."), returnValue);
+        return ResponseEntity.ok().body(new RestMessage(returnValue, MessageType.info,"Company fetched successfully."));
     }
+
     @PutMapping("/{id}")
-    public ApiResponse<CompanyRest> update(@PathVariable String id, @Valid @RequestBody CompanyRequestModel companyRequestModel) {
+    public ResponseEntity<RestMessage<CompanyRest>> update(@PathVariable String id, @Valid @RequestBody CompanyRequestModel companyRequestModel) {
         CompanyDto companyDto = modelMapper.map(companyRequestModel, CompanyDto.class);
         companyDto.setCompanyId(id);
         CompanyDto updatedCompany = companyService.update(companyDto);
         CompanyRest returnValue = modelMapper.map(updatedCompany, CompanyRest.class);
-        return new ApiResponse<>(HttpStatus.OK.value(), new Message(MessageType.success, "Company updated successfully."), returnValue);
+        return ResponseEntity.ok(new RestMessage(returnValue, MessageType.success, "Company updated successfully."));
     }
 
     @DeleteMapping("/{id}")
-    public ApiResponse<Void> delete(@PathVariable String id) {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         companyService.delete(id);
-        return new ApiResponse<>(HttpStatus.OK.value(), new Message( MessageType.success,"Company deleted successfully."), null);
+        return ResponseEntity.noContent().headers(HeaderUtils.createAlert(applicationName,  "Company deleted", id)).build();
     }
 
 }

@@ -1,12 +1,14 @@
 package com.biwise.confirmation.service;
 
 import com.biwise.confirmation.domain.dto.UserDto;
+import com.biwise.confirmation.ui.request.UserRequestModel;
+import com.biwise.confirmation.ui.response.UserRest;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
 public interface UserService extends UserDetailsService {
 
-    UserDto save(UserDto user);
     List<UserDto> findAll();
     void delete(String userId);
 
@@ -16,5 +18,5 @@ public interface UserService extends UserDetailsService {
 
     UserDto update(UserDto userDto);
 
-    void sendInvitationToAccountant(String name, String email, String accountant);
+    UserDto save(UserDto user);
 }
