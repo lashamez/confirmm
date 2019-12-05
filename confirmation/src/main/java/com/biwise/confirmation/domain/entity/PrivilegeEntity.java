@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 @Data
 @Entity
@@ -21,6 +22,6 @@ public class PrivilegeEntity {
     private String name;
 
     @ManyToMany(mappedBy = "privileges")
-    private Collection<RoleEntity> roles;
+    private Collection<RoleEntity> roles = new ArrayList<>();
 
 }

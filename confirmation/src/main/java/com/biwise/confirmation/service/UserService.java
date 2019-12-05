@@ -19,4 +19,8 @@ public interface UserService extends UserDetailsService {
     UserDto update(UserDto userDto);
 
     UserDto save(UserDto user);
+
+    UserDto findByActivationKey(String token);
+
+    UserDto register(UserDto userDto);
 }

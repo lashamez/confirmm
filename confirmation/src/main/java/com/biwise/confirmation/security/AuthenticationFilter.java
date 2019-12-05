@@ -4,7 +4,6 @@ import com.biwise.confirmation.SpringApplicationContext;
 import com.biwise.confirmation.domain.dto.UserDto;
 import com.biwise.confirmation.service.UserService;
 import com.biwise.confirmation.ui.request.LoginModel;
-import com.biwise.confirmation.ui.request.UserRequestModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -13,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -60,4 +60,5 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
         response.addHeader("UserID", userDto.getUserId());
     }
+
 }

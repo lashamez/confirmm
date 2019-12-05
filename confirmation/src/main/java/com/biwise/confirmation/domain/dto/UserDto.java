@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -20,7 +21,5 @@ public class UserDto {
     private Date registerDate;
     private boolean enabled;
     private String langKey;
-    private Collection<CompanyDto> ownedCompanies;
-    private Collection<CompanyDto> accountantCompanies;
-
+    private String activationKey;
 }

@@ -10,9 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "user")
@@ -42,23 +40,19 @@ public class UserEntity implements UserDetails {
     @Column(name = "lang_key", length = 10)
     private String langKey;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<RoleEntity> roles;
-
-    @OneToMany(mappedBy = "manager")
-    private Collection<CompanyEntity> ownedCompanies;
-
-    @ManyToMany(mappedBy = "accountants")
-    private Collection<CompanyEntity> accountantCompanies;
+    private Collection<RoleEntity> roles = new ArrayList<>();
 
     @Column
     private boolean enabled;
+    @JsonIgnore
+    private String activationKey;
 
     private Date registerDate;
 
@@ -69,7 +63,7 @@ public class UserEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override

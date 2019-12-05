@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import netscape.security.Privilege;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 @Data
 @Entity
@@ -21,14 +22,14 @@ public class RoleEntity {
 
     private String name;
     @ManyToMany(mappedBy = "roles")
-    private Collection<UserEntity> users;
+    private Collection<UserEntity> users = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "roles_privileges",
             joinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "privilege_id", referencedColumnName = "id"))
-    private Collection<PrivilegeEntity> privileges;
+    private Collection<PrivilegeEntity> privileges = new ArrayList<>();
 }

@@ -80,13 +80,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto save(UserDto user) {
+        UserEntity userEntity = modelMapper.map(user, UserEntity.class);
+        UserEntity updated = userRepository.save(userEntity);
+        return modelMapper.map(updated, UserDto.class);
+    }
+
+    @Override
+    public UserDto findByActivationKey(String token) {
+        Optional<UserEntity> userEntity = userRepository.findByActivationKey(token);
+        return userEntity.map(entity -> modelMapper.map(entity, UserDto.class)).orElse(null);
+    }
+
+    @Override
+    public UserDto register(UserDto user) {
         userRepository.findByEmail(user.getEmail().toLowerCase()).ifPresent(existingUser->{
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
                 throw new EmailAlreadyUsedException();
             }
         });
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         UserEntity newUser = modelMapper.map(user, UserEntity.class);
         newUser.setUserId(utils.generateUserId(30));

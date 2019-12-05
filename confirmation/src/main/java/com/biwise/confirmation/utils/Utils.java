@@ -18,7 +18,7 @@ public class Utils {
         return generateRandomString(length);
     }
 
-    public String generateCompanyId(int length) {
+    public String generateProjectId(int length) {
         return generateRandomString(length);
     }
     private String generateRandomString(int length) {

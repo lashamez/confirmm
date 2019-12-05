@@ -2,14 +2,13 @@ package com.biwise.confirmation.service;
 
 
 import com.biwise.confirmation.domain.dto.UserDto;
-import com.biwise.confirmation.domain.entity.UserEntity;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-import com.biwise.confirmation.ui.response.UserRest;
+import com.biwise.confirmation.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +23,7 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 
 @Service
 public class MailService {
+    private static final int TOKEN_LENGTH = 50;
 
     private final Logger log = LoggerFactory.getLogger(MailService.class);
 
@@ -33,16 +33,17 @@ public class MailService {
 
     @Value("${confirmation.mail.from}")
     private String mailFrom;
+    private static final String SERVER_URL = "http://localhost:8080";
 
+    private final Utils utils;
     private final JavaMailSender javaMailSender;
 
     private final MessageSource messageSource;
 
     private final SpringTemplateEngine templateEngine;
 
-    public MailService( JavaMailSender javaMailSender,
-                       MessageSource messageSource, SpringTemplateEngine templateEngine) {
-
+    public MailService(Utils utils, JavaMailSender javaMailSender, MessageSource messageSource, SpringTemplateEngine templateEngine) {
+        this.utils = utils;
         this.javaMailSender = javaMailSender;
         this.messageSource = messageSource;
         this.templateEngine = templateEngine;
@@ -69,11 +70,12 @@ public class MailService {
     }
 
     @Async
-    public void sendEmailFromTemplate(UserDto user, String templateName, String titleKey) {
+    public void sendEmailFromTemplate(UserDto user, String templateName, String titleKey, String activationUrl) {
         Locale locale = Locale.ENGLISH;
         Context context = new Context(locale);
         context.setVariable(USER, user);
         context.setVariable(BASE_URL, mailFrom);
+        context.setVariable("activationUrl", activationUrl);
         String content = templateEngine.process(templateName, context);
         String subject = messageSource.getMessage(titleKey, null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
@@ -82,18 +84,19 @@ public class MailService {
     @Async
     public void sendActivationEmail(UserDto user) {
         log.debug("Sending activation email to '{}'", user.getEmail());
-        sendEmailFromTemplate(user, "mail/activationEmail", "email.activation.title");
+        String activationUrl = "localhost:8080/users/confirm?token="+user.getActivationKey();
+        sendEmailFromTemplate(user, "mail/activationEmail", "email.activation.title",activationUrl);
     }
 
     @Async
     public void sendCreationEmail(UserDto user) {
         log.debug("Sending creation email to '{}'", user.getEmail());
-        sendEmailFromTemplate(user, "mail/creationEmail", "email.activation.title");
+        sendEmailFromTemplate(user, "mail/creationEmail", "email.activation.title", null);
     }
 
     @Async
     public void sendPasswordResetMail(UserDto user) {
         log.debug("Sending password reset email to '{}'", user.getEmail());
-        sendEmailFromTemplate(user, "mail/passwordResetEmail", "email.reset.title");
+        sendEmailFromTemplate(user, "mail/passwordResetEmail", "email.reset.title", null);
     }
 }
