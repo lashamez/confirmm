@@ -1,6 +1,7 @@
 package com.biwise.confirmation.service;
 
 
+import com.biwise.confirmation.domain.dto.ProjectDto;
 import com.biwise.confirmation.domain.dto.UserDto;
 
 import java.nio.charset.StandardCharsets;
@@ -9,6 +10,8 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import com.biwise.confirmation.utils.Utils;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -98,5 +101,20 @@ public class MailService {
     public void sendPasswordResetMail(UserDto user) {
         log.debug("Sending password reset email to '{}'", user.getEmail());
         sendEmailFromTemplate(user, "mail/passwordResetEmail", "email.reset.title", null);
+    }
+
+    @Async
+    public void sendProjectInvitation(ProjectDto project, String email) {
+        log.debug("Sending invitation mail");
+        UserDto userDto = new UserDto();
+        userDto.setEmail(email);
+        Locale locale = Locale.ENGLISH;
+        Context context = new Context(locale);
+        context.setVariable(USER, email);
+        context.setVariable("project", project);
+        context.setVariable("invitationUrl", "localhost:8080/#fixme");
+        String content = templateEngine.process("mail/invitationEmail", context);
+        String subject = messageSource.getMessage("email.invitation.title", null, locale);
+        sendEmail(email, subject, content, false, true);
     }
 }

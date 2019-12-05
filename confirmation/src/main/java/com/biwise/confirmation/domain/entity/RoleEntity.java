@@ -2,7 +2,6 @@ package com.biwise.confirmation.domain.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import netscape.security.Privilege;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+    <head>
+        <title th:text="#{email.activation.title}"></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p th:text="#{email.activation.greeting(${user})}">
+        </p>
+        <p>
+            <span th:text="#{email.invitation.text(${project.projectName})}"></span>
+            <a th:with="url=(${invitationUrl})" th:href="${url}" th:text="${url}">Activation link</a>
+        </p>
+        <p>
+            <br/>
+            <em th:text="#{email.signature}">Audit.</em>
+        </p>
+    </body>
+</html>

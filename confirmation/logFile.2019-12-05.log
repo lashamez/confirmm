@@ -5707,3 +5707,152 @@ javax.validation.UnexpectedTypeException: HV000030: No validator could be found 
 2019-12-05 19:08:37,419 INFO  [restartedMain] ConfirmationApplication: Started ConfirmationApplication in 4.435 seconds (JVM running for 4.821)
 2019-12-05 19:08:53,699 WARN  [http-nio-8080-exec-2] AdviceTraits: Bad Request: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.biwise.confirmation.ui.response.RestMessage<com.biwise.confirmation.ui.response.ProjectRest>> com.biwise.confirmation.controller.ProjectController.createProject(com.biwise.confirmation.ui.request.ProjectRequestModel): [Field error in object 'projectRequestModel' on field 'users[1]': rejected value [test]; codes [Email.projectRequestModel.users[1],Email.projectRequestModel.users,Email.users[1],Email.users,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [projectRequestModel.users[1],users[1]]; arguments []; default message [users[1]],[Ljavax.validation.constraints.Pattern$Flag;@5071f862,.*]; default message [must be a well-formed email address]] 
 2019-12-05 19:08:53,719 WARN  [http-nio-8080-exec-2] ExceptionHandlerExceptionResolver: Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.biwise.confirmation.ui.response.RestMessage<com.biwise.confirmation.ui.response.ProjectRest>> com.biwise.confirmation.controller.ProjectController.createProject(com.biwise.confirmation.ui.request.ProjectRequestModel): [Field error in object 'projectRequestModel' on field 'users[1]': rejected value [test]; codes [Email.projectRequestModel.users[1],Email.projectRequestModel.users,Email.users[1],Email.users,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [projectRequestModel.users[1],users[1]]; arguments []; default message [users[1]],[Ljavax.validation.constraints.Pattern$Flag;@5071f862,.*]; default message [must be a well-formed email address]] ]
+2019-12-05 22:49:32,954 INFO  [restartedMain] ConfirmationApplication: Starting ConfirmationApplication on HP-EliteBook-Folio-1040-G2 with PID 9807 (/home/giorgi/IdeaProjects/confirmm/confirmation/target/classes started by giorgi in /home/giorgi/IdeaProjects/confirmm/confirmation)
+2019-12-05 22:49:32,959 DEBUG [restartedMain] ConfirmationApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-05 22:49:32,959 INFO  [restartedMain] ConfirmationApplication: No active profile set, falling back to default profiles: default
+2019-12-05 22:49:35,444 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-05 22:49:41,812 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-05 22:49:43,302 INFO  [restartedMain] ConfirmationApplication: Started ConfirmationApplication in 12.587 seconds (JVM running for 14.985)
+2019-12-05 22:50:58,661 DEBUG [confirmhip-task-1] MailService: Sending activation email to 'lashakapo1@gmail.com'
+2019-12-05 22:50:59,178 DEBUG [confirmhip-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapo1@gmail.com' with subject 'confirmhip account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>confirmhip account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapo1@gmail.com</p>
+        <p>Your confirmhip account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:8080/users/confirm?token=oyfIFvhB7mLilTwAXSdXbqOmC3tl7hFd5MEVbguS44uhJNXwEF">localhost:8080/users/confirm?token=oyfIFvhB7mLilTwAXSdXbqOmC3tl7hFd5MEVbguS44uhJNXwEF</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>confirmhip Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-05 22:51:02,578 DEBUG [confirmhip-task-1] MailService: Sent email to User 'lashakapo1@gmail.com'
+2019-12-05 22:55:33,061 DEBUG [http-nio-8080-exec-7] AuthenticationFilter: Request is to process authentication
+2019-12-05 22:55:33,077 ERROR [http-nio-8080-exec-7] [dispatcherServlet]: Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "firstName" (class com.biwise.confirmation.ui.request.LoginModel), not marked as ignorable (2 known properties: "password", "email"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 4, column: 15] (through reference chain: com.biwise.confirmation.ui.request.LoginModel["firstName"])
+	at com.biwise.confirmation.security.AuthenticationFilter.attemptAuthentication(AuthenticationFilter.java:44)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "firstName" (class com.biwise.confirmation.ui.request.LoginModel), not marked as ignorable (2 known properties: "password", "email"])
+ at [Source: (org.apache.catalina.connector.CoyoteInputStream); line: 4, column: 15] (through reference chain: com.biwise.confirmation.ui.request.LoginModel["firstName"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:840)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1179)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1592)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1570)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:294)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:151)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4202)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3242)
+	at com.biwise.confirmation.security.AuthenticationFilter.attemptAuthentication(AuthenticationFilter.java:37)
+	... 51 common frames omitted
+2019-12-05 22:55:54,150 DEBUG [http-nio-8080-exec-8] AuthenticationFilter: Request is to process authentication
+2019-12-05 23:36:12,836 INFO  [restartedMain] ConfirmationApplication: Starting ConfirmationApplication on HP-EliteBook-Folio-1040-G2 with PID 4549 (/home/giorgi/IdeaProjects/confirmm/confirmation/target/classes started by giorgi in /home/giorgi/IdeaProjects/confirmm/confirmation)
+2019-12-05 23:36:12,840 DEBUG [restartedMain] ConfirmationApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-05 23:36:12,850 INFO  [restartedMain] ConfirmationApplication: No active profile set, falling back to default profiles: default
+2019-12-05 23:36:14,727 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-05 23:36:17,127 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-05 23:36:18,192 INFO  [restartedMain] ConfirmationApplication: Started ConfirmationApplication in 6.325 seconds (JVM running for 7.262)
+2019-12-05 23:36:25,860 DEBUG [http-nio-8080-exec-2] AuthenticationFilter: Request is to process authentication
+2019-12-05 23:36:58,258 WARN  [http-nio-8080-exec-3] AdviceTraits: Bad Request: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.biwise.confirmation.ui.response.RestMessage<com.biwise.confirmation.ui.response.ProjectRest>> com.biwise.confirmation.controller.ProjectController.createProject(com.biwise.confirmation.ui.request.ProjectRequestModel): [Field error in object 'projectRequestModel' on field 'users[1]': rejected value [test]; codes [Email.projectRequestModel.users[1],Email.projectRequestModel.users,Email.users[1],Email.users,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [projectRequestModel.users[1],users[1]]; arguments []; default message [users[1]],[Ljavax.validation.constraints.Pattern$Flag;@7a619e6e,.*]; default message [must be a well-formed email address]] 
+2019-12-05 23:36:58,298 WARN  [http-nio-8080-exec-3] ExceptionHandlerExceptionResolver: Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.biwise.confirmation.ui.response.RestMessage<com.biwise.confirmation.ui.response.ProjectRest>> com.biwise.confirmation.controller.ProjectController.createProject(com.biwise.confirmation.ui.request.ProjectRequestModel): [Field error in object 'projectRequestModel' on field 'users[1]': rejected value [test]; codes [Email.projectRequestModel.users[1],Email.projectRequestModel.users,Email.users[1],Email.users,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [projectRequestModel.users[1],users[1]]; arguments []; default message [users[1]],[Ljavax.validation.constraints.Pattern$Flag;@7a619e6e,.*]; default message [must be a well-formed email address]] ]
+2019-12-05 23:37:57,050 DEBUG [confirmhip-task-1] MailService: Sending invitation mail
+2019-12-05 23:37:57,050 DEBUG [confirmhip-task-2] MailService: Sending invitation mail
+2019-12-05 23:37:57,436 DEBUG [confirmhip-task-2] MailService: Send email[multipart 'false' and html 'true'] to 'test@gmail.com' with subject 'Audit Invitation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>confirmhip account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear test@gmail.com</p>
+        <p>
+            <span>You were invited to join Audit project confirmation. Click here to complete registration.</span>
+            <a href="localhost:8080/#fixme">localhost:8080/#fixme</a>
+        </p>
+        <p>
+            <br/>
+            <em>confirmhip Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-05 23:37:57,437 DEBUG [confirmhip-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashamez@gmail.com' with subject 'Audit Invitation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>confirmhip account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashamez@gmail.com</p>
+        <p>
+            <span>You were invited to join Audit project confirmation. Click here to complete registration.</span>
+            <a href="localhost:8080/#fixme">localhost:8080/#fixme</a>
+        </p>
+        <p>
+            <br/>
+            <em>confirmhip Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-05 23:37:59,732 DEBUG [confirmhip-task-1] MailService: Sent email to User 'lashamez@gmail.com'
+2019-12-05 23:38:00,061 DEBUG [confirmhip-task-2] MailService: Sent email to User 'test@gmail.com'
