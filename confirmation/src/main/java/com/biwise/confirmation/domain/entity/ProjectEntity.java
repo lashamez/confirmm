@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@Entity
+@Entity(name = "project")
 public class ProjectEntity {
     @Id
     @GeneratedValue
@@ -16,7 +16,8 @@ public class ProjectEntity {
     private String projectId;
     private String projectName;
     private Date startDate;
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "project_users", joinColumns = @JoinColumn(name = "project_id"))
     private List<String> users = new ArrayList<>();
 
     @PrePersist

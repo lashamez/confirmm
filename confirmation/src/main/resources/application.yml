@@ -3,7 +3,7 @@ management:
     web:
       base-path: /management
       exposure:
-        include: ['configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump']
+        include: ['configprops', 'env', 'health', 'info', 'logfile', 'loggers', 'prometheus', 'threaddump']
   endpoint:
     health:
       show-details: when_authorized
@@ -41,7 +41,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/biwise
     username: root
-    password: password
+    password: expmysql
   mail:
     host: smtp.gmail.com
     port: 587

@@ -103,13 +103,13 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
     }
     @ExceptionHandler
     public ResponseEntity<Problem> handleEmailAlreadyUsedException(EmailAlreadyUsedException ex, NativeWebRequest request) {
-        return create(ex, request, HeaderUtils.createFailureAlert(applicationName,  true, ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
+        return create(ex, request, HeaderUtils.createFailureAlert(ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
     }
 
     @ExceptionHandler
     public ResponseEntity<Problem> handleUsernameAlreadyUsedException(UsernameAlreadyUsedException ex, NativeWebRequest request) {
         LoginAlreadyUsedException problem = new LoginAlreadyUsedException();
-        return create(problem, request, HeaderUtils.createFailureAlert(applicationName,  true, problem.getEntityName(), problem.getErrorKey(), problem.getMessage()));
+        return create(problem, request, HeaderUtils.createFailureAlert(problem.getEntityName(), problem.getErrorKey(), problem.getMessage()));
     }
 
     @ExceptionHandler
@@ -118,12 +118,12 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
     }
     @ExceptionHandler
     public ResponseEntity<Problem> handleBadRequestAlertException(BadRequestAlertException ex, NativeWebRequest request) {
-        return create(ex, request, HeaderUtils.createFailureAlert(applicationName, true, ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
+        return create(ex, request, HeaderUtils.createFailureAlert( ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
     }
 
     @ExceptionHandler
     public ResponseEntity<Problem> handleCompanyAlreadyUsedException(CompanyAlreadyUsedException ex, NativeWebRequest request) {
-        return create(ex, request, HeaderUtils.createFailureAlert(applicationName, true, ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
+        return create(ex, request, HeaderUtils.createFailureAlert(ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
     }
     @ExceptionHandler
     public ResponseEntity<Problem> handleConcurrencyFailure(ConcurrencyFailureException ex, NativeWebRequest request) {
@@ -136,6 +136,6 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
 
     @ExceptionHandler
     public ResponseEntity<Problem> handleCompanyNotFoundException(CompanyNotFoundException ex, NativeWebRequest request) {
-        return create(ex, request, HeaderUtils.createFailureAlert(applicationName, true, ex.getTitle(), ex.getDetail(), ex.getMessage()));
+        return create(ex, request, HeaderUtils.createFailureAlert( ex.getTitle(), ex.getDetail(), ex.getMessage()));
     }
 }

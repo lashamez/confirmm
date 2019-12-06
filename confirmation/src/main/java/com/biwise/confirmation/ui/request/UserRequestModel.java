@@ -1,5 +1,6 @@
 package com.biwise.confirmation.ui.request;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import javax.validation.constraints.*;
 
