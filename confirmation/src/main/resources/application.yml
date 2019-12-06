@@ -107,7 +107,7 @@ info:
 
 tokenSecret: Bearer
 
-confirmation:
+audit:
   clientApp:
     name: 'Audit App'
   # By default CORS is disabled. Uncomment to enable.
