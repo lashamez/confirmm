@@ -7,6 +7,7 @@ import java.util.Date;
 @Data
 public class UserRest {
     private String userId;
+    private String username;
     private String firstName;
     private String lastName;
     private String email;

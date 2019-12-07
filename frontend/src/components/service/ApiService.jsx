@@ -11,6 +11,10 @@ class ApiService {
         return axios.get(USER_API_BASE_URL + '/' + userId)
     }
 
+    activateUserByToken(key) {
+        return axios.get(USER_API_BASE_URL+'/confirm?token='+key)
+    }
+
     deleteUser(userId) {
 
         return axios.delete(USER_API_BASE_URL + '/' + userId);
@@ -26,6 +30,10 @@ class ApiService {
 
     login(login) {
         return axios.post(USER_API_BASE_URL + '/login', login);
+    }
+    register(login) {
+        console.log("send")
+        return axios.post(USER_API_BASE_URL, login);
     }
 }
 

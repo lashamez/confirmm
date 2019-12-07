@@ -2,6 +2,7 @@ package com.biwise.audit.controller;
 
 import com.biwise.audit.domain.dto.UserDto;
 import com.biwise.audit.service.MailService;
+import com.biwise.audit.service.UsernameAlreadyUsedException;
 import com.biwise.audit.ui.errors.EmailAlreadyUsedException;
 import com.biwise.audit.ui.request.LoginModel;
 import com.biwise.audit.service.UserService;
@@ -28,6 +29,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/users")
+
 
 public class AccountController implements IAccountController{
     private static final Logger logger = LogManager.getLogger(AccountController.class);
@@ -116,6 +118,10 @@ public class AccountController implements IAccountController{
         UserDto userDto = userService.findOne(user.getEmail());
         if (userDto != null) {
             throw new EmailAlreadyUsedException();
+        }
+        userDto = userService.findByUsername(user.getUsername());
+        if (userDto != null) {
+            throw new UsernameAlreadyUsedException();
         }
         userDto = modelMapper.map(user, UserDto.class);
         String token = utils.generateConfirmationToken(TOKEN_LENGTH);

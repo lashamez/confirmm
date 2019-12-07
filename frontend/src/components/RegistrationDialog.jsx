@@ -7,17 +7,20 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ApiService from "./service/ApiService";
 
-class LoginDialog extends Component {
+class RegistrationDialog extends Component {
     constructor(props) {
         super(props);
         this.state = {
             open: false,
-            email: "",
-            password: ""
+            email:"",
+            username: "",
+            password: "",
+            firstName:"",
+            lastName:""
         }
         this.handleClickOpen = this.handleClickOpen.bind(this)
         this.handleClose = this.handleClose.bind(this)
-        this.tryLogin = this.tryLogin.bind(this)
+        this.tryRegister = this.tryRegister.bind(this)
 
     }
 
@@ -30,14 +33,17 @@ class LoginDialog extends Component {
         this.setState({open: false});
     };
 
-    tryLogin() {
+    tryRegister() {
         let login = {
+            username: this.state.username,
+            password: this.state.password,
             email: this.state.email,
-            password: this.state.password
+            firstName: this.state.firstName,
+            lastName: this.state.lastName
         }
-        ApiService.login(login)
+        ApiService.register(login)
             .then(res => {
-                this.props.loginFunction(res)
+                this.setState({open:false})
             });
     }
     onChange = (e) =>
@@ -46,20 +52,31 @@ class LoginDialog extends Component {
         return (
             <div>
                 <Button variant="outlined" color="inherit" onClick={this.handleClickOpen}>
-                    შესვლა
+                    რეგისტრაცია
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">შესვლა</DialogTitle>
+                    <DialogTitle id="form-dialog-title">რეგისტრაცია</DialogTitle>
                     <DialogContent>
                         <TextField
                             autoFocus
                             margin="dense"
                             id="email"
                             label="ელ-ფოსტა"
-                            type="text"
+                            type="email"
                             name="email"
                             required={true}
                             value={this.state.email}
+                            onChange={this.onChange}
+                            fullWidth
+                        />
+                        <TextField
+                            margin="dense"
+                            id="username"
+                            label="ალიასი"
+                            type="text"
+                            name="username"
+                            required={true}
+                            value={this.state.username}
                             onChange={this.onChange}
                             fullWidth
                         />
@@ -74,13 +91,36 @@ class LoginDialog extends Component {
                             onChange={this.onChange}
                             fullWidth
                         />
+                        <TextField
+                            margin="dense"
+                            id="firstName"
+                            label="სახელი"
+                            type="text"
+                            name="firstName"
+                            required={true}
+                            value={this.state.firstName}
+                            onChange={this.onChange}
+                            fullWidth
+                        />
+                        <TextField
+                            margin="dense"
+                            id="lastName"
+                            label="გვარი"
+                            type="text"
+                            name="lastName"
+                            required={true}
+                            value={this.state.lastName}
+                            onChange={this.onChange}
+                            fullWidth
+                        />
+
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">
                             გაუქმება
                         </Button>
-                        <Button onClick={this.tryLogin} color="primary">
-                            შესვლა
+                        <Button onClick={this.tryRegister} color="primary">
+                            რეგისტრაცია
                         </Button>
                     </DialogActions>
                 </Dialog>
@@ -90,4 +130,4 @@ class LoginDialog extends Component {
 
 }
 
-export default LoginDialog;
+export default RegistrationDialog;

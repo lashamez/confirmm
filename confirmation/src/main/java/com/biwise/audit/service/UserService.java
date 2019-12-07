@@ -21,4 +21,6 @@ public interface UserService extends UserDetailsService {
     UserDto findByActivationKey(String token);
 
     UserDto register(UserDto userDto);
+
+    UserDto findByUsername(String username);
 }

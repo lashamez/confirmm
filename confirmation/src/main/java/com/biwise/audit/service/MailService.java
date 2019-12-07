@@ -85,7 +85,7 @@ public class MailService {
     @Async
     public void sendActivationEmail(UserDto user) {
         log.debug("Sending activation email to '{}'", user.getEmail());
-        String activationUrl = "localhost:8080/users/confirm?token="+user.getActivationKey();
+        String activationUrl = "localhost:3000/confirm?token="+user.getActivationKey();
         sendEmailFromTemplate(user, "mail/activationEmail", "email.activation.title",activationUrl);
     }
 

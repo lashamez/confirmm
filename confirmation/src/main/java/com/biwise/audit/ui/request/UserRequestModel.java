@@ -8,6 +8,9 @@ public class UserRequestModel {
     @Email(message = "Email should be valid")
     private String email;
 
+    @NotBlank(message = "Username is required")
+    @Size(min = 6, max = 50)
+    private String username;
     @NotBlank(message = "First name is required")
     @Size(min = 1, max = 50, message = "First name length must be in range 1-50")
     private String firstName;

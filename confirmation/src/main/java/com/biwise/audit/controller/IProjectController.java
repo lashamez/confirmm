@@ -10,6 +10,7 @@ import javax.validation.Valid;
 
 import io.swagger.annotations.*;
 
+import java.security.Principal;
 import java.util.List;
 
 
@@ -19,12 +20,12 @@ public interface IProjectController {
     @ApiImplicitParams(value = {@ApiImplicitParam(name = "project", value = "", dataType = "ProjectRequestModel")})
     @ApiOperation("Create project")
     @PostMapping("")
-    ResponseEntity<ProjectRest> createProject(@Valid @RequestBody ProjectRequestModel project);
+    ResponseEntity<ProjectRest> createProject(@Valid @RequestBody ProjectRequestModel project, Principal principal);
 
     @ApiImplicitParams(value = {})
     @ApiOperation("All Projects")
     @GetMapping("")
-    ResponseEntity<List<ProjectRest>> allProjects();
+    ResponseEntity<List<ProjectRest>> allProjectsForUser(Principal principal);
 
     @ApiImplicitParams(value = {@ApiImplicitParam(name = "id", value = "", dataType = "java.lang.String")})
     @ApiOperation("Get Project with custom Id")

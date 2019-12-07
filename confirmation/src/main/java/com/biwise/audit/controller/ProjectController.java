@@ -12,9 +12,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,8 +40,14 @@ public class ProjectController implements IProjectController{
         this.mailService = mailService;
     }
     @PostMapping("")
-    public ResponseEntity<ProjectRest> createProject(@Valid @RequestBody ProjectRequestModel project){
+    public ResponseEntity<ProjectRest> createProject(@Valid @RequestBody ProjectRequestModel project, Principal principal){
+        System.out.println(project);
+        LocalDate startDate = LocalDate.parse(project.getStartYear());
+        LocalDate endDate = LocalDate.parse(project.getEndYear());
         ProjectDto projectDto = modelMapper.map(project, ProjectDto.class);
+        projectDto.setStartYear(startDate);
+        projectDto.setEndYear(endDate);
+        projectDto.setUsers(Arrays.asList(principal.getName()));
         ProjectDto savedProject = projectService.createProject(projectDto);
         ProjectRest result = modelMapper.map(savedProject, ProjectRest.class);
         result.getUsers().stream()
@@ -46,11 +58,19 @@ public class ProjectController implements IProjectController{
     }
 
     @GetMapping("")
-    public ResponseEntity<List<ProjectRest>> allProjects() {
-        List<ProjectDto> allProjects = projectService.findAll();
-        List<ProjectRest> projectRests =  allProjects.stream()
-                .map(projectDto -> modelMapper.map(projectDto, ProjectRest.class))
-                .collect(Collectors.toList());
+    public ResponseEntity<List<ProjectRest>> allProjectsForUser(Principal principal) {
+        List<ProjectDto> allProjects = projectService.findAllForUser(principal.getName());
+        List<ProjectRest> projectRests = new ArrayList<>();
+        allProjects.forEach(projectDto -> {
+            ProjectRest projectRest = modelMapper.map(projectDto, ProjectRest.class);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+            String formattedStart = projectDto.getStartYear().format(formatter);
+            projectRest.setStartYear(formattedStart);
+            String formattedEnd = projectDto.getEndYear().format(formatter);
+            projectRest.setEndYear(formattedEnd);
+            projectRests.add(projectRest);
+        });
+        System.out.println(projectRests);
         return ResponseEntity.ok(projectRests);
     }
 
@@ -89,6 +109,9 @@ public class ProjectController implements IProjectController{
                     .build();
         }
         ProjectDto project = modelMapper.map(projectRequestModel, ProjectDto.class);
+        project.setProjectId(id);
+        project.setStartYear(LocalDate.parse(projectRequestModel.getStartYear()));
+        project.setEndYear(LocalDate.parse(projectRequestModel.getEndYear()));
         ProjectDto updatedProject = projectService.update(project);
         ProjectRest updatedProjectRest = modelMapper.map(updatedProject, ProjectRest.class);
         return ResponseEntity.ok().headers(HeaderUtils.createEntityUpdateAlert(ENTITY_NAME, id))
@@ -96,6 +119,7 @@ public class ProjectController implements IProjectController{
     }
 
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity<Void> deleteProject(@PathVariable String id) {
         ProjectDto projectDto = projectService.findByProjectId(id);
         if (projectDto == null) {

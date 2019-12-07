@@ -5,26 +5,30 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import LoginDialog from './LoginDialog';
+import RegistrationDialog from "./RegistrationDialog";
 const style = {
     flexGrow: 1
 }
 class NavBar extends Component {
     constructor(props) {
         super(props);
-        this.state={
-            user:null
-        }
         this.loginFunction = this.loginFunction.bind(this)
     }
 
     loginFunction(res) {
-        console.log(res)
+        console.log(res.headers.authorization)
+        if (res.headers.authorization !== null) {
+            localStorage.setItem('token', res.headers.authorization);
+        }
+    }
+    registrationFunction(res) {
         if (res.data.result != null) {
             this.setState({user: res.data.result})
         }
-        this.props.printMessage(res.data.message)
     }
-
+    isAuthorized(){
+        return localStorage.getItem("token")!==null;
+    }
     render() {
         return (
             <div>
@@ -34,9 +38,10 @@ class NavBar extends Component {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" style={style}>
-                            Confirmation
+                            Audit
                         </Typography>
-                        <LoginDialog loginFunction={this.loginFunction}/>
+                        {!this.isAuthorized() && <LoginDialog loginFunction={this.loginFunction}/>}
+                        {!this.isAuthorized()  && <RegistrationDialog registrationFunction={this.registrationFunction}/>}
                     </Toolbar>
                 </AppBar>
             </div>

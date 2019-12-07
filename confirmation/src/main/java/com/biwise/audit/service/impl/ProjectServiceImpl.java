@@ -46,16 +46,19 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public List<ProjectDto> findAllForUser(String email) {
-//        List<ProjectEntity> userProjects = projectRepository.findAllForUser(email);
-//        return userProjects.stream().map(project -> modelMapper.map(project, ProjectDto.class)).collect(Collectors.toList());
-        return null;
+
+        List<ProjectEntity> userProjects = projectRepository.findAll()
+                .stream().filter(project -> project.getUsers().contains(email))
+                .collect(Collectors.toList());
+        return userProjects.stream().map(project -> modelMapper.map(project, ProjectDto.class)).collect(Collectors.toList());
     }
 
     @Override
     public ProjectDto update(ProjectDto project) {
+        System.out.println(project);
         ProjectEntity projectEntity = projectRepository.findByProjectId(project.getProjectId());
-        projectEntity.setProjectName(project.getProjectName());
-        projectEntity.setUsers(project.getUsers());
+        projectEntity.setStartYear(project.getStartYear());
+        projectEntity.setEndYear(project.getEndYear());
         ProjectEntity saved = projectRepository.save(projectEntity);
         return modelMapper.map(saved, ProjectDto.class);
     }

@@ -2,196 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6139e939-9e4a-4fb4-9a23-0918481a8d17" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../admin/src/main/java/com/biwise/admin/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/SpringApplicationContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/AppProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/AuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/AuthorizationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/security/SecurityConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserRepositoryUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ConfirmationApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ConfirmationApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/config/ExceptionAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/config/ExceptionAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/domain/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/domain/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/domain/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/domain/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/request/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/request/LoginModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/request/UserRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/request/UserRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/ApiResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/ApiResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/UserRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/confirmation/ui/response/UserRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/RegistrationDialog.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/project/ProjectDetails.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/service/ProjectService.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/user/EditProjectComponent.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/user/ListProjectComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/logFile.2019-12-06.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/IProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/IProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/ProjectDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/ProjectDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/security/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/security/AuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/security/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/security/AuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/MailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/MailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/ProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/ProjectRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/ProjectRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/UserRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/UserRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/UserRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/UserRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LoginDialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RouterComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RouterComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/EditUserComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/EditUserComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/service/ApiService.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/service/ApiService.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/user/AddUserComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/CreateProjectComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/user/EditUserComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/ConfirmComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/user/ListUserComponent.jsx" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/user/AddUserComponent.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/service/ApiService.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/user/EditUserComponent.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/LoginDialog.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/NavBar.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/user/ListUserComponent.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/RouterComponent.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Messager.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>axios</find>
-      <find>container</find>
-      <find>userId</find>
-      <find>readOnly</find>
-      <find>.id</find>
-      <find>readonly</find>
-      <find>userName</find>
-      <find>setItem</find>
-      <find>messagebar</find>
-      <find>xx</find>
-      <find>console.log</find>
-      <find>console.logUser list fetched successfully</find>
-      <find>Messager</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/components/UserComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/AddUserComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/navbax.jsx" />
-        <option value="$PROJECT_DIR$/src/components/message/SnackBar.jsx" />
-        <option value="$PROJECT_DIR$/src/components/user/MessageBar.jsx" />
-        <option value="$PROJECT_DIR$/src/components/service/ApiService.jsx" />
-        <option value="$PROJECT_DIR$/src/components/user/AddUserComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/user/ListUserComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Messager.jsx" />
-        <option value="$PROJECT_DIR$/src/components/LoginDialog.jsx" />
-        <option value="$PROJECT_DIR$/src/components/NavBar.jsx" />
-        <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/RouterComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/user/EditUserComponent.jsx" />
-      </list>
-    </option>
   </component>
   <component name="ProjectConfigurationFiles">
     <option name="files">
@@ -205,66 +59,17 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="-4" />
-    <option name="width" value="1855" />
-    <option name="height" value="1084" />
-  </component>
+  <component name="ProjectId" id="1UcAlnFiRXd3ob24so8gZMhZldv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -274,7 +79,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="$USER_HOME$/.nvm/versions/node/v12.0.0/bin/node" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -285,30 +90,32 @@
       <recent name="$PROJECT_DIR$/src/components/user" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/user" />
       <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/components/service" />
+      <recent name="$PROJECT_DIR$/src/components/user" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="run" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
-      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v12.0.0/bin/node" />
+      <node-interpreter value="$USER_HOME$/.nvm/versions/node/v12.13.1/bin/node" />
+      <package-manager value="npm" />
       <envs />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -322,6 +129,11 @@
       <updated>1574930491147</updated>
       <workItem from="1574930492220" duration="38284000" />
       <workItem from="1575269266457" duration="2791000" />
+      <workItem from="1575645669860" duration="50000" />
+      <workItem from="1575645904566" duration="1227000" />
+      <workItem from="1575647401695" duration="499000" />
+      <workItem from="1575648130113" duration="23360000" />
+      <workItem from="1575727474724" duration="1057000" />
     </task>
     <task id="LOCAL-00001" summary="initial frontend">
       <created>1575037645239</created>
@@ -333,34 +145,21 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41075000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945416" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32925585" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32925585" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -369,141 +168,50 @@
     <MESSAGE value="initial frontend" />
     <option name="LAST_COMMIT_MESSAGE" value="initial frontend" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="2309" column="18" lean-forward="true" selection-start-line="2309" selection-start-column="18" selection-end-line="2309" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/message/SnackBar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/MessageBar.jsx" />
-    <entry file="file://$PROJECT_DIR$/node_modules/react-router-dom/umd/react-router-dom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="1738" column="6" selection-start-line="1738" selection-start-column="6" selection-end-line="1738" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LoginDialog.js" />
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="17922" column="17" selection-start-line="17922" selection-start-column="17" selection-end-line="17922" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LoginDialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="39" column="37" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/NavBar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Messager.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/service/ApiService.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/AddUserComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/EditUserComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RouterComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/ListUserComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575647922457">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1575647922457" />
+    <state x="490" y="267" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575721591729">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="490" y="267" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1533.873@67.27.1533.873" timestamp="1575721591729" />
+    <state x="566" y="211" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575715671881">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="566" y="211" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1533.873@67.27.1533.873" timestamp="1575715671881" />
+    <state x="507" y="152" width="642" height="620" key="#run" timestamp="1575645718329">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="507" y="152" width="642" height="620" key="#run/67.27.1533.873@67.27.1533.873" timestamp="1575645718329" />
+    <state x="167" y="125" width="1333" height="675" key="DiffContextDialog" timestamp="1575713939641">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="167" y="125" width="1333" height="675" key="DiffContextDialog/67.27.1533.873@67.27.1533.873" timestamp="1575713939641" />
+    <state width="1510" height="218" key="GridCell.Tab.0.bottom" timestamp="1575647908593">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1510" height="218" key="GridCell.Tab.0.bottom/67.27.1533.873@67.27.1533.873" timestamp="1575647908593" />
+    <state width="1510" height="218" key="GridCell.Tab.0.center" timestamp="1575647908593">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1510" height="218" key="GridCell.Tab.0.center/67.27.1533.873@67.27.1533.873" timestamp="1575647908593" />
+    <state width="1510" height="218" key="GridCell.Tab.0.left" timestamp="1575647908593">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1510" height="218" key="GridCell.Tab.0.left/67.27.1533.873@67.27.1533.873" timestamp="1575647908593" />
+    <state width="1510" height="218" key="GridCell.Tab.0.right" timestamp="1575647908593">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state width="1510" height="218" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1575647908593" />
+    <state x="481" y="68" width="916" height="789" key="find.popup" timestamp="1575727811953">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="481" y="68" width="916" height="789" key="find.popup/67.27.1533.873@67.27.1533.873" timestamp="1575727811953" />
+    <state x="497" y="208" key="run.anything.popup" timestamp="1575722113514">
+      <screen x="67" y="27" width="1533" height="873" />
+    </state>
+    <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1575722113514" />
   </component>
 </project>

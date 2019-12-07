@@ -20,6 +20,9 @@ public class UserEntity implements UserDetails {
     private Long id;
 
     @Column(nullable = false)
+    private String username;
+
+    @Column(nullable = false)
     private String userId;
 
     @Column(nullable = false)

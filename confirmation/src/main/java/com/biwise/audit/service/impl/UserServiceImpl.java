@@ -105,6 +105,12 @@ public class UserServiceImpl implements UserService {
         return modelMapper.map(createdUser, UserDto.class);
     }
 
+    @Override
+    public UserDto findByUsername(String username) {
+        Optional<UserEntity> userEntity = userRepository.findByUsername(username);
+        return userEntity.map(entity -> modelMapper.map(entity, UserDto.class)).orElse(null);
+    }
+
     private boolean removeNonActivatedUser(UserEntity existingUser) {
         if (existingUser.isEnabled()) {
             return false;

@@ -10,4 +10,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Optional<UserEntity> findByUserId(String userId);
     void deleteByUserId(String userId);
     Optional<UserEntity> findByActivationKey(String token);
+
+    Optional<UserEntity> findByUsername(String username);
 }
