@@ -42,8 +42,8 @@ public class ProjectController implements IProjectController{
     @PostMapping("")
     public ResponseEntity<ProjectRest> createProject(@Valid @RequestBody ProjectRequestModel project, Principal principal){
         System.out.println(project);
-        LocalDate startDate = LocalDate.parse(project.getStartYear());
-        LocalDate endDate = LocalDate.parse(project.getEndYear());
+        LocalDate startDate = getParsedDate(project.getStartYear());
+        LocalDate endDate = getParsedDate(project.getEndYear());
         ProjectDto projectDto = modelMapper.map(project, ProjectDto.class);
         projectDto.setStartYear(startDate);
         projectDto.setEndYear(endDate);
@@ -55,6 +55,11 @@ public class ProjectController implements IProjectController{
                 .forEach(user -> mailService.sendProjectInvitation(projectDto, user));
         return ResponseEntity.ok().headers(HeaderUtils.createEntityCreationAlert("Project", result.getProjectId()))
                 .body(result);
+    }
+
+    private LocalDate getParsedDate(String endYear) {
+        String[] numbers = endYear.split("-");
+        return LocalDate.of(Integer.parseInt(numbers[0]), Integer.parseInt(numbers[1]), Integer.parseInt(numbers[2]));
     }
 
     @GetMapping("")

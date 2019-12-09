@@ -37,6 +37,7 @@ class LoginDialog extends Component {
         }
         ApiService.login(login)
             .then(res => {
+                this.handleClose()
                 this.props.loginFunction(res)
             });
     }

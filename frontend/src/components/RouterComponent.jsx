@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import ListProjectComponent from "./user/ListProjectComponent";
-import CreateProjectComponent from "./user/CreateProjectComponent";
+import ListProjectComponent from "./project/ListProjectComponent";
+import CreateProjectComponent from "./project/CreateProjectComponent";
 import React, {Component} from "react";
 import Messager from "./Messager";
 import ConfirmComponent from "./user/ConfirmComponent";
-import EditProjectComponent from "./user/EditProjectComponent";
+import EditProjectComponent from "./project/EditProjectComponent";
 import ProjectDetails from "./project/ProjectDetails";
 class RouterComponent extends Component {
     constructor(props) {
@@ -14,7 +14,6 @@ class RouterComponent extends Component {
             message: null
         }
     }
-
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log(prevState)
@@ -29,22 +28,19 @@ class RouterComponent extends Component {
     componentDidMount() {
         this.setState({message: null})
     }
-    isAuthorized(){
-        console.log()
-        return localStorage.getItem("token")!==null;
-    }
+
     render() {
         return(
             <div style={style}>
                 {this.state.message!== null && <Messager message={this.state.message}/>}
                 <Router>
                     <Switch>
-                        {this.isAuthorized() && <Route path="/" exact render={(routeProps)=> (<ListProjectComponent {...routeProps} />)}/>}
+                        {this.props.isAuthorized() && <Route path="/" exact render={(routeProps)=> (<ListProjectComponent {...routeProps} />)}/>}
                         <Route path="/confirm" render={(routeProps)=> (<ConfirmComponent {...routeProps} />)}/>
-                        {this.isAuthorized() && <Route path="/project" render={(routeProps)=> (<ListProjectComponent {...routeProps} />)}/>}
-                        {this.isAuthorized() && <Route path="/edit-project/:projectId" render={(routeProps)=> (<EditProjectComponent {...routeProps} />)}/>}
-                        {this.isAuthorized() && <Route path="/projectDetails/:projectId" render={(routeProps)=> (<ProjectDetails {...routeProps} />)}/>}
-                        {this.isAuthorized() && <Route path="/add-project" render={(routeProps)=> (<CreateProjectComponent {...routeProps} />)}/>}
+                        {this.props.isAuthorized() && <Route path="/projects" exact render={(routeProps)=> (<ListProjectComponent {...routeProps} />)}/>}
+                        {this.props.isAuthorized() && <Route path="/edit-project/:projectId" render={(routeProps)=> (<EditProjectComponent {...routeProps} />)}/>}
+                        {this.props.isAuthorized() && <Route path="/projects/:projectId" render={(routeProps)=> (<ProjectDetails {...routeProps} />)}/>}
+                        {this.props.isAuthorized() && <Route path="/add-project" render={(routeProps)=> (<CreateProjectComponent {...routeProps} />)}/>}
                     </Switch>
                 </Router>
             </div>

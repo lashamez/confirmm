@@ -35,6 +35,9 @@ class ApiService {
         console.log("send")
         return axios.post(USER_API_BASE_URL, login);
     }
+    isValid(token) {
+        return axios.post(USER_API_BASE_URL+"/token", token)
+    }
 }
 
 export default new ApiService();

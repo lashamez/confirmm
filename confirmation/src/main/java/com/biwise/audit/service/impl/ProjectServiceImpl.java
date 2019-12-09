@@ -55,8 +55,9 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDto update(ProjectDto project) {
-        System.out.println(project);
         ProjectEntity projectEntity = projectRepository.findByProjectId(project.getProjectId());
+        projectEntity.setName(project.getName());
+        projectEntity.setProjectType(project.getProjectType());
         projectEntity.setStartYear(project.getStartYear());
         projectEntity.setEndYear(project.getEndYear());
         ProjectEntity saved = projectRepository.save(projectEntity);

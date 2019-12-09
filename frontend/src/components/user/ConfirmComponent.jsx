@@ -21,7 +21,6 @@ class ConfirmComponent extends Component {
         let key = params.token;
         ApiService.activateUserByToken(key)
             .then((res) => {
-                console.log(res)
                 this.props.history.push('/')
             });
     }

@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core";
+import {KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
 
 class EditProjectComponent extends Component {
 
@@ -38,7 +40,12 @@ class EditProjectComponent extends Component {
                 })
             });
     }
-
+    onStartDateChange = (e) => {
+        this.setState({startYear: e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate())})
+    }
+    onEndDateChange = (e) => {
+        this.setState({endYear: e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate())})
+    }
     onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
 
@@ -66,8 +73,10 @@ class EditProjectComponent extends Component {
 
         return (
             <div>
+                <br/>
                 <Typography variant="h4" style={style}>პროექტის რედაქტირება</Typography>
-                <form className={useStyles.form} noValidate>
+                <br/>
+                    <form className={useStyles.form} noValidate>
                     <Grid container spacing={2}>
 
                         <Grid item xs={12}>
@@ -76,7 +85,6 @@ class EditProjectComponent extends Component {
                                 required
                                 fullWidth
                                 id="name"
-                                disabled={true}
                                 label="პროექტის სახელი"
                                 value={this.state.name}
                                 onChange={this.onChange}
@@ -105,38 +113,47 @@ class EditProjectComponent extends Component {
                             </TextField>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                name="startYear"
-                                fullWidth
-                                margin={"normal"}
-                                id="startYear"
-                                label="დაწყების დრო"
-                                type="date"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                required={true}
-                                value={this.state.startYear}
-                                onChange={this.onChange}
-                            />
+
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <KeyboardDatePicker
+                                    required={true}
+                                    fullWidth
+                                    disableToolbar
+                                    format="dd/MM/yyyy"
+                                    margin="normal"
+                                    name="startYear"
+                                    id="startYear"
+                                    label="დაწყების დრო"
+                                    value={this.state.startYear}
+                                    onChange={this.onStartDateChange}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'change date',
+                                    }}
+                                    inputVariant="outlined"
+                                />
+                            </MuiPickersUtilsProvider>
                         </Grid>
+
                         <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                name="endYear"
-                                fullWidth
-                                margin={"normal"}
-                                id="endYear"
-                                label="დასრულების დრო"
-                                type="date"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                required={true}
-                                value={this.state.endYear}
-                                onChange={this.onChange}
-                            />
+
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <KeyboardDatePicker
+                                    required={true}
+                                    fullWidth
+                                    disableToolbar
+                                    format="dd/MM/yyyy"
+                                    margin="normal"
+                                    name="endYear"
+                                    id="endYear"
+                                    label="დასრულების დრო"
+                                    value={this.state.endYear}
+                                    onChange={this.onEndDateChange}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'change date',
+                                    }}
+                                    inputVariant="outlined"
+                                />
+                            </MuiPickersUtilsProvider>
                         </Grid>
                     </Grid>
                     <Button
