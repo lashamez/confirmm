@@ -8,7 +8,6 @@ const config = {
 class ProjectService {
 
     createProject(project) {
-        console.log(project)
         return axios.post(USER_API_BASE_URL, project, config);
     }
     fetchProjects(){

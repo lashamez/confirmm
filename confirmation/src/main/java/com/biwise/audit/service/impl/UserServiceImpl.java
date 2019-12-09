@@ -100,7 +100,10 @@ public class UserServiceImpl implements UserService {
         });
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         UserEntity newUser = modelMapper.map(user, UserEntity.class);
+        System.out.println(user);
+        System.out.println(newUser);
         newUser.setUserId(utils.generateUserId(30));
+        newUser.setUsername(user.getUsername());
         UserEntity createdUser = userRepository.save(newUser);
         return modelMapper.map(createdUser, UserDto.class);
     }
@@ -124,7 +127,7 @@ public class UserServiceImpl implements UserService {
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
 
-        Optional<UserEntity> optionalUser = userRepository.findByEmail(email);
+        Optional<UserEntity> optionalUser = userRepository.findByUsername(email);
         if (!optionalUser.isPresent()) {
             return new org.springframework.security.core.userdetails.User(
                     " ", " ", true, true, true, true,

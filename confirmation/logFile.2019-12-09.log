@@ -1,0 +1,1008 @@
+2019-12-09 10:42:23,121 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 9972 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 10:42:23,124 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 10:42:23,125 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 10:42:24,829 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 10:42:28,187 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 10:42:29,204 INFO  [restartedMain] AuditApplication: Started AuditApplication in 6.683 seconds (JVM running for 7.506)
+2019-12-09 10:42:52,480 DEBUG [http-nio-8080-exec-2] AuthenticationFilter: Request is to process authentication
+2019-12-09 10:44:13,548 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 10647 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 10:44:13,550 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 10:44:13,551 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 10:44:15,068 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 10:44:18,269 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 10:44:19,142 INFO  [restartedMain] AuditApplication: Started AuditApplication in 6.065 seconds (JVM running for 6.581)
+2019-12-09 10:44:32,598 WARN  [http-nio-8080-exec-3] SqlExceptionHelper: SQL Error: 1366, SQLState: HY000
+2019-12-09 10:44:32,600 ERROR [http-nio-8080-exec-3] SqlExceptionHelper: Incorrect string value: '\xE1\x83\x90\xE1\x83\xA3...' for column 'name' at row 1
+2019-12-09 10:44:32,626 ERROR [http-nio-8080-exec-3] AdviceTraits: Internal Server Error
+org.springframework.orm.jpa.JpaSystemException: could not execute statement; nested exception is org.hibernate.exception.GenericJDBCException: could not execute statement
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:353)
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:255)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:538)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:744)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:712)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:631)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:99)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:178)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy180.save(Unknown Source)
+	at com.biwise.audit.service.impl.ProjectServiceImpl.createProject(ProjectServiceImpl.java:28)
+	at com.biwise.audit.controller.ProjectController.createProject(ProjectController.java:51)
+	at com.biwise.audit.controller.ProjectController$$FastClassBySpringCGLIB$$3eaa3a0c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.biwise.audit.controller.ProjectController$$EnhancerBySpringCGLIB$$4f0a8255.createProject(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.biwise.audit.security.AuthorizationFilter.doFilterInternal(AuthorizationFilter.java:31)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.hibernate.exception.GenericJDBCException: could not execute statement
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:47)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3208)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3722)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:91)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:349)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:108)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1344)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:435)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3221)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2389)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:534)
+	... 105 common frames omitted
+Caused by: java.sql.SQLException: Incorrect string value: '\xE1\x83\x90\xE1\x83\xA3...' for column 'name' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	... 125 common frames omitted
+2019-12-09 11:12:26,240 ERROR [http-nio-8080-exec-1] AdviceTraits: Internal Server Error
+java.lang.IllegalArgumentException: source cannot be null
+	at org.modelmapper.internal.util.Assert.notNull(Assert.java:53)
+	at org.modelmapper.ModelMapper.map(ModelMapper.java:404)
+	at com.biwise.audit.service.impl.ProjectServiceImpl.findByProjectId(ProjectServiceImpl.java:44)
+	at com.biwise.audit.controller.ProjectController.findProjectById(ProjectController.java:78)
+	at com.biwise.audit.controller.ProjectController$$FastClassBySpringCGLIB$$3eaa3a0c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.biwise.audit.controller.ProjectController$$EnhancerBySpringCGLIB$$4f0a8255.findProjectById(<generated>)
+	at sun.reflect.GeneratedMethodAccessor232.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.biwise.audit.security.AuthorizationFilter.doFilterInternal(AuthorizationFilter.java:31)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 11:35:01,533 ERROR [http-nio-8080-exec-9] AdviceTraits: Internal Server Error
+java.time.format.DateTimeParseException: Text '2019-12-1' could not be parsed at index 8
+	at java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:1949)
+	at java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:1851)
+	at java.time.LocalDate.parse(LocalDate.java:400)
+	at java.time.LocalDate.parse(LocalDate.java:385)
+	at com.biwise.audit.controller.ProjectController.updateProject(ProjectController.java:112)
+	at com.biwise.audit.controller.ProjectController$$FastClassBySpringCGLIB$$3eaa3a0c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.biwise.audit.controller.ProjectController$$EnhancerBySpringCGLIB$$4f0a8255.updateProject(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:663)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.biwise.audit.security.AuthorizationFilter.doFilterInternal(AuthorizationFilter.java:31)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 11:36:03,885 ERROR [http-nio-8080-exec-5] AdviceTraits: Internal Server Error
+java.time.format.DateTimeParseException: Text '2019-12-1' could not be parsed at index 8
+	at java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:1949)
+	at java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:1851)
+	at java.time.LocalDate.parse(LocalDate.java:400)
+	at java.time.LocalDate.parse(LocalDate.java:385)
+	at com.biwise.audit.controller.ProjectController.updateProject(ProjectController.java:112)
+	at com.biwise.audit.controller.ProjectController$$FastClassBySpringCGLIB$$3eaa3a0c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:685)
+	at com.biwise.audit.controller.ProjectController$$EnhancerBySpringCGLIB$$4f0a8255.updateProject(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:663)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.biwise.audit.security.AuthorizationFilter.doFilterInternal(AuthorizationFilter.java:31)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 11:37:37,420 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 21602 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:37:37,422 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:37:37,422 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:37:39,001 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 11:37:40,866 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 11:37:41,743 INFO  [restartedMain] AuditApplication: Started AuditApplication in 4.809 seconds (JVM running for 5.345)
+2019-12-09 11:39:56,345 DEBUG [confirmhip-task-1] MailService: Sending activation email to 'lashakapanadze50@gmail.com'
+2019-12-09 11:39:56,629 DEBUG [confirmhip-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadze50@gmail.com' with subject 'confirmhip account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>confirmhip account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadze50@gmail.com</p>
+        <p>Your confirmhip account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=DCF4hEGTR7y1BLusxdbIRSA3P8LkXAjeEkAnFl8D1Js6SvCBO9">localhost:3000/confirm?token=DCF4hEGTR7y1BLusxdbIRSA3P8LkXAjeEkAnFl8D1Js6SvCBO9</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>confirmhip Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:39:59,627 DEBUG [confirmhip-task-1] MailService: Sent email to User 'lashakapanadze50@gmail.com'
+2019-12-09 11:41:47,021 DEBUG [http-nio-8080-exec-10] AuthenticationFilter: Request is to process authentication
+2019-12-09 11:43:46,813 ERROR [http-nio-8080-exec-5] HeaderUtils: Entity processing failed, Email is already in use!
+2019-12-09 11:43:46,815 WARN  [http-nio-8080-exec-5] AdviceTraits: Bad Request: Email is already in use!
+2019-12-09 11:43:57,271 DEBUG [confirmhip-task-2] MailService: Sending activation email to 'lashakapanadz123@gmail.com'
+2019-12-09 11:43:57,275 DEBUG [confirmhip-task-2] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadz123@gmail.com' with subject 'confirmhip account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>confirmhip account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadz123@gmail.com</p>
+        <p>Your confirmhip account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=UXEgYSuC5PP9IsxLxqQq7hDdUTW0zwgNOxX1pzbbh0L365SjG8">localhost:3000/confirm?token=UXEgYSuC5PP9IsxLxqQq7hDdUTW0zwgNOxX1pzbbh0L365SjG8</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>confirmhip Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:43:59,348 DEBUG [confirmhip-task-2] MailService: Sent email to User 'lashakapanadz123@gmail.com'
+2019-12-09 11:44:07,933 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 22634 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:44:07,935 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:44:07,938 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:44:09,340 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 11:44:11,257 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 11:44:12,275 INFO  [restartedMain] AuditApplication: Started AuditApplication in 5.029 seconds (JVM running for 5.481)
+2019-12-09 11:44:16,763 ERROR [http-nio-8080-exec-1] HeaderUtils: Entity processing failed, Email is already in use!
+2019-12-09 11:44:16,766 WARN  [http-nio-8080-exec-1] AdviceTraits: Bad Request: Email is already in use!
+2019-12-09 11:45:05,681 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 22852 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:45:05,683 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:45:05,683 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:45:07,322 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 11:45:09,267 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 11:45:10,140 INFO  [restartedMain] AuditApplication: Started AuditApplication in 4.878 seconds (JVM running for 5.305)
+2019-12-09 11:45:11,821 ERROR [http-nio-8080-exec-1] HeaderUtils: Entity processing failed, Email is already in use!
+2019-12-09 11:45:11,823 WARN  [http-nio-8080-exec-1] AdviceTraits: Bad Request: Email is already in use!
+2019-12-09 11:45:19,028 ERROR [http-nio-8080-exec-2] HeaderUtils: Entity processing failed, Login name already used!
+2019-12-09 11:45:19,028 WARN  [http-nio-8080-exec-2] AdviceTraits: Bad Request: Login name already used!
+2019-12-09 11:45:25,737 DEBUG [Bewise-task-1] MailService: Sending activation email to 'lashakapanadz1231254@gmail.com'
+2019-12-09 11:45:25,960 DEBUG [Bewise-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadz1231254@gmail.com' with subject 'Bewise account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bewise account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadz1231254@gmail.com</p>
+        <p>Your Bewise account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=bHCwev3xtdCt34as53tTACWmw9YXmEtBwNg2WHZxlKmP4h9Zz2">localhost:3000/confirm?token=bHCwev3xtdCt34as53tTACWmw9YXmEtBwNg2WHZxlKmP4h9Zz2</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>Bewise Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:45:28,112 DEBUG [Bewise-task-1] MailService: Sent email to User 'lashakapanadz1231254@gmail.com'
+2019-12-09 11:46:47,169 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 23144 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:46:47,171 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:46:47,172 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:46:48,605 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 11:46:50,565 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 11:46:51,601 INFO  [restartedMain] AuditApplication: Started AuditApplication in 4.904 seconds (JVM running for 5.466)
+2019-12-09 11:46:55,142 DEBUG [Bewise-task-1] MailService: Sending activation email to 'lashakapanadz11231254@gmail.com'
+2019-12-09 11:46:55,399 DEBUG [Bewise-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadz11231254@gmail.com' with subject 'Bewise account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bewise account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadz11231254@gmail.com</p>
+        <p>Your Bewise account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=qhnSyeX0Hsr2UqNmlh9CgwXUms9reTI9GFWuDuCoedseoOUttr">localhost:3000/confirm?token=qhnSyeX0Hsr2UqNmlh9CgwXUms9reTI9GFWuDuCoedseoOUttr</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>Bewise Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:46:57,477 DEBUG [Bewise-task-1] MailService: Sent email to User 'lashakapanadz11231254@gmail.com'
+2019-12-09 11:47:45,405 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 23364 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:47:45,406 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:47:45,407 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:47:46,764 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 11:47:48,537 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 11:47:49,414 INFO  [restartedMain] AuditApplication: Started AuditApplication in 4.443 seconds (JVM running for 4.838)
+2019-12-09 11:48:01,309 DEBUG [Bewise-task-1] MailService: Sending activation email to 'lashakapanadz112zx31254@gmail.com'
+2019-12-09 11:48:01,565 DEBUG [Bewise-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadz112zx31254@gmail.com' with subject 'Bewise account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bewise account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadz112zx31254@gmail.com</p>
+        <p>Your Bewise account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=u78bSBvJRVM9x5kj4ZyaR1vZNUYhagZBcVm9uVoN1DJmeh0uec">localhost:3000/confirm?token=u78bSBvJRVM9x5kj4ZyaR1vZNUYhagZBcVm9uVoN1DJmeh0uec</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>Bewise Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:48:04,087 DEBUG [Bewise-task-1] MailService: Sent email to User 'lashakapanadz112zx31254@gmail.com'
+2019-12-09 11:48:57,096 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 23722 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:48:57,098 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:48:57,098 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:48:58,681 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 11:49:00,476 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 11:49:01,368 INFO  [restartedMain] AuditApplication: Started AuditApplication in 4.692 seconds (JVM running for 5.242)
+2019-12-09 11:49:03,080 ERROR [http-nio-8080-exec-1] HeaderUtils: Entity processing failed, Email is already in use!
+2019-12-09 11:49:03,082 WARN  [http-nio-8080-exec-1] AdviceTraits: Bad Request: Email is already in use!
+2019-12-09 11:49:06,669 DEBUG [Bewise-task-1] MailService: Sending activation email to 'lashakapanadz112zx312zzz54@gmail.com'
+2019-12-09 11:49:06,888 DEBUG [Bewise-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadz112zx312zzz54@gmail.com' with subject 'Bewise account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bewise account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadz112zx312zzz54@gmail.com</p>
+        <p>Your Bewise account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=aKoz6TfAVPaDmuRYV2O2LKyVbpfgVqXAzr9D6RsDDpJq7AzBsR">localhost:3000/confirm?token=aKoz6TfAVPaDmuRYV2O2LKyVbpfgVqXAzr9D6RsDDpJq7AzBsR</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>Bewise Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:49:08,970 DEBUG [Bewise-task-1] MailService: Sent email to User 'lashakapanadz112zx312zzz54@gmail.com'
+2019-12-09 11:50:04,902 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 23937 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:50:04,904 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:50:04,905 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:50:06,243 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 11:50:08,068 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 11:50:09,097 INFO  [restartedMain] AuditApplication: Started AuditApplication in 4.637 seconds (JVM running for 5.061)
+2019-12-09 11:50:14,328 ERROR [http-nio-8080-exec-1] HeaderUtils: Entity processing failed, Login name already used!
+2019-12-09 11:50:14,330 WARN  [http-nio-8080-exec-1] AdviceTraits: Bad Request: Login name already used!
+2019-12-09 11:50:17,666 DEBUG [Bewise-task-1] MailService: Sending activation email to 'lashakapanadz1zxx12zx312zzz54@gmail.com'
+2019-12-09 11:50:17,885 DEBUG [Bewise-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadz1zxx12zx312zzz54@gmail.com' with subject 'Bewise account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bewise account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadz1zxx12zx312zzz54@gmail.com</p>
+        <p>Your Bewise account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=BUuBNNEdyWrP8cNJoU0g8q60tfJCWGvGyZ8y3BRD5pSE0hd7hI">localhost:3000/confirm?token=BUuBNNEdyWrP8cNJoU0g8q60tfJCWGvGyZ8y3BRD5pSE0hd7hI</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>Bewise Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:50:20,198 DEBUG [Bewise-task-1] MailService: Sent email to User 'lashakapanadz1zxx12zx312zzz54@gmail.com'
+2019-12-09 11:50:59,342 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 24167 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:50:59,347 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:50:59,347 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:51:03,574 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 24229 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 11:51:03,578 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 11:51:03,582 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 11:51:05,079 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 11:51:07,030 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 11:51:08,071 INFO  [restartedMain] AuditApplication: Started AuditApplication in 5.076 seconds (JVM running for 5.56)
+2019-12-09 11:51:12,620 DEBUG [Bewise-task-1] MailService: Sending activation email to 'lashakapanadz1zxxzxx12zx312zzz54@gmail.com'
+2019-12-09 11:51:12,872 DEBUG [Bewise-task-1] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadz1zxxzxx12zx312zzz54@gmail.com' with subject 'Bewise account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bewise account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadz1zxxzxx12zx312zzz54@gmail.com</p>
+        <p>Your Bewise account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=TiE2iFHLd8X1ErRya8o4QairK7gWVzZSHOvZiKv2tC5MASvm0W">localhost:3000/confirm?token=TiE2iFHLd8X1ErRya8o4QairK7gWVzZSHOvZiKv2tC5MASvm0W</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>Bewise Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:51:14,966 DEBUG [Bewise-task-1] MailService: Sent email to User 'lashakapanadz1zxxzxx12zx312zzz54@gmail.com'
+2019-12-09 11:52:49,243 WARN  [http-nio-8080-exec-3] AdviceTraits: Bad Request: Validation failed for argument [0] in public org.springframework.http.ResponseEntity com.biwise.audit.controller.AccountController.registerUser(com.biwise.audit.ui.request.UserRequestModel): [Field error in object 'userRequestModel' on field 'username': rejected value [assss]; codes [Size.userRequestModel.username,Size.username,Size.java.lang.String,Size]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userRequestModel.username,username]; arguments []; default message [username],50,6]; default message [size must be between 6 and 50]] 
+2019-12-09 11:53:08,250 DEBUG [Bewise-task-2] MailService: Sending activation email to 'lashakapanadze12@gmail.com'
+2019-12-09 11:53:08,253 DEBUG [Bewise-task-2] MailService: Send email[multipart 'false' and html 'true'] to 'lashakapanadze12@gmail.com' with subject 'Bewise account activation' and content=<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bewise account activation</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <p>Dear lashakapanadze12@gmail.com</p>
+        <p>Your Bewise account has been created, please click on the URL below to activate it:</p>
+        <p>
+            <a href="localhost:3000/confirm?token=cGrRPWcXBPVrYKHdmLMllA9h0B1RxXlLBtxdkTQbpNAtZGzR3U">localhost:3000/confirm?token=cGrRPWcXBPVrYKHdmLMllA9h0B1RxXlLBtxdkTQbpNAtZGzR3U</a>
+        </p>
+        <p>
+            <span>Regards,</span>
+            <br/>
+            <em>Bewise Team.</em>
+        </p>
+    </body>
+</html>
+
+2019-12-09 11:53:10,253 DEBUG [Bewise-task-2] MailService: Sent email to User 'lashakapanadze12@gmail.com'
+2019-12-09 11:53:34,903 DEBUG [http-nio-8080-exec-5] AuthenticationFilter: Request is to process authentication
+2019-12-09 11:53:34,999 WARN  [http-nio-8080-exec-5] BCryptPasswordEncoder: Encoded password does not look like BCrypt
+2019-12-09 11:53:35,001 DEBUG [http-nio-8080-exec-5] AuthenticationFilter: Authentication request failed: org.springframework.security.authentication.BadCredentialsException: Bad credentials
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:93)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:166)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175)
+	at com.biwise.audit.security.AuthenticationFilter.attemptAuthentication(AuthenticationFilter.java:37)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 11:53:35,001 DEBUG [http-nio-8080-exec-5] AuthenticationFilter: Updated SecurityContextHolder to contain null Authentication
+2019-12-09 11:53:35,001 DEBUG [http-nio-8080-exec-5] AuthenticationFilter: Delegating to authentication failure handler org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler@311ebbc6
+2019-12-09 11:53:37,968 DEBUG [http-nio-8080-exec-6] AuthenticationFilter: Request is to process authentication
+2019-12-09 11:53:37,987 WARN  [http-nio-8080-exec-6] BCryptPasswordEncoder: Encoded password does not look like BCrypt
+2019-12-09 11:53:37,988 DEBUG [http-nio-8080-exec-6] AuthenticationFilter: Authentication request failed: org.springframework.security.authentication.BadCredentialsException: Bad credentials
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:93)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:166)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175)
+	at com.biwise.audit.security.AuthenticationFilter.attemptAuthentication(AuthenticationFilter.java:37)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 11:53:37,989 DEBUG [http-nio-8080-exec-6] AuthenticationFilter: Updated SecurityContextHolder to contain null Authentication
+2019-12-09 11:53:37,990 DEBUG [http-nio-8080-exec-6] AuthenticationFilter: Delegating to authentication failure handler org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler@311ebbc6
+2019-12-09 11:53:48,361 DEBUG [http-nio-8080-exec-7] AuthenticationFilter: Request is to process authentication
+2019-12-09 11:53:48,382 WARN  [http-nio-8080-exec-7] BCryptPasswordEncoder: Encoded password does not look like BCrypt
+2019-12-09 11:53:48,384 DEBUG [http-nio-8080-exec-7] AuthenticationFilter: Authentication request failed: org.springframework.security.authentication.BadCredentialsException: Bad credentials
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:93)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:166)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175)
+	at com.biwise.audit.security.AuthenticationFilter.attemptAuthentication(AuthenticationFilter.java:37)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 11:53:48,386 DEBUG [http-nio-8080-exec-7] AuthenticationFilter: Updated SecurityContextHolder to contain null Authentication
+2019-12-09 11:53:48,386 DEBUG [http-nio-8080-exec-7] AuthenticationFilter: Delegating to authentication failure handler org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler@311ebbc6
+2019-12-09 11:54:10,229 DEBUG [http-nio-8080-exec-8] AuthenticationFilter: Request is to process authentication
+2019-12-09 11:54:10,236 WARN  [http-nio-8080-exec-8] BCryptPasswordEncoder: Encoded password does not look like BCrypt
+2019-12-09 11:54:10,237 DEBUG [http-nio-8080-exec-8] AuthenticationFilter: Authentication request failed: org.springframework.security.authentication.BadCredentialsException: Bad credentials
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:93)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:166)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175)
+	at com.biwise.audit.security.AuthenticationFilter.attemptAuthentication(AuthenticationFilter.java:37)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 11:54:10,237 DEBUG [http-nio-8080-exec-8] AuthenticationFilter: Updated SecurityContextHolder to contain null Authentication
+2019-12-09 11:54:10,237 DEBUG [http-nio-8080-exec-8] AuthenticationFilter: Delegating to authentication failure handler org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler@311ebbc6
+2019-12-09 11:54:43,022 DEBUG [http-nio-8080-exec-9] AuthenticationFilter: Request is to process authentication
+2019-12-09 11:56:06,687 DEBUG [http-nio-8080-exec-4] AuthenticationFilter: Request is to process authentication
+2019-12-09 11:56:06,710 WARN  [http-nio-8080-exec-4] BCryptPasswordEncoder: Encoded password does not look like BCrypt
+2019-12-09 11:56:06,712 DEBUG [http-nio-8080-exec-4] AuthenticationFilter: Authentication request failed: org.springframework.security.authentication.BadCredentialsException: Bad credentials
+org.springframework.security.authentication.BadCredentialsException: Bad credentials
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.additionalAuthenticationChecks(DaoAuthenticationProvider.java:93)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:166)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:175)
+	at com.biwise.audit.security.AuthenticationFilter.attemptAuthentication(AuthenticationFilter.java:37)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 11:56:06,715 DEBUG [http-nio-8080-exec-4] AuthenticationFilter: Updated SecurityContextHolder to contain null Authentication
+2019-12-09 11:56:06,716 DEBUG [http-nio-8080-exec-4] AuthenticationFilter: Delegating to authentication failure handler org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler@311ebbc6
+2019-12-09 11:56:40,867 DEBUG [http-nio-8080-exec-5] AuthenticationFilter: Request is to process authentication
+2019-12-09 12:03:56,227 DEBUG [http-nio-8080-exec-2] AuthenticationFilter: Request is to process authentication
+2019-12-09 16:47:41,331 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 1454 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 16:47:41,333 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 16:47:41,333 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 16:47:42,927 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 16:47:45,031 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 16:47:45,975 INFO  [restartedMain] AuditApplication: Started AuditApplication in 5.184 seconds (JVM running for 5.747)
+2019-12-09 17:55:34,375 INFO  [restartedMain] AuditApplication: Starting AuditApplication on tbl013 with PID 14961 (/home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation/target/classes started by lasha.kapanadze in /home/exp.exactpro.com/lasha.kapanadze/Desktop/aeeee/confirmation)
+2019-12-09 17:55:34,377 DEBUG [restartedMain] AuditApplication: Running with Spring Boot v2.2.1.RELEASE, Spring v5.2.1.RELEASE
+2019-12-09 17:55:34,378 INFO  [restartedMain] AuditApplication: No active profile set, falling back to default profiles: default
+2019-12-09 17:55:35,746 DEBUG [restartedMain] InternalLoggerFactory: Using SLF4J as the default logging framework
+2019-12-09 17:55:37,556 DEBUG [restartedMain] AsyncConfiguration: Creating Async Task Executor
+2019-12-09 17:55:38,435 INFO  [restartedMain] AuditApplication: Started AuditApplication in 4.523 seconds (JVM running for 5.127)

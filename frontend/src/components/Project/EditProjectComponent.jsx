@@ -1,27 +1,177 @@
-import React, {Component} from 'react'
-import ProjectService from "../service/ProjectService";
+import React, { Component } from 'react'
+import ProjectService from "../Service/ProjectService";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from "@material-ui/core";
-import {KeyboardDatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
+import {KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
+import DateFormatter from "../helper/DateFormatter";
+import {fields, projectTypes} from "../Const/CreateProjectFieldLabelConstants";
 
-const currencies = [
-    {
-        value: 'large',
-        label: 'დიდი',
-    },
-    {
-        value: 'medium',
-        label: 'საშუალო',
-    },
-    {
-        value: 'small',
-        label: 'პატარა',
+class EditProjectComponent extends Component {
+
+    constructor(props){
+        super(props);
+        const e = new Date()
+        this.state ={
+            name: '',
+            startYear:  e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate()),
+            endYear:  e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate()),
+            projectId: this.props.match.params.projectId,
+            projectType: ''
+        }
+        this.saveProject = this.saveProject.bind(this);
+        this.loadProject = this.loadProject.bind(this);
     }
-];
+
+    componentDidMount() {
+        this.loadProject();
+    }
+
+    loadProject() {
+        ProjectService.fetchProjectById(this.state.projectId)
+            .then((res) => {
+                let project = res.data;
+                this.setState({
+                    name: project.name,
+                    projectType: project.projectType,
+                    startYear: DateFormatter.convertLocalDateToField(project.startYear),
+                    endYear: DateFormatter.convertLocalDateToField(project.endYear)
+                })
+            });
+    }
+    onStartDateChange = (e) => {
+        let val = DateFormatter.convertToFieldString(e)
+        this.setState({startYear: val})
+    }
+    onEndDateChange = (e) => {
+        let val = DateFormatter.convertToFieldString(e)
+        this.setState({endYear: val})
+    }
+    onChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    saveProject = (e) => {
+        e.preventDefault();
+        let project = {
+            projectId: this.props.match.params.projectId,
+            name: this.state.name,
+            projectType: this.state.projectType,
+            startYear: this.state.startYear,
+            endYear: this.state.endYear
+        };
+        ProjectService.editProject(project)
+            .then(res => {
+                this.props.history.push({
+                    pathname: '/',
+                });
+            });
+    }
+
+    render() {
+
+        return (
+            <div>
+                <br/>
+                <Typography variant="h4" style={style}>პროექტის რედაქტირება</Typography>
+                <br/>
+                <form className={useStyles.form} noValidate>
+                    <Grid container spacing={2}>
+
+                        <Grid item xs={12}>
+                            <TextField
+                                variant="outlined"
+                                required
+                                fullWidth
+                                id={fields.name.id}
+                                label={fields.name.label}
+                                value={this.state.name}
+                                onChange={this.onChange}
+                                name={fields.name.name}
+                                autoComplete="name"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                select
+                                variant="outlined"
+                                fullWidth
+                                name={fields.projectType.name}
+                                id={fields.projectType.id}
+                                label={fields.projectType.label}
+                                value={this.state.projectType}
+                                onChange={this.onChange}
+                                SelectProps={{
+                                    native: true
+                                }}
+                                margin="normal"
+                            >
+                                {projectTypes.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </TextField>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <KeyboardDatePicker
+                                    required={true}
+                                    fullWidth
+                                    disableToolbar
+                                    format="dd/MM/yyyy"
+                                    margin="normal"
+                                    name={fields.startYear.name}
+                                    id={fields.startYear.id}
+                                    label={fields.startYear.label}
+                                    value={this.state.startYear}
+                                    onChange={this.onStartDateChange}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'change date',
+                                    }}
+                                    inputVariant="outlined"
+                                />
+                            </MuiPickersUtilsProvider>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                <KeyboardDatePicker
+                                    required={true}
+                                    fullWidth
+                                    disableToolbar
+                                    format="dd/MM/yyyy"
+                                    margin="normal"
+                                    name={fields.endYear.name}
+                                    id={fields.endYear.id}
+                                    label={fields.endYear.label}
+                                    value={this.state.endYear}
+                                    onChange={this.onEndDateChange}
+                                    KeyboardButtonProps={{
+                                        'aria-label': 'change date',
+                                    }}
+                                    inputVariant="outlined"
+                                />
+                            </MuiPickersUtilsProvider>
+                        </Grid>
+                    </Grid>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        onClick={this.saveProject}
+                        className={useStyles.submit}>
+                        შენახვა
+                    </Button>
+                </form>
+            </div>
+        );
+    }
+}
+
 const useStyles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -41,149 +191,9 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(3, 0, 2),
     },
 }));
-class CreateProjectComponent extends Component {
-
-    constructor(props) {
-        super(props);
-        const e = new Date()
-        this.state = {
-            name: "",
-            projectType: "large",
-            startYear:  e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate()),
-            endYear:  e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate())
-        }
-        this.saveProject = this.saveProject.bind(this);
-    }
-
-    saveProject = (e) => {
-        e.preventDefault();
-        let project = {
-            name: this.state.name,
-            projectType: this.state.projectType,
-            startYear: this.state.startYear,
-            endYear: this.state.endYear
-        }
-        ProjectService.createProject(project)
-            .then(res => {
-                this.props.history.push('/projects', {message: 'Project added successfully.'});
-            });
-
-    }
-
-    onChange = (e) =>{
-        this.setState({[e.target.name]: e.target.value});
-    }
-    onStartDateChange = (e) => {
-        this.setState({startYear: e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate())})
-    }
-    onEndDateChange = (e) => {
-        this.setState({endYear: e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate())})
-    }
-    render() {
-        return (
-            <div className={useStyles.paper}>
-                <br/>
-                <Typography variant="h4" style={style}>პროექტის შექმნა</Typography>
-                <br/>
-                <form className={useStyles.form} noValidate>
-                    <Grid container spacing={2}>
-
-                        <Grid item xs={12}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="name"
-                                label="პროექტის სახელი"
-                                value={this.state.name}
-                                onChange={this.onChange}
-                                name="name"
-                                autoComplete="name"
-                            />
-                        </Grid>
-                        <Grid item xs={12}>
-                            <TextField
-                                select
-                                variant="outlined"
-                                fullWidth
-                                name={"projectType"}
-                                id={"projectTy[e"}
-                                label="პროექტის ტიპი"
-                                value={this.state.projectType}
-                                onChange={this.onChange}
-                                SelectProps={{
-                                    native: true
-                                }}
-                                margin="normal"
-                            >
-                                {currencies.map(option => (
-                                    <option key={option.value} value={option.value}>
-                                        {option.label}
-                                    </option>
-                                ))}
-                            </TextField>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                <KeyboardDatePicker
-                                    required={true}
-                                    fullWidth
-                                    disableToolbar
-                                    format="dd/MM/yyyy"
-                                    margin="normal"
-                                    name="startYear"
-                                    id="startYear"
-                                    label="დაწყების დრო"
-                                    value={this.state.startYear}
-                                    onChange={this.onStartDateChange}
-                                    KeyboardButtonProps={{
-                                        'aria-label': 'change date',
-                                    }}
-                                    inputVariant="outlined"
-                                />
-                            </MuiPickersUtilsProvider>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                <KeyboardDatePicker
-                                    required={true}
-                                    fullWidth
-                                    disableToolbar
-                                    format="dd/MM/yyyy"
-                                    margin="normal"
-                                    name="endYear"
-                                    id="endYear"
-                                    label="დასრულების დრო"
-                                    value={this.state.endYear}
-                                    onChange={this.onEndDateChange}
-                                    KeyboardButtonProps={{
-                                        'aria-label': 'change date',
-                                    }}
-                                    inputVariant="outlined"
-                                />
-                            </MuiPickersUtilsProvider>
-                        </Grid>
-                    </Grid>
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        onClick={this.saveProject}
-                        className={useStyles.submit}>
-                        შექმნა
-                    </Button>
-                </form>
-            </div>
-        );
-    }
-}
-
-const style = {
+const style ={
     display: 'flex',
     justifyContent: 'center'
-
 }
 
-
-export default CreateProjectComponent;
+export default EditProjectComponent;

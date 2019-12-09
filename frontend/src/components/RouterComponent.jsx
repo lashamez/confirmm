@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import ListProjectComponent from "./project/ListProjectComponent";
-import CreateProjectComponent from "./project/CreateProjectComponent";
+import ListProjectComponent from "./Project/ListProjectComponent";
+import CreateProjectComponent from "./Project/CreateProjectComponent";
 import React, {Component} from "react";
 import Messager from "./Messager";
-import ConfirmComponent from "./user/ConfirmComponent";
-import EditProjectComponent from "./project/EditProjectComponent";
-import ProjectDetails from "./project/ProjectDetails";
+import ConfirmComponent from "./User/ConfirmComponent";
+import EditProjectComponent from "./Project/EditProjectComponent";
+import ProjectDetails from "./Project/ProjectDetails";
 class RouterComponent extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +16,6 @@ class RouterComponent extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(prevState)
         if (prevState.message !== null) {
             this.setState({message: null})
         }

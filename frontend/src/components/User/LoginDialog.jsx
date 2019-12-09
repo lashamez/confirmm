@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import ApiService from "./service/ApiService";
+import Button from '@material-ui/core/Button/index';
+import TextField from '@material-ui/core/TextField/index';
+import Dialog from '@material-ui/core/Dialog/index';
+import DialogActions from '@material-ui/core/DialogActions/index';
+import DialogContent from '@material-ui/core/DialogContent/index';
+import DialogTitle from '@material-ui/core/DialogTitle/index';
+import ApiService from "../Service/ApiService";
 
 class LoginDialog extends Component {
     constructor(props) {

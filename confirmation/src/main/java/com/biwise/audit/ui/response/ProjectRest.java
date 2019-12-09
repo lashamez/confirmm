@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,6 @@ public class ProjectRest {
     private List<String> users = new ArrayList<>();
     private String name;
     private String projectType;
-    private String startYear;
-    private String endYear;
+    private LocalDate startYear;
+    private LocalDate endYear;
 }

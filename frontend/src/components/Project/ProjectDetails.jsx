@@ -11,7 +11,7 @@ import RiskRate from "./RiskRate";
 import Testing from "./Testing";
 import ProjectCompletion from "./ProjectCompletion";
 import ConstantDocumentation from "./ConstantDocumentation";
-
+import MenuConstants from '../Const/ProjectDetailsConstants'
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
@@ -24,36 +24,7 @@ const useStyles = makeStyles(theme => ({
         marginBottom: theme.spacing(1),
     },
 }));
-const menus = [
-    {
-        stepNum : 0,
-        title: 'პროექტის მენეჯმენტი'
-    },
-    {
-        stepNum : 1,
-        title: 'რისკის მართვა და დაკონტრაქტება'
-    },
-    {
-        stepNum : 2,
-        title: 'პროექტის ძირითადი პრინციპები'
-    },
-    {
-        stepNum : 3,
-        title: 'რისკის შეფასება'
-    },
-    {
-        stepNum : 4,
-        title: 'ტესტირება'
-    },
-    {
-        stepNum : 5,
-        title: 'პროექტის დასრულება'
-    },
-    {
-        stepNum : 6,
-        title: 'მუდმივი დოკუმენტაცია'
-    }
-]
+
 class ProjectDetails extends Component {
     constructor(props) {
         super(props);
@@ -82,6 +53,8 @@ class ProjectDetails extends Component {
                 return <ProjectCompletion projectId={this.state.projectId}/>
             case 6:
                 return <ConstantDocumentation projectId={this.state.projectId}/>
+            default:
+                return "Unknown step"
         }
     }
     getStep = (stepNum, stepTitle) => {
@@ -101,7 +74,7 @@ class ProjectDetails extends Component {
         return (
             <div className={useStyles.root}>
                 <Stepper alternativeLabel nonLinear activeStep={this.state.activeStep}>
-                    {menus.map(step=>this.getStep(step.stepNum, step.title))}
+                    {MenuConstants.map(step=>this.getStep(step.stepNum, step.title))}
                 </Stepper>
                 <div>
                     {this.getStepContent(this.state.activeStep)}

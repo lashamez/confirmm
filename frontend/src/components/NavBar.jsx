@@ -4,8 +4,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import LoginDialog from './LoginDialog';
-import RegistrationDialog from "./RegistrationDialog";
+import LoginDialog from './User/LoginDialog';
+import RegistrationDialog from "./User/RegistrationDialog";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 const style = {
@@ -34,7 +34,6 @@ class NavBar extends Component {
         }
     }
     logout() {
-        console.log(localStorage)
         localStorage.clear()
         this.setState({loggedIn:false})
     }

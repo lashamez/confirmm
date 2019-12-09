@@ -32,7 +32,6 @@ class ApiService {
         return axios.post(USER_API_BASE_URL + '/login', login);
     }
     register(login) {
-        console.log("send")
         return axios.post(USER_API_BASE_URL, login);
     }
     isValid(token) {

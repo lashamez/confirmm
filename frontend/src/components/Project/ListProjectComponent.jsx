@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ProjectService from "../service/ProjectService";
+import ProjectService from "../Service/ProjectService";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from "@material-ui/core/Link";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Paper from "@material-ui/core/Paper";
+import DateFormatter from '../helper/DateFormatter'
 const StyledTableCell = withStyles(theme => ({
     head: {
         backgroundColor: theme.palette.common.black,
@@ -54,7 +55,6 @@ class ListProjectComponent extends Component {
     reloadProjectList() {
         ProjectService.fetchProjects()
             .then((res) => {
-                console.log(res.data)
                 this.setState({projects: res.data})
             });
     }
@@ -67,7 +67,7 @@ class ListProjectComponent extends Component {
     }
 
     editProject(id) {
-        this.props.history.push('/edit-project/'+id);
+        this.props.history.push('/edit-Project/'+id);
     }
 
 
@@ -97,10 +97,10 @@ class ListProjectComponent extends Component {
                             <StyledTableRow key={row.projectId}>
                                 <StyledTableCell align="left"><Link href={"/projects/"+row.projectId} color={"inherit"} style={{textDecoration:"none"}}><Typography>{row.name}</Typography></Link></StyledTableCell>
                                 <StyledTableCell align="left"><Typography>{currencies.find(s=>s.value===row.projectType).label}</Typography></StyledTableCell>
-                                <StyledTableCell align="left"><Typography>{row.startYear}</Typography></StyledTableCell>
-                                <StyledTableCell align="left"><Typography>{row.endYear}</Typography></StyledTableCell>
+                                <StyledTableCell align="left"><Typography>{DateFormatter.convertToString(row.startYear)}</Typography></StyledTableCell>
+                                <StyledTableCell align="left"><Typography>{DateFormatter.convertToString(row.endYear)}</Typography></StyledTableCell>
                                 <StyledTableCell align="left">
-                                    <Link href={"edit-project/"+row.projectId} color={"inherit"} style={{textDecoration:"none"}}><CreateIcon /></Link>
+                                    <Link href={"edit-Project/"+row.projectId} color={"inherit"} style={{textDecoration:"none"}}><CreateIcon /></Link>
                                     <DeleteIcon onClick={() => this.deleteProject(row.projectId)}/>
                                 </StyledTableCell>
                             </StyledTableRow>

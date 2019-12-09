@@ -68,14 +68,8 @@ public class ProjectController implements IProjectController{
         List<ProjectRest> projectRests = new ArrayList<>();
         allProjects.forEach(projectDto -> {
             ProjectRest projectRest = modelMapper.map(projectDto, ProjectRest.class);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-            String formattedStart = projectDto.getStartYear().format(formatter);
-            projectRest.setStartYear(formattedStart);
-            String formattedEnd = projectDto.getEndYear().format(formatter);
-            projectRest.setEndYear(formattedEnd);
             projectRests.add(projectRest);
         });
-        System.out.println(projectRests);
         return ResponseEntity.ok(projectRests);
     }
 
@@ -115,8 +109,8 @@ public class ProjectController implements IProjectController{
         }
         ProjectDto project = modelMapper.map(projectRequestModel, ProjectDto.class);
         project.setProjectId(id);
-        project.setStartYear(LocalDate.parse(projectRequestModel.getStartYear()));
-        project.setEndYear(LocalDate.parse(projectRequestModel.getEndYear()));
+        project.setStartYear(getParsedDate(projectRequestModel.getStartYear()));
+        project.setEndYear(getParsedDate(projectRequestModel.getEndYear()));
         ProjectDto updatedProject = projectService.update(project);
         ProjectRest updatedProjectRest = modelMapper.map(updatedProject, ProjectRest.class);
         return ResponseEntity.ok().headers(HeaderUtils.createEntityUpdateAlert(ENTITY_NAME, id))

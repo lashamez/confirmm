@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ApiService from "../service/ApiService";
+import ApiService from "../Service/ApiService";
 import queryString from 'query-string';
 class ConfirmComponent extends Component {
 
