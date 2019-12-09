@@ -6,6 +6,7 @@ import Messager from "./Messager";
 import ConfirmComponent from "./User/ConfirmComponent";
 import EditProjectComponent from "./Project/EditProjectComponent";
 import ProjectDetails from "./Project/ProjectDetails";
+import Plans from "./Plan/Plan";
 class RouterComponent extends Component {
     constructor(props) {
         super(props);
@@ -40,6 +41,7 @@ class RouterComponent extends Component {
                         {this.props.isAuthorized() && <Route path="/edit-project/:projectId" render={(routeProps)=> (<EditProjectComponent {...routeProps} />)}/>}
                         {this.props.isAuthorized() && <Route path="/projects/:projectId" render={(routeProps)=> (<ProjectDetails {...routeProps} />)}/>}
                         {this.props.isAuthorized() && <Route path="/add-project" render={(routeProps)=> (<CreateProjectComponent {...routeProps} />)}/>}
+                        {!this.props.isAuthorized() && <Route path="/" exact render={(routeProps)=> (<Plans {...routeProps} />)}/>} }
                     </Switch>
                 </Router>
             </div>

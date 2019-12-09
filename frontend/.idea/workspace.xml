@@ -2,225 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6139e939-9e4a-4fb4-9a23-0918481a8d17" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../confirmation/logFile.2019-12-09.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Const/CreateProjectFieldLabelConstants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Const/ProjectDetailsConstants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Const/ProjectGeneralPrinciplesConstants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Const/RiskManagementAndContractingConstants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Project/ProjectCompletion.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Project/ProjectGeneralPrinciples.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Project/RiskManagementAndContracting.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Project/RiskRate.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Project/Testing.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/helper/DateFormatter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Const/AuditTeamRoles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Const/PlansConstants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Plan/Plan.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement/AuditTeam.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement/ProjectManagement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/logFile.2019-12-09.log" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/logFile.2019-12-09.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/i18n/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/i18n/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/i18n/messages_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/i18n/messages_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/i18n/messages_ru.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/i18n/messages_ru.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LoginDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/User/LoginDialog.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RegistrationDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/User/RegistrationDialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Project/ProjectDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectDetails.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Project/ProjectManagement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Const/ProjectManagementConstants.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RouterComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RouterComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/ConstantDocumentation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ConstantDocumentation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/CreateProjectComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/CreateProjectComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/CustomPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/CustomPanel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/EditProjectComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/EditProjectComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/ListProjectComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ListProjectComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/ProjectCompletion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Const/ProjectCompletionConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/ProjectDetails.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectDetails.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/ProjectGeneralPrinciples.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/ProjectManagement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/RiskManagementAndContracting.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/RiskRate.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Const/RiskRateConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/project/Testing.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Const/TestingConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/service/ApiService.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Service/ApiService.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/service/ProjectService.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Service/ProjectService.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/AuthenticationValidator.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/ConfirmComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/User/ConfirmComponent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/node_modules/" />
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Const/RiskRateConstants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Project/Testing.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Project/ListProjectComponent.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="39" column="51" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Const/ProjectCompletionConstants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Project/ProjectCompletion.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Const/TestingConstants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="1" lean-forward="true" selection-end-line="4" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>endYear</find>
-      <find>username</find>
-      <find>authenti</find>
-      <find>isAuth</find>
-      <find>შექმნა</find>
-      <find>console.log</find>
-      <find>cur</find>
-      <find>currencies</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>fields</replace>
-    </replaceStrings>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
       <list>
-        <option value="$PROJECT_DIR$/src/components/helper/DateFormatter.js" />
-        <option value="$PROJECT_DIR$/src/components/Const/ProjectDetailsConstants.js" />
-        <option value="$PROJECT_DIR$/src/components/project/ProjectDetails.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Const/CreateProjectFieldLabelConstants.js" />
-        <option value="$PROJECT_DIR$/src/components/RouterComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/NavBar.jsx" />
-        <option value="$PROJECT_DIR$/src/components/service/ApiService.jsx" />
-        <option value="$PROJECT_DIR$/src/components/project/ListProjectComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/service/ProjectService.jsx" />
-        <option value="$PROJECT_DIR$/src/components/project/CreateProjectComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/project/EditProjectComponent.jsx" />
-        <option value="$PROJECT_DIR$/src/components/project/RiskManagementAndContracting.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Const/RiskManagementAndContractingConstants.js" />
-        <option value="$PROJECT_DIR$/src/components/Const/ProjectGeneralPrinciplesConstants.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Const/ProjectGeneralPrinciplesConstants.js" />
-        <option value="$PROJECT_DIR$/src/components/project/ProjectGeneralPrinciples.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Const/RiskRateConstants.js" />
-        <option value="$PROJECT_DIR$/src/components/project/RiskRate.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Const/TestingConstants.js" />
-        <option value="$PROJECT_DIR$/src/components/project/Testing.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Const/ProjectCompletionConstants.js" />
-        <option value="$PROJECT_DIR$/src/components/project/ProjectCompletion.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Project/ListProjectComponent.jsx" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2078" />
-    <option name="y" value="58" />
-    <option name="width" value="1853" />
-    <option name="height" value="1076" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectId" id="1UcAlnFiRXd3ob24so8gZMhZldv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -248,11 +61,6 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/User" />
-      <recent name="$PROJECT_DIR$/src/components/project" />
-      <recent name="$PROJECT_DIR$/src/components/user" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components/Const" />
       <recent name="$PROJECT_DIR$/src/components/project" />
@@ -260,18 +68,13 @@
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/components/service" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/components/Project/ProjectManagement" />
+      <recent name="$PROJECT_DIR$/src/components/User" />
+      <recent name="$PROJECT_DIR$/src/components/project" />
+      <recent name="$PROJECT_DIR$/src/components/user" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="run" type="js.build_tools.npm" nameIsGenerated="true">
@@ -332,34 +135,6 @@
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14070000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945416" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info id="npm" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32925585" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32925585" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.22528033" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32008156" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" order="11" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -369,20 +144,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -416,10 +178,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1575647922457" />
-    <state x="490" y="267" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575833113368">
+    <state x="490" y="267" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575917195077">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="490" y="267" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1533.873@67.27.1533.873" timestamp="1575833113368" />
+    <state x="490" y="267" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1533.873@67.27.1533.873" timestamp="1575917195077" />
     <state x="566" y="211" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575715671881">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
@@ -460,257 +222,13 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="428" y="198" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1533.873@67.27.1533.873" timestamp="1575728744534" />
-    <state x="481" y="68" width="916" height="789" key="find.popup" timestamp="1575836213082">
+    <state x="481" y="68" width="916" height="789" key="find.popup" timestamp="1575929542021">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="481" y="68" width="916" height="789" key="find.popup/67.27.1533.873@67.27.1533.873" timestamp="1575836213082" />
-    <state x="497" y="208" key="run.anything.popup" timestamp="1575828316522">
+    <state x="481" y="68" width="916" height="789" key="find.popup/67.27.1533.873@67.27.1533.873" timestamp="1575929542021" />
+    <state x="497" y="208" key="run.anything.popup" timestamp="1575914889306">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1575828316522" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/NavBar.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Service/ApiService.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/User/LoginDialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Messager.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="n#!!block;n#MySnackbarContentWrapper#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/helper/DateFormatter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/User/RegistrationDialog.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/user/AuthenticationValidator.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RouterComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../tutorials-master/jhipster/jhipster-monolithic/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Const/ProjectDetailsConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/TextField/TextField.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/ProjectDetails.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/EditProjectComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2220">
-          <caret line="148" column="64" selection-start-line="148" selection-start-column="64" selection-end-line="148" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/CustomPanel.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/ConstantDocumentation.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/CreateProjectComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Const/CreateProjectFieldLabelConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/RiskManagementAndContracting.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Const/RiskManagementAndContractingConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/ProjectGeneralPrinciples.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Const/ProjectGeneralPrinciplesConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/RiskRate.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Const/RiskRateConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/Testing.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Const/TestingConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="true" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Const/ProjectCompletionConstants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/ProjectCompletion.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Project/ListProjectComponent.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="39" column="51" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <state x="497" y="208" key="run.anything.popup/67.27.1533.873@67.27.1533.873" timestamp="1575914889306" />
   </component>
 </project>

@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Stepper from "@material-ui/core/Stepper";
 import StepButton from "@material-ui/core/StepButton";
 import Step from "@material-ui/core/Step";
-import ProjectManagement from "./ProjectManagement";
+import ProjectManagement from "./ProjectManagement/ProjectManagement";
 import RiskManagementAndContracting from "./RiskManagementAndContracting";
 import ProjectGeneralPrinciples from "./ProjectGeneralPrinciples";
 import RiskRate from "./RiskRate";
