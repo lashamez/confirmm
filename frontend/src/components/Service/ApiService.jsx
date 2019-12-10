@@ -1,6 +1,6 @@
 import axios from 'axios';
 const USER_API_BASE_URL = 'http://localhost:8080/users';
-
+const API_BASE_URL = 'http://localhost:8080'
 class ApiService {
 
     fetchUsers() {
@@ -34,8 +34,8 @@ class ApiService {
     register(login) {
         return axios.post(USER_API_BASE_URL, login);
     }
-    isValid(token) {
-        return axios.post(USER_API_BASE_URL+"/token", token)
+    registerCompany(props) {
+        return axios.post(API_BASE_URL+"/register", props, null)
     }
 }
 

@@ -36,4 +36,8 @@ public class Utils {
     public String generateConfirmationToken(int length) {
         return generateRandomString(length);
     }
+
+    public String generatePackageId(int length) {
+        return generateRandomString(length);
+    }
 }

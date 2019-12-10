@@ -115,4 +115,8 @@ public class MailService {
         String subject = messageSource.getMessage("email.invitation.title", null, locale);
         sendEmail(email, subject, content, false, true);
     }
+
+    public void sendRegisterMail(String email) {
+        //todo
+    }
 }

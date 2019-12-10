@@ -6,7 +6,8 @@ import Messager from "./Messager";
 import ConfirmComponent from "./User/ConfirmComponent";
 import EditProjectComponent from "./Project/EditProjectComponent";
 import ProjectDetails from "./Project/ProjectDetails";
-import Plans from "./Plan/Plan";
+import RecipeReviewCard from "./Plan/Plan";
+import BuyPackage from "./Package/BuyPackage";
 class RouterComponent extends Component {
     constructor(props) {
         super(props);
@@ -33,6 +34,7 @@ class RouterComponent extends Component {
         return(
             <div style={style}>
                 {this.state.message!== null && <Messager message={this.state.message}/>}
+
                 <Router>
                     <Switch>
                         {this.props.isAuthorized() && <Route path="/" exact render={(routeProps)=> (<ListProjectComponent {...routeProps} />)}/>}
@@ -41,7 +43,7 @@ class RouterComponent extends Component {
                         {this.props.isAuthorized() && <Route path="/edit-project/:projectId" render={(routeProps)=> (<EditProjectComponent {...routeProps} />)}/>}
                         {this.props.isAuthorized() && <Route path="/projects/:projectId" render={(routeProps)=> (<ProjectDetails {...routeProps} />)}/>}
                         {this.props.isAuthorized() && <Route path="/add-project" render={(routeProps)=> (<CreateProjectComponent {...routeProps} />)}/>}
-                        {!this.props.isAuthorized() && <Route path="/" exact render={(routeProps)=> (<Plans {...routeProps} />)}/>} }
+                        {!this.props.isAuthorized() && <Route path="/" exact render={(routeProps)=> (<RecipeReviewCard {...routeProps} />)}/>}
                     </Switch>
                 </Router>
             </div>
