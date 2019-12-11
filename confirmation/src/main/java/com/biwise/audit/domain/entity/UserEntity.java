@@ -1,6 +1,7 @@
 package com.biwise.audit.domain.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,7 +20,6 @@ public class UserEntity implements UserDetails {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
@@ -41,6 +41,11 @@ public class UserEntity implements UserDetails {
     @Size(min = 2, max = 10)
     @Column(name = "lang_key", length = 10)
     private String langKey;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "plan_id")
+    @JsonIgnore
+    private PackageEntity currentPlan;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(

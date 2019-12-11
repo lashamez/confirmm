@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PackageServiceImpl implements PackageService {
@@ -38,8 +39,8 @@ public class PackageServiceImpl implements PackageService {
     }
 
     @Override
-    public List<PackageDto> findAllForUser(String email) {
-        return null;
+    public PackageDto findForUser(String email) {
+        return packageRepository.findByEmail(email).map(packageEntity -> modelMapper.map(packageEntity, PackageDto.class)).orElse(null);
     }
 
     @Override
@@ -50,5 +51,10 @@ public class PackageServiceImpl implements PackageService {
     @Override
     public void delete(PackageDto packageDto) {
 
+    }
+
+    @Override
+    public List<PackageDto> findAll() {
+        return packageRepository.findAll().stream().map(e -> modelMapper.map(e, PackageDto.class)).collect(Collectors.toList());
     }
 }

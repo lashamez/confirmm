@@ -32,7 +32,6 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<ProjectDto> findAll() {
         List<ProjectEntity> allProjects = projectRepository.findAll();
-        System.out.println(allProjects);
         return allProjects.stream()
                 .map(project->modelMapper.map(project, ProjectDto.class))
                 .collect(Collectors.toList());

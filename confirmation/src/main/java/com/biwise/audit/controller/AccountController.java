@@ -1,11 +1,16 @@
 package com.biwise.audit.controller;
 
+import com.biwise.audit.domain.dto.PackageDto;
+import com.biwise.audit.domain.dto.ProjectDto;
 import com.biwise.audit.domain.dto.UserDto;
-import com.biwise.audit.service.MailService;
+import com.biwise.audit.service.PackageService;
 import com.biwise.audit.service.UsernameAlreadyUsedException;
 import com.biwise.audit.ui.errors.EmailAlreadyUsedException;
+import com.biwise.audit.ui.errors.NotAllowedToRegisterException;
+import com.biwise.audit.ui.request.InvitedUserRequestModel;
 import com.biwise.audit.ui.request.LoginModel;
 import com.biwise.audit.service.UserService;
+import com.biwise.audit.ui.request.PackageRequestModel;
 import com.biwise.audit.ui.request.UserRequestModel;
 import com.biwise.audit.ui.response.UserRest;
 import com.biwise.audit.utils.HeaderUtils;
@@ -24,6 +29,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("unchecked")
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -33,20 +39,19 @@ import java.util.List;
 
 public class AccountController implements IAccountController{
     private static final Logger logger = LogManager.getLogger(AccountController.class);
-    private static final int TOKEN_LENGTH = 50;
     @Value("${audit.clientApp.name}")
     private String applicationName;
+    @Value("${invitedUserPassword}")
+    private String defaultPassword;
     private static final String ENTITY_NAME = "user";
     private ModelMapper modelMapper = new ModelMapper();
     private final UserService userService;
     private final BCryptPasswordEncoder passwordEncoder;
-    private final MailService mailService;
-    private final Utils utils;
-    public AccountController(UserService userService, BCryptPasswordEncoder passwordEncoder, MailService mailService, Utils utils) {
+    private final PackageService packageService;
+    public AccountController(UserService userService, BCryptPasswordEncoder passwordEncoder, PackageService packageService) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
-        this.utils = utils;
-        this.mailService = mailService;
+        this.packageService = packageService;
     }
 
     @GetMapping("")
@@ -84,7 +89,6 @@ public class AccountController implements IAccountController{
     }
     @PostMapping("/login")
     public ResponseEntity login(@Valid @RequestBody LoginModel login) {
-        System.out.println(login);
         UserDto userDto = userService.findOne(login.getEmail());
         if (userDto != null && userDto.isEnabled() && userDto.getPassword().equals(passwordEncoder.encode(login.getPassword()))) {
             UserRest userRest = modelMapper.map(userDto, UserRest.class);
@@ -123,13 +127,39 @@ public class AccountController implements IAccountController{
         if (userDto != null) {
             throw new UsernameAlreadyUsedException();
         }
+        PackageDto packageDto = packageService.findForUser(user.getEmail());
+        if (packageDto == null) {
+            throw new NotAllowedToRegisterException();
+        }
         userDto = modelMapper.map(user, UserDto.class);
-        String token = utils.generateConfirmationToken(TOKEN_LENGTH);
-        userDto.setActivationKey(token);
+        userDto.setCurrentPlan(packageDto);
         UserDto savedUser = userService.register(userDto);
         UserRest returnValue = modelMapper.map(savedUser, UserRest.class);
-        mailService.sendActivationEmail(savedUser);
         return ResponseEntity.ok().headers(HeaderUtils.createEntityCreationAlert(ENTITY_NAME, returnValue.getUserId()))
                 .body(returnValue);
     }
+
+    @PostMapping("/invite")
+    public ResponseEntity<UserRest> inviteEmployees(@RequestBody @Valid InvitedUserRequestModel user, Principal principal) {
+        String currentUser = principal.getName();
+        PackageDto packageDto = packageService.findForUser(currentUser);
+        List<UserDto> existingUsers = userService.findAllForPackage(packageDto);
+        if (existingUsers.stream().anyMatch(userDto -> userDto.getEmail().equals(user.getEmail()))) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).headers(HeaderUtils.createFailureAlert("Invited user", user.getEmail(), "User is already invited")).build();
+        }
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        userDto.setCurrentPlan(packageDto);
+        userDto.setPassword(defaultPassword);
+        UserDto saved = userService.register(userDto);
+        return ResponseEntity.ok(modelMapper.map(saved, UserRest.class));
+    }
+    @GetMapping("/team")
+    public ResponseEntity<List<UserRest>> teamMembers(Principal principal) {
+        String user = principal.getName();
+        UserDto userDto = userService.findOne(user);
+        PackageDto packageDto = userDto.getCurrentPlan();
+        List<UserRest> userRests = packageDto.getUsers().stream().map(member -> modelMapper.map(member, UserRest.class)).collect(Collectors.toList());
+        return ResponseEntity.ok(userRests);
+    }
+
 }

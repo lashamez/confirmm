@@ -1,5 +1,6 @@
 package com.biwise.audit.service;
 
+import com.biwise.audit.domain.dto.PackageDto;
 import com.biwise.audit.domain.dto.UserDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -23,4 +24,6 @@ public interface UserService extends UserDetailsService {
     UserDto register(UserDto userDto);
 
     UserDto findByUsername(String username);
+
+    List<UserDto> findAllForPackage(PackageDto packageDto);
 }

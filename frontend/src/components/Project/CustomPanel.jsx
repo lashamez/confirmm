@@ -28,7 +28,7 @@ class CustomPanel extends Component {
 
     render() {
         return (
-            <ExpansionPanel>
+            <ExpansionPanel className={useStyles.root}>
                 <ExpansionPanelSummary
                     expandIcon={<ExpandMoreIcon/>}
                     aria-controls="panel1a-content"
@@ -37,9 +37,7 @@ class CustomPanel extends Component {
                     <Typography className={useStyles.heading}>{this.state.title}</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <Typography>
-                        {this.state.content}
-                    </Typography>
+                    {this.state.content}
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         )

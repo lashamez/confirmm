@@ -1,10 +1,21 @@
 import React, {Component} from 'react'
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import {fields, projectTypes} from "../../Const/CreateProjectFieldLabelConstants";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core";
 import {teamRoles} from "../../Const/AuditTeamRoles";
+import ApiService from "../../Service/ApiService";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import Link from "@material-ui/core/Link";
+import AddCircleIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import TableBody from "@material-ui/core/TableBody";
+import Typography from "@material-ui/core/Typography";
+import DateFormatter from "../../helper/DateFormatter";
+import Table from "@material-ui/core/Table";
+
+
 const useStyles = makeStyles(theme => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -24,45 +35,137 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(3, 0, 2),
     },
 }));
+
 class AuditTeam extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            members: []
+            allMembers: props.allMembers,
+            projectMembers: [],
+            currentMember: {
+                email: '',
+                role: ''
+            }
         }
+        this.reloadMembers = this.reloadMembers.bind(this)
+        this.onChange = this.onChange.bind(this)
+        this.onSave = this.onSave.bind(this)
+    }
+
+    reloadMembers() {
+        ApiService.findMyTeamMembers().then(res => {
+            this.setState({allMembers: res.data})
+        })
+    }
+
+    onSave() {
+        let members = this.state.projectMembers
+        members.push(this.state.currentMember)
+        this.setState({projectMembers: members, currentMember: {email: '', role: ''}})
+    }
+
+    componentDidMount() {
+        this.reloadMembers();
+    }
+
+    onChange(e) {
+        let current = this.state.currentMember;
+        if (e.target.name === 'role') {
+            current.role = e.target.value
+        } else {
+            current.email = e.target.value
+        }
+        this.setState({currentMember: current});
+        console.log(this.state.currentMember)
     }
 
     render() {
         return (
-            <form className={useStyles.form} noValidate>
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        {teamRoles.map(field=>{
-                            return <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                label={fields.name.label}
-                                value={this.state.name}
-                                onChange={this.onChange}
-                                name={fields.name.name}
-                                autoComplete="name"
-                            />
+            <Grid container spacing={2}>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="left">თანამშრომელი</TableCell>
+                            <TableCell align="left">როლი</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {this.state.projectMembers.map((member, index) => {
+                            return (
+                                <TableRow key={index}>
+                                    <TableCell align="left">{member.email}</TableCell>
+                                    <TableCell align="left">{teamRoles.find(role => member.role === role.value).label}</TableCell>
+                                </TableRow>
+                            )
                         })}
-                    </Grid>
+
+                    </TableBody>
+                </Table>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        select
+                        variant="outlined"
+                        fullWidth
+                        required={true}
+                        name='role'
+                        label='როლი'
+                        onChange={this.onChange}
+                        SelectProps={{
+                            native: true
+                        }}
+                        defaultValue={" "}
+                        margin="normal"
+                    >
+                        {teamRoles.map(option => (
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </TextField>
                 </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        select
+                        required={true}
+                        variant="outlined"
+                        fullWidth
+                        name='email'
+                        onChange={this.onChange}
+                        SelectProps={{
+                            native: true
+                        }}
+                        defaultValue={" "}
+                        margin="normal"
+                    >
+                        {this.state.allMembers.map(option => (
+                            <option key={option.email} value={option.email}>
+                                {option.firstName} {option.lastName}
+                            </option>
+                        ))}
+                    </TextField>
+                </Grid>
+
                 <Button
                     type="submit"
-                    fullWidth
                     variant="contained"
                     color="primary"
-                    onClick={this.saveProject}
+                    onClick={this.onSave}
                     className={useStyles.submit}>
-                    შექმნა
+                    დამატება
                 </Button>
-            </form>
+                <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    onClick={this.onSave}
+                    className={useStyles.submit}>
+                    დასრულება
+                </Button>
+            </Grid>
 
         )
     }
 
 }
+
+export default AuditTeam

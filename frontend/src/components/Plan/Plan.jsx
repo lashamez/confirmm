@@ -14,7 +14,8 @@ import {plans} from "../Const/PlansConstants";
 import Grid from "@material-ui/core/Grid";
 import {Paper} from "@material-ui/core";
 import BuyPackage from "../Package/BuyPackage";
-
+import Divider from "@material-ui/core/Divider";
+import PlanFeaturesList from "./PlanFeaturesList";
 const useStyles = makeStyles(theme => ({
     card: {
         maxWidth: 345,
@@ -43,11 +44,11 @@ export default function RecipeReviewCard() {
 
     return (
         <Paper color={"primary"}>
-            <Grid container spacing={1} alignContent={"center"} alignItems={"center"}>
+            <Grid container spacing={1} alignContent={"center"} alignItems={"center"} style={{margin:"0 auto"}}>
                 {plans.map(plan => {
                     return (
-                        <Grid key={plan.id} xs={12} sm={4} item={true}  style={{marginBottom: 30}}>
-                            <Card className={classes.card}>
+                        <Grid key={plan.id} xs={12} sm={4} item={true} style={{marginBottom: 30}}>
+                            <Card className={classes.card} style={{margin:"0 auto"}}>
                                 <CardHeader
                                     avatar={
                                         <Avatar aria-label="recipe" className={classes.avatar}>
@@ -61,15 +62,17 @@ export default function RecipeReviewCard() {
                                     }
                                     title={plan.label}
                                 />
+                                <Divider />
                                 <CardMedia
                                     className={classes.media}
                                     image={plan.image}
                                     title={plan.label}
                                 />
                                 <CardContent>
-                                    <Typography variant="subtitle1" color="textPrimary" component="p">
+                                    <Typography variant="body1" color="textPrimary" component="p">
                                         {plan.registrationFee} ლ, {plan.users} მომხმარებელი
                                     </Typography>
+                                    <PlanFeaturesList plan={plan}/>
                                 </CardContent>
                                 <CardActions disableSpacing style={{alignItems: "center"}}>
                                     <BuyPackage id={plan.id}/>

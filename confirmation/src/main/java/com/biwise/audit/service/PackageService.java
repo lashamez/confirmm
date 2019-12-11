@@ -9,9 +9,11 @@ public interface PackageService {
 
     PackageDto findByPackageId(String id);
 
-    List<PackageDto> findAllForUser(String email);
+    PackageDto findForUser(String email);
 
     PackageDto update(PackageDto packageDto);
 
     void delete(PackageDto packageDto);
+
+    List<PackageDto> findAll();
 }

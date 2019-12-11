@@ -1,47 +1,25 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import ProjectService from "../Service/ProjectService";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Button from '@material-ui/core/Button';
 import CreateIcon from '@material-ui/icons/Create';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Typography from '@material-ui/core/Typography';
 import Link from "@material-ui/core/Link";
-import withStyles from "@material-ui/core/styles/withStyles";
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Paper from "@material-ui/core/Paper";
 import DateFormatter from '../helper/DateFormatter'
-const StyledTableCell = withStyles(theme => ({
-    head: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
-    },
-    body: {
-        fontSize: 14,
-    },
-}))(TableCell);
 
-const StyledTableRow = withStyles(theme => ({
-    root: {
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.background.default,
-        },
-    },
-}))(TableRow);
+
 class ListProjectComponent extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
             projects: [],
-            columns: [
-                { title: 'სახელი', field: 'name' },
-                { title: 'პროექტის ტიპი', field: 'projectType' },
-                { title: 'დაწყების დრო', field: 'startYear', type: 'date' },
-                { title: 'დამთავრების დრო', field: 'endYear', type: 'date' },
-            ]
         }
         this.deleteProject = this.deleteProject.bind(this);
         this.editProject = this.editProject.bind(this);
@@ -67,52 +45,55 @@ class ListProjectComponent extends Component {
     }
 
     editProject(id) {
-        this.props.history.push('/edit-Project/'+id);
+        this.props.history.push('/edit-Project/' + id);
     }
 
 
     render() {
         return (
-            <div>
-                <Paper >
-                    <Typography variant="h4" style={style}>პროექტები</Typography>
-                </Paper>
+            <Paper elevation={10} style={{marginBottom: 30}}>
+                <br/>
+                <Typography variant="h4" style={style}>პროექტები</Typography>
                 <Table>
-                    <TableHead >
-                        <StyledTableRow >
-                            <StyledTableCell align="left">სახელი</StyledTableCell>
-                            <StyledTableCell align="left">პროექტის ტიპი</StyledTableCell>
-                            <StyledTableCell align="left">დაწყების დრო</StyledTableCell>
-                            <StyledTableCell align="left">დამთავრების დრო</StyledTableCell>
-                            <StyledTableCell>
-                                <Button variant="contained" color="primary" href="/add-project">
-                                    პროექტის შექმნა
-                                </Button>
-                            </StyledTableCell>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="left">სახელი</TableCell>
+                            <TableCell align="left">პროექტის ტიპი</TableCell>
+                            <TableCell align="left">დაწყების დრო</TableCell>
+                            <TableCell align="left">დამთავრების დრო</TableCell>
+                            <TableCell>
+                                <Link href={"/add-project"}> <AddCircleIcon fontSize={"large"} color="inherit" />
+                                </Link>
+                            </TableCell>
 
-                        </StyledTableRow>
+                        </TableRow>
                     </TableHead>
                     <TableBody>
                         {this.state.projects.map(row => (
-                            <StyledTableRow key={row.projectId}>
-                                <StyledTableCell align="left"><Link href={"/projects/"+row.projectId} color={"inherit"} style={{textDecoration:"none"}}><Typography>{row.name}</Typography></Link></StyledTableCell>
-                                <StyledTableCell align="left"><Typography>{currencies.find(s=>s.value===row.projectType).label}</Typography></StyledTableCell>
-                                <StyledTableCell align="left"><Typography>{DateFormatter.convertToString(row.startYear)}</Typography></StyledTableCell>
-                                <StyledTableCell align="left"><Typography>{DateFormatter.convertToString(row.endYear)}</Typography></StyledTableCell>
-                                <StyledTableCell align="left">
-                                    <Link href={"edit-Project/"+row.projectId} color={"inherit"} style={{textDecoration:"none"}}><CreateIcon /></Link>
+                            <TableRow key={row.projectId}>
+                                <TableCell align="left"><Link href={"/projects/" + row.projectId}
+                                                              color={"inherit"}
+                                                              style={{textDecoration: "none"}}><Typography>{row.name}</Typography></Link></TableCell>
+                                <TableCell
+                                    align="left"><Typography>{currencies.find(s => s.value === row.projectType).label}</Typography></TableCell>
+                                <TableCell
+                                    align="left"><Typography>{DateFormatter.convertToString(row.startYear)}</Typography></TableCell>
+                                <TableCell
+                                    align="left"><Typography>{DateFormatter.convertToString(row.endYear)}</Typography></TableCell>
+                                <TableCell >
+                                    <Link href={"edit-Project/" + row.projectId} color={"inherit"}
+                                          style={{textDecoration: "none"}}><CreateIcon/></Link>
                                     <DeleteIcon onClick={() => this.deleteProject(row.projectId)}/>
-                                </StyledTableCell>
-                            </StyledTableRow>
+                                </TableCell>
+                            </TableRow>
                         ))}
                     </TableBody>
                 </Table>
-
-
-            </div>
+            </Paper>
         );
     }
 }
+
 const currencies = [
     {
         value: 'large',
@@ -127,7 +108,7 @@ const currencies = [
         label: 'პატარა',
     }
 ];
-const style ={
+const style = {
     display: 'flex',
     justifyContent: 'center'
 }

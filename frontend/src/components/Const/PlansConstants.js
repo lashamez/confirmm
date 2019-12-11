@@ -5,6 +5,9 @@ export const plans = [
         "value":"small",
         "users":4,
         "registrationFee":100,
+        "study":true,
+        "reporting":false,
+        "analytics": false,
         "image":"/images/small.png"
     },
     {
@@ -13,6 +16,9 @@ export const plans = [
         "value":"medium",
         "users":8,
         "registrationFee":200,
+        "study":true,
+        "reporting":true,
+        "analytics": false,
         "image":"/images/medium.png"
     },
     {
@@ -21,30 +27,9 @@ export const plans = [
         "value":"large",
         "users":"8+",
         "registrationFee":300,
+        "study":true,
+        "reporting":true,
+        "analytics": true,
         "image":"/images/large.png"
-    },
-    {
-        "id":4,
-        "label":"სასწავლო პროგრამა",
-        "value":"studyProgram",
-        "users":1,
-        "registrationFee":100,
-        "image":"/images/study.png"
-    },
-    {
-        "id":5,
-        "label":"პას რეპორტინგი",
-        "value":"passReporting",
-        "users":1,
-        "registrationFee":100,
-        "image":"/images/reporting.png"
-    },
-    {
-        "id":6,
-        "label":"ანალიტიკა",
-        "value":"analytics",
-        "users":1,
-        "registrationFee":100,
-        "image":"/images/analytics.png"
     }
 ]

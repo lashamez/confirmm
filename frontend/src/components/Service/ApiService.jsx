@@ -1,6 +1,11 @@
 import axios from 'axios';
 const USER_API_BASE_URL = 'http://localhost:8080/users';
 const API_BASE_URL = 'http://localhost:8080'
+const config = {
+    headers: {
+        authorization: localStorage.getItem("token")
+    }
+}
 class ApiService {
 
     fetchUsers() {
@@ -36,6 +41,14 @@ class ApiService {
     }
     registerCompany(props) {
         return axios.post(API_BASE_URL+"/register", props, null)
+    }
+
+    findMyTeamMembers() {
+        return axios.get(USER_API_BASE_URL + "/team", config)
+    }
+
+    invite(login) {
+        return axios.post(USER_API_BASE_URL + "/invite", login, config)
     }
 }
 

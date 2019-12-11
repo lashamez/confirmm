@@ -12,6 +12,7 @@ import Testing from "./Testing";
 import ProjectCompletion from "./ProjectCompletion";
 import ConstantDocumentation from "./ConstantDocumentation";
 import MenuConstants from '../Const/ProjectDetailsConstants'
+import ApiService from "../Service/ApiService";
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
@@ -30,17 +31,24 @@ class ProjectDetails extends Component {
         super(props);
         this.state = {
             activeStep: 0,
-            projectId: this.props.match.params.projectId
+            projectId: this.props.match.params.projectId,
+            allMembers:[]
         }
+        this.reloadMembers = this.reloadMembers.bind(this)
         this.getStep = this.getStep.bind(this)
         this.handleClick = this.handleClick.bind(this)
         this.getStepContent = this.getStepContent.bind(this)
     }
 
+    reloadMembers =() =>{
+        ApiService.findMyTeamMembers().then(res => {
+            this.setState({allMembers: res.data})
+        })
+    }
     getStepContent = (step) => {
         switch (step) {
             case 0:
-                return <ProjectManagement projectId={this.state.projectId}/>
+                return <ProjectManagement projectId={this.state.projectId} allMembers={this.state.allMembers}/>
             case 1:
                 return <RiskManagementAndContracting projectId={this.state.projectId}/>
             case 2:

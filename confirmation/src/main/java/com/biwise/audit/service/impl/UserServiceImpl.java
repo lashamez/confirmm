@@ -1,11 +1,14 @@
 package com.biwise.audit.service.impl;
 
+import com.biwise.audit.domain.dto.PackageDto;
 import com.biwise.audit.domain.dto.UserDto;
+import com.biwise.audit.domain.entity.PackageEntity;
 import com.biwise.audit.domain.entity.PrivilegeEntity;
 import com.biwise.audit.domain.entity.RoleEntity;
 import com.biwise.audit.domain.entity.UserEntity;
 import com.biwise.audit.repository.RoleRepository;
 import com.biwise.audit.repository.UserRepository;
+import com.biwise.audit.service.MailService;
 import com.biwise.audit.service.UserService;
 import com.biwise.audit.ui.errors.EmailAlreadyUsedException;
 import com.biwise.audit.utils.Utils;
@@ -19,10 +22,12 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Transactional
 @Service(value = "userServiceImpl")
 public class UserServiceImpl implements UserService {
+    private static final int TOKEN_LENGTH = 50;
 
     private ModelMapper modelMapper = new ModelMapper();
     private final UserRepository userRepository;
@@ -33,11 +38,13 @@ public class UserServiceImpl implements UserService {
 
     private final Utils utils;
 
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder, Utils utils) {
+    private final MailService mailService;
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder, Utils utils, MailService mailService) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
         this.utils = utils;
+        this.mailService = mailService;
     }
 
     public List<UserDto> findAll() {
@@ -98,20 +105,28 @@ public class UserServiceImpl implements UserService {
                 throw new EmailAlreadyUsedException();
             }
         });
+        String token = utils.generateConfirmationToken(TOKEN_LENGTH);
+        user.setActivationKey(token);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         UserEntity newUser = modelMapper.map(user, UserEntity.class);
-        System.out.println(user);
-        System.out.println(newUser);
         newUser.setUserId(utils.generateUserId(30));
         newUser.setUsername(user.getUsername());
         UserEntity createdUser = userRepository.save(newUser);
-        return modelMapper.map(createdUser, UserDto.class);
+        UserDto saved = modelMapper.map(createdUser, UserDto.class);
+        mailService.sendActivationEmail(saved);
+        return saved;
     }
 
     @Override
     public UserDto findByUsername(String username) {
         Optional<UserEntity> userEntity = userRepository.findByUsername(username);
         return userEntity.map(entity -> modelMapper.map(entity, UserDto.class)).orElse(null);
+    }
+
+    @Override
+    public List<UserDto> findAllForPackage(PackageDto packageDto) {
+        List<UserEntity> users = userRepository.findAllByCurrentPlan(modelMapper.map(packageDto, PackageEntity.class));
+        return users.stream().map(user -> modelMapper.map(user, UserDto.class)).collect(Collectors.toList());
     }
 
     private boolean removeNonActivatedUser(UserEntity existingUser) {

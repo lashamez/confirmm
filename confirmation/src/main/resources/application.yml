@@ -106,7 +106,7 @@ info:
   display-ribbon-on-profiles: 'dev'
 
 tokenSecret: Bearer
-
+invitedUserPassword: hL4bz0CPEJ
 audit:
   clientApp:
     name: 'Audit App'

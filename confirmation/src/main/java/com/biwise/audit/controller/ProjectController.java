@@ -41,7 +41,6 @@ public class ProjectController implements IProjectController{
     }
     @PostMapping("")
     public ResponseEntity<ProjectRest> createProject(@Valid @RequestBody ProjectRequestModel project, Principal principal){
-        System.out.println(project);
         LocalDate startDate = getParsedDate(project.getStartYear());
         LocalDate endDate = getParsedDate(project.getEndYear());
         ProjectDto projectDto = modelMapper.map(project, ProjectDto.class);

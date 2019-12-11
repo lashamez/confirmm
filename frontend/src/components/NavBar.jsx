@@ -7,7 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import LoginDialog from './User/LoginDialog';
 import RegistrationDialog from "./User/RegistrationDialog";
 import Link from "@material-ui/core/Link";
-import Button from "@material-ui/core/Button";
+import ProfileTopBar from "./ProfileTopBar";
 const style = {
     flexGrow: 1
 }
@@ -27,6 +27,7 @@ class NavBar extends Component {
             localStorage.setItem('token', res.headers.authorization);
             this.setState({loggedIn:true})
         }
+        window.location.reload();
     }
     registrationFunction(res) {
         if (res.data.result != null) {
@@ -36,6 +37,8 @@ class NavBar extends Component {
     logout() {
         localStorage.clear()
         this.setState({loggedIn:false})
+        console.log("here")
+        window.location.reload();
     }
 
     render() {
@@ -51,7 +54,9 @@ class NavBar extends Component {
                         </Typography>
                         {!this.props.isAuthorized() && <LoginDialog loginFunction={this.loginFunction}/>}
                         {!this.props.isAuthorized()  && <RegistrationDialog registrationFunction={this.registrationFunction}/>}
-                        {this.props.isAuthorized() && <Button color={"inherit"} onClick={this.logout}>გამოსვლა</Button>}
+                        {this.props.isAuthorized() && (
+                            <ProfileTopBar logout={this.logout}/>
+                        )}
                     </Toolbar>
                 </AppBar>
             </div>

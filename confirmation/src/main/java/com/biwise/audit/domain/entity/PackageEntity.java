@@ -1,17 +1,21 @@
 package com.biwise.audit.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
 @NoArgsConstructor
 @Table(name = "plan")
+
 public class PackageEntity {
     @Id
     @GeneratedValue
@@ -22,5 +26,7 @@ public class PackageEntity {
     private String email;
 
     private String packageName;
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "currentPlan", fetch = FetchType.EAGER)
+    private List<UserEntity> users = new ArrayList<>();
 }

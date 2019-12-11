@@ -55,7 +55,6 @@ export default function BuyPackage(props) {
                         color={"secondary"}
                         variant={"outlined"}
                         margin="dense"
-                        id="email"
                         label="ელ-ფოსტა"
                         type="text"
                         name="email"
