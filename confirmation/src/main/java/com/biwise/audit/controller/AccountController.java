@@ -158,6 +158,7 @@ public class AccountController implements IAccountController{
         String user = principal.getName();
         UserDto userDto = userService.findOne(user);
         PackageDto packageDto = userDto.getCurrentPlan();
+        System.out.println(packageDto);
         List<UserRest> userRests = packageDto.getUsers().stream().map(member -> modelMapper.map(member, UserRest.class)).collect(Collectors.toList());
         return ResponseEntity.ok(userRests);
     }

@@ -46,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@material-ui/pickers": "^3.2.8",
     "material-table": "^1.54.1"
   }

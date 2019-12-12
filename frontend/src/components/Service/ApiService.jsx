@@ -39,9 +39,6 @@ class ApiService {
     }
 
     login(login) {
-        console.log(login)
-        console.log(login)
-
         return axios.post(USER_API_BASE_URL + '/login', login);
     }
     register(login) {

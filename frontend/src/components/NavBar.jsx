@@ -9,60 +9,38 @@ import RegistrationDialog from "./User/RegistrationDialog";
 import Link from "@material-ui/core/Link";
 import ProfileTopBar from "./ProfileTopBar";
 import {toast} from "react-toastify";
+import * as actions from "../store/actions/auth";
+import {connect} from "react-redux";
 const style = {
     flexGrow: 1
 }
-class NavBar extends Component {
-    constructor(props) {
-        super(props);
-        this.loginFunction = this.loginFunction.bind(this)
-        this.logout = this.logout.bind(this)
-        this.state={
-            loggedIn: false
-        }
-    }
+export function NavBar(props) {
+    return (
+        <div>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton edge="start" color="inherit" aria-label="Menu">
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" style={style}>
+                        <Link href={'/'} color={"inherit"} style={{textDecoration:"none"}}>Audit</Link>
+                    </Typography>
+                    {!props.isAuthenticated && <LoginDialog/>}
+                    {!props.isAuthenticated  && <RegistrationDialog />}
+                    {props.isAuthenticated && (
+                        <ProfileTopBar logout={props.onLogout}/>
+                    )}
+                </Toolbar>
+            </AppBar>
+        </div>
+    )
+}
 
-    loginFunction(res) {
-        console.log(res)
-        if (res.headers.authorization !== null) {
-            localStorage.setItem('token', res.headers.authorization);
-            this.setState({loggedIn:true})
-        }
-    }
-    registrationFunction(res) {
-        if (res.data.result != null) {
-            this.setState({user: res.data.result})
-        }
-    }
-    logout() {
-        localStorage.clear()
-        toast.info('See you soon !')
-        this.setState({loggedIn:false})
-        console.log("here")
-        window.location.reload();
-    }
 
-    render() {
-        return (
-            <div>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="Menu">
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" style={style}>
-                           <Link href={'/'} color={"inherit"} style={{textDecoration:"none"}}>Audit</Link>
-                        </Typography>
-                        {!this.props.isAuthorized() && <LoginDialog loginFunction={this.loginFunction}/>}
-                        {!this.props.isAuthorized()  && <RegistrationDialog registrationFunction={this.registrationFunction}/>}
-                        {this.props.isAuthorized() && (
-                            <ProfileTopBar logout={this.logout}/>
-                        )}
-                    </Toolbar>
-                </AppBar>
-            </div>
-        )
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogout: () => dispatch(actions.logout())
     }
 }
 
-export default NavBar;
+export default connect(null, mapDispatchToProps)(NavBar);

@@ -44,7 +44,6 @@ export const auth = (login) => {
         dispatch(authStart());
         axios.post(USER_API_BASE_URL + '/login', login).then(response => {
             console.log(response)
-            localStorage.setItem('token', response.headers.authorization)
             dispatch(authSuccess(response.headers.authorization, response.headers.userid));
             dispatch(checkAuthTimeout(response.headers.expires))
         }).catch(err => {
