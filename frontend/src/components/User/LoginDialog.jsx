@@ -6,6 +6,9 @@ import DialogActions from '@material-ui/core/DialogActions/index';
 import DialogContent from '@material-ui/core/DialogContent/index';
 import DialogTitle from '@material-ui/core/DialogTitle/index';
 import ApiService from "../Service/ApiService";
+import {toast} from "react-toastify";
+import {connect} from 'react-redux'
+import * as actions from '../../store/actions/auth'
 
 class LoginDialog extends Component {
     constructor(props) {
@@ -35,11 +38,8 @@ class LoginDialog extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        ApiService.login(login)
-            .then(res => {
-                this.handleClose()
-                this.props.loginFunction(res)
-            });
+        this.handleClose()
+        this.props.onLogin(login)
     }
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });
@@ -80,7 +80,7 @@ class LoginDialog extends Component {
                         <Button onClick={this.handleClose} color="primary">
                             გაუქმება
                         </Button>
-                        <Button onClick={this.tryLogin} color="primary">
+                        <Button onClick={() => this.tryLogin()} color="primary">
                             შესვლა
                         </Button>
                     </DialogActions>
@@ -91,4 +91,15 @@ class LoginDialog extends Component {
 
 }
 
-export default LoginDialog;
+const mapStateToProps = state => {
+    console.log(state)
+    return null
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin: (login) => dispatch(actions.auth(login))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(LoginDialog);

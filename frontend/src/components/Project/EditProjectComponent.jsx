@@ -9,6 +9,7 @@ import {KeyboardDatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers"
 import DateFnsUtils from "@date-io/date-fns";
 import DateFormatter from "../helper/DateFormatter";
 import {fields, projectTypes} from "../Const/CreateProjectFieldLabelConstants";
+import {toast} from "react-toastify";
 
 class EditProjectComponent extends Component {
 
@@ -65,10 +66,13 @@ class EditProjectComponent extends Component {
         };
         ProjectService.editProject(project)
             .then(res => {
+                toast.success('პროექტი წარმატებით განახლდა')
                 this.props.history.push({
                     pathname: '/',
                 });
-            });
+            }).catch(error => {
+                toast.error('პროექტის განახლებისას დაფიქსირდა შეცდომა')
+        });
     }
 
     render() {

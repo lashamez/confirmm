@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ApiService from "../Service/ApiService";
 import queryString from 'query-string';
+import {toast} from "react-toastify";
 class ConfirmComponent extends Component {
 
     constructor(props){
@@ -21,8 +22,11 @@ class ConfirmComponent extends Component {
         let key = params.token;
         ApiService.activateUserByToken(key)
             .then((res) => {
+                toast.success('ექაუნთი წარმატებით გააქტიურდა')
                 this.props.history.push('/')
-            });
+            }).catch(error => {
+                toast.error('ექაუნთის გააქტიურების დროს დაფიქსირდა შეცდომა !')
+        });
     }
 
     render() {

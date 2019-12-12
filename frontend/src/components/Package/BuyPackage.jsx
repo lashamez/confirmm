@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import ApiService from "../Service/ApiService";
 import {plans} from "../Const/PlansConstants";
 import Notification from "../Notification";
+import {toast} from "react-toastify";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -37,13 +38,14 @@ export default function BuyPackage(props) {
             "packageName":plans.find(plan => plan.id === props.id).value
         }
         ApiService.registerCompany(pack).then(res => {
-            setShowResult(true)
+            toast.success('თქვენ წარმატებით შეიძინეთ პაკეტი, რეგისტრაციის დროს გამოიყენეთ მითითებული ელ-ფოსტა')
+        }).catch(error => {
+            toast.error('რეგისტრაციის დროს დაფიქსირდა შეცდომა')
         })
     }
 
     return (
         <div className={classes.root}>
-            {showResult && <Notification/>}
             <Button variant="contained" color="primary" fullWidth onClick={handleChange}>
                 <ShoppingCartIcon/>ყიდვა
             </Button>

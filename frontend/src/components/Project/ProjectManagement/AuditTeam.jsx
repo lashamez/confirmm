@@ -8,12 +8,10 @@ import ApiService from "../../Service/ApiService";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import Link from "@material-ui/core/Link";
-import AddCircleIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import TableBody from "@material-ui/core/TableBody";
-import Typography from "@material-ui/core/Typography";
-import DateFormatter from "../../helper/DateFormatter";
 import Table from "@material-ui/core/Table";
+import {toast} from "react-toastify";
+import ProjectService from "../../Service/ProjectService";
 
 
 const useStyles = makeStyles(theme => ({
@@ -55,13 +53,20 @@ class AuditTeam extends Component {
     reloadMembers() {
         ApiService.findMyTeamMembers().then(res => {
             this.setState({allMembers: res.data})
+        }).catch(error => {
+            toast.error('გუნდის წევრების ჩატვირთვის დროს დაფიქსირდა შეცდომა')
         })
     }
 
     onSave() {
         let members = this.state.projectMembers
-        members.push(this.state.currentMember)
-        this.setState({projectMembers: members, currentMember: {email: '', role: ''}})
+        if (this.state.currentMember.email === '' || this.state.currentMember.role === '') {
+            toast.error('ელ-ფოსტა ან როლი ცარიელია. გთხოვთ შეავსოთ ორივე ველი')
+        }else {
+            members.push(this.state.currentMember)
+            this.setState({projectMembers: members, currentMember: {email: '', role: ''}})
+        }
+
     }
 
     componentDidMount() {

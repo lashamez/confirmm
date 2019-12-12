@@ -8,6 +8,7 @@ import LoginDialog from './User/LoginDialog';
 import RegistrationDialog from "./User/RegistrationDialog";
 import Link from "@material-ui/core/Link";
 import ProfileTopBar from "./ProfileTopBar";
+import {toast} from "react-toastify";
 const style = {
     flexGrow: 1
 }
@@ -22,12 +23,11 @@ class NavBar extends Component {
     }
 
     loginFunction(res) {
-        console.log(res.headers.authorization)
+        console.log(res)
         if (res.headers.authorization !== null) {
             localStorage.setItem('token', res.headers.authorization);
             this.setState({loggedIn:true})
         }
-        window.location.reload();
     }
     registrationFunction(res) {
         if (res.data.result != null) {
@@ -36,6 +36,7 @@ class NavBar extends Component {
     }
     logout() {
         localStorage.clear()
+        toast.info('See you soon !')
         this.setState({loggedIn:false})
         console.log("here")
         window.location.reload();

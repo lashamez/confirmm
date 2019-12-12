@@ -9,6 +9,7 @@ import {KeyboardDatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns';
 import DateFormatter from "../helper/DateFormatter";
 import {fields, projectTypes} from "../Const/CreateProjectFieldLabelConstants";
+import {toast} from 'react-toastify';
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -29,6 +30,7 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(3, 0, 2),
     },
 }));
+
 class CreateProjectComponent extends Component {
 
     constructor(props) {
@@ -37,8 +39,8 @@ class CreateProjectComponent extends Component {
         this.state = {
             name: "",
             projectType: "large",
-            startYear:  e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate()),
-            endYear:  e.getFullYear()+"-"+(e.getMonth()+1)+"-"+(e.getDate())
+            startYear: e.getFullYear() + "-" + (e.getMonth() + 1) + "-" + (e.getDate()),
+            endYear: e.getFullYear() + "-" + (e.getMonth() + 1) + "-" + (e.getDate())
         }
         this.saveProject = this.saveProject.bind(this);
     }
@@ -53,12 +55,15 @@ class CreateProjectComponent extends Component {
         }
         ProjectService.createProject(project)
             .then(res => {
+                toast.success("პროექტი წარმატებით შეიქმნა")
                 this.props.history.push('/projects', {message: 'Project added successfully.'});
-            });
+            }).catch(err => {
+            toast.error("პროექტი შექმნისას დაფიქსირდა შეცდომა")
+        });
 
     }
 
-    onChange = (e) =>{
+    onChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
     }
     onStartDateChange = (e) => {
@@ -67,6 +72,7 @@ class CreateProjectComponent extends Component {
     onEndDateChange = (e) => {
         this.setState({endYear: DateFormatter.convertToFieldString(e)})
     }
+
     render() {
         return (
             <div className={useStyles.paper}>
