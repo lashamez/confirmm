@@ -5,9 +5,8 @@ import Dialog from '@material-ui/core/Dialog/index';
 import DialogActions from '@material-ui/core/DialogActions/index';
 import DialogContent from '@material-ui/core/DialogContent/index';
 import DialogTitle from '@material-ui/core/DialogTitle/index';
-import ApiService from "../Service/ApiService";
 
-class LoginDialog extends Component {
+class TaskDialog extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,19 +34,7 @@ class LoginDialog extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        ApiService.login(login)
-            .then(res => {
-                this.handleClose()
-                if (res.headers.authorization !== null) {
-                    localStorage.setItem('token', res.headers.authorization);
-                    localStorage.setItem('userid', res.headers.userid)
-                    localStorage.setItem('expires', new Date(new Date().getSeconds()+res.headers.expires))
-                }
 
-                window.location.reload();
-            }).catch(
-
-        );
     }
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });
@@ -55,41 +42,19 @@ class LoginDialog extends Component {
         return (
             <div>
                 <Button variant="outlined" color="inherit" onClick={this.handleClickOpen}>
-                    შესვლა
+                    დავალება
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">შესვლა</DialogTitle>
+                    <DialogTitle id="form-dialog-title">აირჩიეთ დავალებები</DialogTitle>
                     <DialogContent>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="email"
-                            label="ელ-ფოსტა"
-                            type="text"
-                            name="email"
-                            required={true}
-                            value={this.state.email}
-                            onChange={this.onChange}
-                            fullWidth
-                        />
-                        <TextField
-                            margin="dense"
-                            id="password"
-                            label="პასვორდი"
-                            type="password"
-                            name="password"
-                            required={true}
-                            value={this.state.password}
-                            onChange={this.onChange}
-                            fullWidth
-                        />
+
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">
                             გაუქმება
                         </Button>
                         <Button onClick={this.tryLogin} color="primary">
-                            შესვლა
+                            დასრულება
                         </Button>
                     </DialogActions>
                 </Dialog>
@@ -99,4 +64,4 @@ class LoginDialog extends Component {
 
 }
 
-export default LoginDialog;
+export default TaskDialog;

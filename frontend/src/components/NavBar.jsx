@@ -8,6 +8,8 @@ import LoginDialog from './User/LoginDialog';
 import RegistrationDialog from "./User/RegistrationDialog";
 import Link from "@material-ui/core/Link";
 import ProfileTopBar from "./ProfileTopBar";
+import {toast} from "react-toastify";
+
 const style = {
     flexGrow: 1
 }
@@ -25,6 +27,7 @@ class NavBar extends Component {
         console.log(res.headers.authorization)
         if (res.headers.authorization !== null) {
             localStorage.setItem('token', res.headers.authorization);
+            localStorage.setItem('')
             this.setState({loggedIn:true})
         }
         window.location.reload();
@@ -36,6 +39,7 @@ class NavBar extends Component {
     }
     logout() {
         localStorage.clear()
+        toast.info('See you soon !')
         this.setState({loggedIn:false})
         console.log("here")
         window.location.reload();

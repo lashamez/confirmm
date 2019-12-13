@@ -12,6 +12,7 @@ import Link from "@material-ui/core/Link";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Paper from "@material-ui/core/Paper";
 import DateFormatter from '../helper/DateFormatter'
+import {toast} from "react-toastify";
 
 
 class ListProjectComponent extends Component {
@@ -34,6 +35,10 @@ class ListProjectComponent extends Component {
         ProjectService.fetchProjects()
             .then((res) => {
                 this.setState({projects: res.data})
+            })
+            .catch(error => {
+                toast.error("დაფიქსირდა შეცდომა")
+                console.log(error)
             });
     }
 
@@ -41,7 +46,10 @@ class ListProjectComponent extends Component {
         ProjectService.deleteProject(projectId)
             .then(res => {
                 this.setState({projects: this.state.projects.filter(project => project.projectId !== projectId)});
-            })
+                toast.success("პროექტი წარმატებით წაიშალა")
+            }).catch(err => {
+            toast.error("პროექტის წაშლისას დაფიქსირდა შეცდომა")
+        })
     }
 
     editProject(id) {

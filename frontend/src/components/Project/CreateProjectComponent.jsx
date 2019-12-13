@@ -9,6 +9,7 @@ import {KeyboardDatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns';
 import DateFormatter from "../helper/DateFormatter";
 import {fields, projectTypes} from "../Const/CreateProjectFieldLabelConstants";
+import {toast} from "react-toastify";
 
 const useStyles = makeStyles(theme => ({
     paper: {
@@ -53,8 +54,11 @@ class CreateProjectComponent extends Component {
         }
         ProjectService.createProject(project)
             .then(res => {
+                toast.success("პროექტი წარმატებით შეიქმნა")
                 this.props.history.push('/projects', {message: 'Project added successfully.'});
-            });
+            }).catch(err => {
+            toast.error("პროექტი შექმნისას დაფიქსირდა შეცდომა")
+        });
 
     }
 

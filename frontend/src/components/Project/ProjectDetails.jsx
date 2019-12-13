@@ -13,6 +13,7 @@ import ProjectCompletion from "./ProjectCompletion";
 import ConstantDocumentation from "./ConstantDocumentation";
 import MenuConstants from '../Const/ProjectDetailsConstants'
 import ApiService from "../Service/ApiService";
+import {toast} from "react-toastify";
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
@@ -43,6 +44,8 @@ class ProjectDetails extends Component {
     reloadMembers =() =>{
         ApiService.findMyTeamMembers().then(res => {
             this.setState({allMembers: res.data})
+        }).catch(error => {
+            toast.error('გუნდის წევრების ჩატვირთვის დროს დაფიქსირდა შეცდომა')
         })
     }
     getStepContent = (step) => {

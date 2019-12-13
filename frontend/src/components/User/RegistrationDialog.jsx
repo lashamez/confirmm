@@ -6,6 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions/index';
 import DialogContent from '@material-ui/core/DialogContent/index';
 import DialogTitle from '@material-ui/core/DialogTitle/index';
 import ApiService from "../Service/ApiService";
+import {toast} from "react-toastify";
 
 class RegistrationDialog extends Component {
     constructor(props) {
@@ -44,7 +45,11 @@ class RegistrationDialog extends Component {
         ApiService.register(login)
             .then(res => {
                 this.setState({open:false})
-            });
+                toast.success('თქვენ წარმატებით გაიარეთ რეგისტრაცია')
+            }).catch(error => {
+            toast.error('რეგისტრაციის დროს დაფიქსირდა შეცდომა')
+            console.log(error)
+        });
     }
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });

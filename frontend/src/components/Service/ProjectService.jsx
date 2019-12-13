@@ -24,6 +24,11 @@ class ProjectService {
     fetchProjectById(projectId) {
         return axios.get(USER_API_BASE_URL+'/'+projectId, config)
     }
+
+    assignRoles(projectId, members) {
+        //todo
+        return axios.get(USER_API_BASE_URL+'/'+projectId, config)
+    }
 }
 
 export default new ProjectService();

@@ -11,6 +11,7 @@ import InviteDialog from "../User/UserInviteDialog";
 
 import ClearIcon from '@material-ui/icons/Clear';
 import CheckIcon from '@material-ui/icons/Check';
+import {toast} from "react-toastify";
 
 class ListProjectUsers extends Component {
     constructor(props) {
@@ -27,7 +28,9 @@ class ListProjectUsers extends Component {
                     users: res.data
                 })
             }
-        )
+        ).catch(error => {
+            toast.error('გუნდის წევრების ჩატვირთვის დროს დაფიქსირდა შეცდომა')
+        })
 
     }
 

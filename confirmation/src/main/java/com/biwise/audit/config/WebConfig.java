@@ -13,6 +13,6 @@ public class WebConfig implements WebMvcConfigurer {
 
         registry.addMapping("/**").allowedOrigins("*")
                 .allowedMethods("*")
-                .allowedHeaders("*").exposedHeaders("Authorization","Link","X-Total-Count");
+                .allowedHeaders("*").exposedHeaders("Authorization","Link","X-Total-Count", "UserId");
     }
 }

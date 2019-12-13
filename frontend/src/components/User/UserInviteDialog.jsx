@@ -6,6 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions/index';
 import DialogContent from '@material-ui/core/DialogContent/index';
 import DialogTitle from '@material-ui/core/DialogTitle/index';
 import ApiService from "../Service/ApiService";
+import {toast} from "react-toastify";
 
 export default function InviteDialog(props) {
     const [open, setOpen] = React.useState(false)
@@ -27,9 +28,12 @@ export default function InviteDialog(props) {
         }
         ApiService.invite(login)
             .then(() => {
+                toast.success('მოწვევა გაგზავნილია')
                 handleClose()
                 props.addRow(login)
-            });
+            }).catch(error => {
+            toast.error('მოწვევის დროს დაფიქსირდა შეცდომა')
+        });
     }
 
     return (
