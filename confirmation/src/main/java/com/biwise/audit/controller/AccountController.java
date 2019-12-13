@@ -35,8 +35,6 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/users")
-
-
 public class AccountController implements IAccountController{
     private static final Logger logger = LogManager.getLogger(AccountController.class);
     @Value("${audit.clientApp.name}")
@@ -64,6 +62,7 @@ public class AccountController implements IAccountController{
 
     @GetMapping("/{id}")
     public ResponseEntity getOne(@PathVariable String id) {
+        System.out.println("here");
         UserDto userDto = userService.findByUserId(id);
         if (userDto == null) {
             throw new UsernameNotFoundException(id);
@@ -89,6 +88,7 @@ public class AccountController implements IAccountController{
     }
     @PostMapping("/login")
     public ResponseEntity login(@Valid @RequestBody LoginModel login) {
+        System.out.println("asdasda");
         UserDto userDto = userService.findOne(login.getEmail());
         if (userDto != null && userDto.isEnabled() && userDto.getPassword().equals(passwordEncoder.encode(login.getPassword()))) {
             UserRest userRest = modelMapper.map(userDto, UserRest.class);
@@ -158,6 +158,7 @@ public class AccountController implements IAccountController{
         String user = principal.getName();
         UserDto userDto = userService.findOne(user);
         PackageDto packageDto = userDto.getCurrentPlan();
+        System.out.println(packageDto);
         List<UserRest> userRests = packageDto.getUsers().stream().map(member -> modelMapper.map(member, UserRest.class)).collect(Collectors.toList());
         return ResponseEntity.ok(userRests);
     }

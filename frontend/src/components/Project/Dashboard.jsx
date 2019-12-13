@@ -4,6 +4,7 @@ import ListProjectUsers from "./ListProjectUsers";
 import {Grid} from "@material-ui/core";
 
 export default function Dashboard(props) {
+    console.log(props.isAuthenticated)
     return (
         <Grid container spacing={2} >
             <Grid item xs={12} sm={6}  >

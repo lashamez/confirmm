@@ -13,7 +13,12 @@ class ApiService {
     }
 
     fetchUserById(userId) {
-        return axios.get(USER_API_BASE_URL + '/' + userId)
+        const config = {
+            headers: {
+                authorization: localStorage.getItem("token")
+            }
+        }
+        return axios.get(USER_API_BASE_URL + '/' + userId, config)
     }
 
     activateUserByToken(key) {

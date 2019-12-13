@@ -14,13 +14,13 @@ class RouterComponent extends Component {
             <div style={style}>
                 <Router>
                     <Switch>
-                        {this.props.isAuthorized() && <Route path="/" exact render={(routeProps)=> (<Dashboard {...routeProps} />)}/>}
+                        {this.props.isAuthenticated && <Route path="/" exact render={(routeProps)=> (<Dashboard {...routeProps } />)}/>}
+                        {!this.props.isAuthenticated && <Route path="/" exact render={(routeProps)=> (<RecipeReviewCard {...routeProps} />)}/>}
                         <Route path="/confirm" render={(routeProps)=> (<ConfirmComponent {...routeProps} />)}/>
-                        {this.props.isAuthorized() && <Route path="/projects" exact render={(routeProps)=> (<ListProjectComponent {...routeProps} />)}/>}
-                        {this.props.isAuthorized() && <Route path="/edit-project/:projectId" render={(routeProps)=> (<EditProjectComponent {...routeProps} />)}/>}
-                        {this.props.isAuthorized() && <Route path="/projects/:projectId" render={(routeProps)=> (<ProjectDetails {...routeProps} />)}/>}
-                        {this.props.isAuthorized() && <Route path="/add-project" render={(routeProps)=> (<CreateProjectComponent {...routeProps} />)}/>}
-                        {!this.props.isAuthorized() && <Route path="/" exact render={(routeProps)=> (<RecipeReviewCard {...routeProps} />)}/>}
+                        {this.props.isAuthenticated && <Route path="/projects" exact render={(routeProps)=> (<ListProjectComponent {...routeProps} />)}/>}
+                        {this.props.isAuthenticated && <Route path="/edit-project/:projectId" render={(routeProps)=> (<EditProjectComponent {...routeProps} />)}/>}
+                        {this.props.isAuthenticated && <Route path="/projects/:projectId" render={(routeProps)=> (<ProjectDetails {...routeProps} />)}/>}
+                        {this.props.isAuthenticated && <Route path="/add-project" render={(routeProps)=> (<CreateProjectComponent {...routeProps} />)}/>}
                     </Switch>
                 </Router>
             </div>
