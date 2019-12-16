@@ -46,7 +46,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: biwise.confirmation
-    password: Kapanadze1
+    password: password
     properties:
       mail:
         smtp:

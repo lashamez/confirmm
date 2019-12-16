@@ -9,6 +9,7 @@ function isAuthorized(){
     return localStorage.getItem("token")!==null;
 }
 function App() {
+    console.log(isAuthorized())
     return (
         <div>
             <NavBar isAuthorized={isAuthorized}/>

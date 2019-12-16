@@ -43,7 +43,6 @@ class LoginDialog extends Component {
                     localStorage.setItem('userid', res.headers.userid)
                     localStorage.setItem('expires', new Date(new Date().getSeconds()+res.headers.expires))
                 }
-
                 window.location.reload();
             }).catch(
 

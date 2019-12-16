@@ -1,10 +1,8 @@
 import React, {Component} from 'react'
 import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core";
 import {teamRoles} from "../../Const/AuditTeamRoles";
-import ApiService from "../../Service/ApiService";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
@@ -12,6 +10,10 @@ import TableBody from "@material-ui/core/TableBody";
 import Table from "@material-ui/core/Table";
 import {toast} from "react-toastify";
 import ProjectService from "../../Service/ProjectService";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 
 const useStyles = makeStyles(theme => ({
@@ -50,13 +52,17 @@ class AuditTeam extends Component {
         this.onAdd = this.onAdd.bind(this)
     }
 
-    onAdd() {
+    onAdd(e) {
+        e.preventDefault()
+        console.log(this.state.allMembers)
+
         let members = this.state.projectMembers
         if (this.state.currentMember.email === '' || this.state.currentMember.role === '') {
             toast.error('ელ-ფოსტა ან როლი ცარიელია. გთხოვთ შეავსოთ ორივე ველი')
         }else {
             members.push(this.state.currentMember)
-            this.setState({projectMembers: members, currentMember: {email: '', role: ''}})
+            let allMembers = this.state.allMembers.filter(s=>s.email!==this.state.currentMember.email)
+            this.setState({projectMembers: members, currentMember: {email: '', role: ''}, allMembers:allMembers})
         }
 
     }
@@ -79,6 +85,7 @@ class AuditTeam extends Component {
     }
 
     onChange(e) {
+        console.log(e)
         let current = this.state.currentMember;
         if (e.target.name === 'role') {
             current.role = e.target.value
@@ -112,47 +119,42 @@ class AuditTeam extends Component {
                     </TableBody>
                 </Table>
                 <Grid item xs={12} sm={6}>
-                    <TextField
-                        select
-                        variant="outlined"
-                        fullWidth
-                        required={true}
-                        name='role'
-                        label='როლი'
-                        onChange={this.onChange}
-                        SelectProps={{
-                            native: true
-                        }}
-                        defaultValue={" "}
-                        margin="normal"
-                    >
-                        {teamRoles.map(option => (
-                            <option key={option.value} value={option.value}>
-                                {option.label}
-                            </option>
-                        ))}
-                    </TextField>
+                    <FormControl fullWidth >
+                        <InputLabel id="role-select-label">როლი</InputLabel>
+                        <Select
+                            variant={"outlined"}
+                            labelId="role-select-label"
+                            id="role-simple-select"
+                            value={this.state.currentMember.role}
+                            onChange={this.onChange}
+                            name={'role'}
+                        >
+                            {teamRoles.map(option => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <TextField
-                        select
-                        required={true}
-                        variant="outlined"
-                        fullWidth
-                        name='email'
-                        onChange={this.onChange}
-                        SelectProps={{
-                            native: true
-                        }}
-                        defaultValue={" "}
-                        margin="normal"
-                    >
-                        {this.state.allMembers.map(option => (
-                            <option key={option.email} value={option.email}>
-                                {option.firstName} {option.lastName}
-                            </option>
-                        ))}
-                    </TextField>
+                    <FormControl fullWidth >
+                        <InputLabel id="user-select-label">მომხმარებელი</InputLabel>
+                        <Select
+                            variant={"outlined"}
+                            labelId="user-select-label"
+                            id="user-simple-select"
+                            onChange={this.onChange}
+                            name={'user'}
+                            value={this.state.currentMember.email}
+                        >
+                            {this.state.allMembers.map(option => (
+                                <MenuItem key={option.email} value={option.email}>
+                                    {option.firstName} {option.lastName}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </Grid>
 
                 <Button

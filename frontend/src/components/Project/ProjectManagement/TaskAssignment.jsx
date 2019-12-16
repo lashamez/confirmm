@@ -7,9 +7,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import ApiService from "../../Service/ApiService";
-import {toast} from "react-toastify";
-import {Button} from "@material-ui/core";
 import TaskDialog from "./TaskDialog";
 
 const useStyles = makeStyles(theme => ({

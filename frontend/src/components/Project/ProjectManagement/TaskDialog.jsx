@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Button from '@material-ui/core/Button/index';
-import TextField from '@material-ui/core/TextField/index';
 import Dialog from '@material-ui/core/Dialog/index';
 import DialogActions from '@material-ui/core/DialogActions/index';
 import DialogContent from '@material-ui/core/DialogContent/index';
@@ -30,11 +29,7 @@ class TaskDialog extends Component {
     };
 
     tryLogin() {
-        let login = {
-            email: this.state.email,
-            password: this.state.password
-        }
-
+        //todo
     }
     onChange = (e) =>
         this.setState({ [e.target.name]: e.target.value });
