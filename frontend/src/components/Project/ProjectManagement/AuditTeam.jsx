@@ -14,6 +14,7 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const useStyles = makeStyles(theme => ({
@@ -34,6 +35,13 @@ const useStyles = makeStyles(theme => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
 }));
 
 class AuditTeam extends Component {
@@ -50,17 +58,24 @@ class AuditTeam extends Component {
         this.onChange = this.onChange.bind(this)
         this.onSave = this.onSave.bind(this)
         this.onAdd = this.onAdd.bind(this)
+        this.deleteMember = this.deleteMember.bind(this)
     }
-
+    deleteMember(index) {
+        let member = this.state.projectMembers[index]
+        const projectMembers = this.state.projectMembers.filter(user => user!==member)
+        const allMembers = [...this.state.allMembers, member]
+        this.setState({projectMembers:projectMembers, allMembers:allMembers})
+    }
     onAdd(e) {
         e.preventDefault()
-        console.log(this.state.allMembers)
+        const members = [...this.state.projectMembers];
 
-        let members = this.state.projectMembers
         if (this.state.currentMember.email === '' || this.state.currentMember.role === '') {
             toast.error('ელ-ფოსტა ან როლი ცარიელია. გთხოვთ შეავსოთ ორივე ველი')
         }else {
-            members.push(this.state.currentMember)
+            const current = this.state.allMembers.find(user => user.email === this.state.currentMember.email)
+            current.role = this.state.currentMember.role
+            members.push(current)
             let allMembers = this.state.allMembers.filter(s=>s.email!==this.state.currentMember.email)
             this.setState({projectMembers: members, currentMember: {email: '', role: ''}, allMembers:allMembers})
         }
@@ -85,7 +100,6 @@ class AuditTeam extends Component {
     }
 
     onChange(e) {
-        console.log(e)
         let current = this.state.currentMember;
         if (e.target.name === 'role') {
             current.role = e.target.value
@@ -93,7 +107,6 @@ class AuditTeam extends Component {
             current.email = e.target.value
         }
         this.setState({currentMember: current});
-        console.log(this.state.currentMember)
     }
 
     render() {
@@ -112,6 +125,9 @@ class AuditTeam extends Component {
                                 <TableRow key={index}>
                                     <TableCell align="left">{member.email}</TableCell>
                                     <TableCell align="left">{teamRoles.find(role => member.role === role.value).label}</TableCell>
+                                    <TableCell >
+                                        <DeleteIcon onClick={() => this.deleteMember(index)}/>
+                                    </TableCell>
                                 </TableRow>
                             )
                         })}
@@ -119,9 +135,10 @@ class AuditTeam extends Component {
                     </TableBody>
                 </Table>
                 <Grid item xs={12} sm={6}>
-                    <FormControl fullWidth >
+                    <FormControl fullWidth className={useStyles.formControl}>
                         <InputLabel id="role-select-label">როლი</InputLabel>
                         <Select
+                            className={useStyles.selectEmpty}
                             variant={"outlined"}
                             labelId="role-select-label"
                             id="role-simple-select"
@@ -173,6 +190,7 @@ class AuditTeam extends Component {
                     className={useStyles.submit}>
                     დასრულება
                 </Button>
+
             </Grid>
 
         )

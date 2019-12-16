@@ -23,9 +23,9 @@ const useStyles = makeStyles(theme => ({
 class TaskAssignment extends Component {
     constructor(props) {
         super(props);
-        console.log(props)
         this.state = {
             projectMembers: [],
+            tasks:[]
         }
 
     }
@@ -41,7 +41,6 @@ class TaskAssignment extends Component {
         return (
             <List className={useStyles.root}>
                 {this.state.projectMembers.map((member, index) => {
-                    console.log(member)
                     return (
                         <div key={member.userId}>
                             <ListItem alignItems="flex-start">
