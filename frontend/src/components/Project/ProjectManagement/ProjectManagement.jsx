@@ -18,6 +18,7 @@ class ProjectManagement extends Component {
     reloadMembers() {
         return ApiService.findMyTeamMembers().catch(error => {
             toast.error('გუნდის წევრების ჩატვირთვის დროს დაფიქსირდა შეცდომა')
+            console.log(error)
         })
     }
     render() {
