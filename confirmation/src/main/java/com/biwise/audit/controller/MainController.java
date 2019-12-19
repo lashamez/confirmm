@@ -22,12 +22,10 @@ import java.util.List;
 public class MainController {
     private final MailService mailService;
     private final PackageService packageService;
-    private final UserService userService;
     private ModelMapper modelMapper = new ModelMapper();
-    public MainController(MailService mailService, PackageService packageService, UserService userService) {
+    public MainController(MailService mailService, PackageService packageService) {
         this.mailService = mailService;
         this.packageService = packageService;
-        this.userService = userService;
     }
 
     @PostMapping("/register")

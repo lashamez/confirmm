@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Data
@@ -20,7 +21,7 @@ public class UserDto {
     private String password;
     @JsonIgnore
     private PackageDto currentPlan;
-    private Date registerDate;
+    private Timestamp registerDate;
     private boolean enabled;
     private String langKey;
     private String activationKey;

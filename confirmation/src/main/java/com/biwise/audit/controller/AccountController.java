@@ -62,7 +62,6 @@ public class AccountController implements IAccountController{
 
     @GetMapping("/{id}")
     public ResponseEntity getOne(@PathVariable String id) {
-        System.out.println("here");
         UserDto userDto = userService.findByUserId(id);
         if (userDto == null) {
             throw new UsernameNotFoundException(id);
@@ -88,7 +87,6 @@ public class AccountController implements IAccountController{
     }
     @PostMapping("/login")
     public ResponseEntity login(@Valid @RequestBody LoginModel login) {
-        System.out.println("asdasda");
         UserDto userDto = userService.findOne(login.getEmail());
         if (userDto != null && userDto.isEnabled() && userDto.getPassword().equals(passwordEncoder.encode(login.getPassword()))) {
             UserRest userRest = modelMapper.map(userDto, UserRest.class);

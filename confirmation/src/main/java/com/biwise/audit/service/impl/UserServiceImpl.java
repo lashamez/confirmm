@@ -6,8 +6,8 @@ import com.biwise.audit.domain.entity.PackageEntity;
 import com.biwise.audit.domain.entity.PrivilegeEntity;
 import com.biwise.audit.domain.entity.RoleEntity;
 import com.biwise.audit.domain.entity.UserEntity;
-import com.biwise.audit.repository.RoleRepository;
-import com.biwise.audit.repository.UserRepository;
+import com.biwise.audit.repository.UserDao;
+import com.biwise.audit.repository.UserDaoImpl;
 import com.biwise.audit.service.MailService;
 import com.biwise.audit.service.UserService;
 import com.biwise.audit.ui.errors.EmailAlreadyUsedException;
@@ -19,8 +19,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -30,18 +32,15 @@ public class UserServiceImpl implements UserService {
     private static final int TOKEN_LENGTH = 50;
 
     private ModelMapper modelMapper = new ModelMapper();
-    private final UserRepository userRepository;
-
-    private final RoleRepository roleRepository;
+    private final UserDao userDao;
 
     private final BCryptPasswordEncoder passwordEncoder;
 
     private final Utils utils;
 
     private final MailService mailService;
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder, Utils utils, MailService mailService) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
+    public UserServiceImpl( UserDao userDao, BCryptPasswordEncoder passwordEncoder, Utils utils, MailService mailService) {
+        this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
         this.utils = utils;
         this.mailService = mailService;
@@ -49,36 +48,36 @@ public class UserServiceImpl implements UserService {
 
     public List<UserDto> findAll() {
         List<UserDto> returnValue = new ArrayList<>();
-        userRepository.findAll().forEach(userEntity -> returnValue.add(modelMapper.map(userEntity, UserDto.class)));
+        userDao.findAll().forEach(userEntity -> returnValue.add(modelMapper.map(userEntity, UserDto.class)));
         return returnValue;
     }
 
     @Override
     public void delete(String id) {
-        userRepository.deleteByUserId(id);
+        userDao.deleteByUserId(id);
     }
 
     @Override
     public UserDto findOne(String username) {
-        Optional<UserEntity> userEntity = userRepository.findByEmail(username);
+        Optional<UserEntity> userEntity = userDao.findByEmail(username);
         return userEntity.map(entity -> modelMapper.map(entity, UserDto.class)).orElse(null);
     }
 
     @Override
     public UserDto findByUserId(String userId) {
-        Optional<UserEntity> optionalUser = userRepository.findByUserId(userId);
+        Optional<UserEntity> optionalUser = userDao.findByUserId(userId);
         Optional<UserDto> returnValue = optionalUser.map(userEntity -> modelMapper.map(userEntity, UserDto.class));
         return returnValue.orElse(null);
     }
 
     @Override
     public UserDto update(UserDto userDto) {
-        Optional<UserEntity> user = userRepository.findByUserId(userDto.getUserId());
+        Optional<UserEntity> user = userDao.findByUserId(userDto.getUserId());
         if(user.isPresent()) {
             UserEntity userEntity = user.get();
             userEntity.setFirstName(userDto.getFirstName());
             userEntity.setLastName(userDto.getLastName());
-            UserEntity entity = userRepository.save(userEntity);
+            UserEntity entity = userDao.save(userEntity);
             return modelMapper.map(entity, UserDto.class);
         }
         return null;
@@ -87,19 +86,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto save(UserDto user) {
         UserEntity userEntity = modelMapper.map(user, UserEntity.class);
-        UserEntity updated = userRepository.save(userEntity);
+        UserEntity updated = userDao.save(userEntity);
         return modelMapper.map(updated, UserDto.class);
     }
 
     @Override
     public UserDto findByActivationKey(String token) {
-        Optional<UserEntity> userEntity = userRepository.findByActivationKey(token);
+        Optional<UserEntity> userEntity = userDao.findByActivationKey(token);
         return userEntity.map(entity -> modelMapper.map(entity, UserDto.class)).orElse(null);
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public UserDto register(UserDto user) {
-        userRepository.findByEmail(user.getEmail().toLowerCase()).ifPresent(existingUser->{
+        userDao.findByEmail(user.getEmail().toLowerCase()).ifPresent(existingUser->{
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
                 throw new EmailAlreadyUsedException();
@@ -111,7 +111,8 @@ public class UserServiceImpl implements UserService {
         UserEntity newUser = modelMapper.map(user, UserEntity.class);
         newUser.setUserId(utils.generateUserId(30));
         newUser.setUsername(user.getUsername());
-        UserEntity createdUser = userRepository.save(newUser);
+        newUser.setRegisterDate(Timestamp.valueOf(LocalDateTime.now()));
+        UserEntity createdUser = userDao.save(newUser);
         UserDto saved = modelMapper.map(createdUser, UserDto.class);
         mailService.sendActivationEmail(saved);
         return saved;
@@ -119,13 +120,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findByUsername(String username) {
-        Optional<UserEntity> userEntity = userRepository.findByUsername(username);
+        Optional<UserEntity> userEntity = userDao.findByUsername(username);
         return userEntity.map(entity -> modelMapper.map(entity, UserDto.class)).orElse(null);
     }
 
     @Override
     public List<UserDto> findAllForPackage(PackageDto packageDto) {
-        List<UserEntity> users = userRepository.findAllByCurrentPlan(modelMapper.map(packageDto, PackageEntity.class));
+        List<UserEntity> users = userDao.findAllByCurrentPlan(modelMapper.map(packageDto, PackageEntity.class));
         return users.stream().map(user -> modelMapper.map(user, UserDto.class)).collect(Collectors.toList());
     }
 
@@ -133,8 +134,7 @@ public class UserServiceImpl implements UserService {
         if (existingUser.isEnabled()) {
             return false;
         }
-        userRepository.delete(existingUser);
-        userRepository.flush();
+        userDao.delete(existingUser);
         return true;
     }
 
@@ -142,12 +142,11 @@ public class UserServiceImpl implements UserService {
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
 
-        Optional<UserEntity> optionalUser = userRepository.findByUsername(email);
+        Optional<UserEntity> optionalUser = userDao.findByUsername(email);
         if (!optionalUser.isPresent()) {
             return new org.springframework.security.core.userdetails.User(
                     " ", " ", true, true, true, true,
-                    getAuthorities(Arrays.asList(
-                            roleRepository.findByName("ROLE_USER"))));
+                    new ArrayList<>());
         }
         UserEntity user = optionalUser.get();
         return new org.springframework.security.core.userdetails.User(

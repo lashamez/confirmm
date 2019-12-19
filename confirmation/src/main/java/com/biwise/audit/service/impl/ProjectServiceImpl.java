@@ -2,7 +2,6 @@ package com.biwise.audit.service.impl;
 
 import com.biwise.audit.domain.dto.ProjectDto;
 import com.biwise.audit.domain.entity.ProjectEntity;
-import com.biwise.audit.repository.ProjectRepository;
 import com.biwise.audit.service.ProjectService;
 import com.biwise.audit.utils.Utils;
 import org.modelmapper.ModelMapper;
