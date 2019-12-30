@@ -2,7 +2,9 @@ package com.biwise.audit;
 
 import com.biwise.audit.domain.entity.PrivilegeEntity;
 import com.biwise.audit.domain.entity.RoleEntity;
-import com.biwise.audit.repository.UserDaoImpl;
+import com.biwise.audit.repository.PrivilegeRepository;
+import com.biwise.audit.repository.RoleRepository;
+import com.biwise.audit.repository.UserDao;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,7 +19,7 @@ import java.util.List;
 public class InitialDataLoader implements ApplicationListener<ContextRefreshedEvent> {
     boolean alreadySetup = false;
 
-    private final UserDaoImpl userDaoImpl;
+    private final UserDao userDao;
 
     private final RoleRepository roleRepository;
 
@@ -25,8 +27,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
     private final PasswordEncoder passwordEncoder;
 
-    public InitialDataLoader(UserDaoImpl userDaoImpl, RoleRepository roleRepository, PrivilegeRepository privilegeRepository, PasswordEncoder passwordEncoder) {
-        this.userDaoImpl = userDaoImpl;
+    public InitialDataLoader(UserDao userDao, RoleRepository roleRepository, PrivilegeRepository privilegeRepository, PasswordEncoder passwordEncoder) {
+        this.userDao = userDao;
         this.roleRepository = roleRepository;
         this.privilegeRepository = privilegeRepository;
         this.passwordEncoder = passwordEncoder;

@@ -2,6 +2,7 @@ package com.biwise.audit.service.impl;
 
 import com.biwise.audit.domain.dto.PackageDto;
 import com.biwise.audit.domain.entity.PackageEntity;
+import com.biwise.audit.repository.PackageRepository;
 import com.biwise.audit.service.PackageService;
 import com.biwise.audit.utils.Utils;
 import org.modelmapper.ModelMapper;
@@ -26,6 +27,7 @@ public class PackageServiceImpl implements PackageService {
         packageDto.setPackageId(utils.generatePackageId(PACKAGE_ID_LENGTH));
         PackageEntity packageEntity = modelMapper.map(packageDto, PackageEntity.class);
         PackageEntity saved = packageRepository.save(packageEntity);
+        System.out.println(saved);
         return modelMapper.map(saved, PackageDto.class);
     }
 

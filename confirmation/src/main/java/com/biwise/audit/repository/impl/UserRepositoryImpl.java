@@ -1,10 +1,12 @@
-package com.biwise.audit.repository;
+package com.biwise.audit.repository.impl;
 
 import com.biwise.audit.domain.dto.UserDto;
 import com.biwise.audit.domain.entity.PackageEntity;
 import com.biwise.audit.domain.entity.UserEntity;
+import com.biwise.audit.repository.UserDao;
 import com.biwise.audit.repository.mapper.UserMapper;
 import org.modelmapper.ModelMapper;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -12,28 +14,33 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 @Repository
-public class UserDaoImpl implements UserDao{
+public class UserRepositoryImpl implements UserDao {
 
     private final JdbcTemplate jdbcTemplate;
     private final UserMapper userMapper;
     private final ModelMapper modelMapper = new ModelMapper();
-    public UserDaoImpl(DataSource dataSource, UserMapper userMapper) {
+    public UserRepositoryImpl(DataSource dataSource, UserMapper userMapper) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
         this.userMapper = userMapper;
     }
 
     @Override
     public Optional<UserEntity> get(Long aLong) {
-        return Optional.ofNullable(jdbcTemplate.queryForObject(
-                "select * from user where id = ?",
-                new Object[]{aLong},
-                userMapper
-        ));
+        try {
+            return Optional.ofNullable(jdbcTemplate.queryForObject(
+                    "select * from user where id = ?",
+                    new Object[]{aLong},
+                    userMapper
+            ));
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
     @Override
@@ -46,19 +53,18 @@ public class UserDaoImpl implements UserDao{
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement("insert into user " +
-                    "(activation_key, email, enabled, first_name, lang_key, last_name, password, register_date, user_id, username, plan_id) " +
-                    "values (?,?, ?,?,?,?,?,?,?,?,?);");
+                    "(activation_key, email, enabled, first_name, last_name, password_hash, register_date, user_id, username, plan_id) " +
+                    "values (?,?, ?,?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
                     ps.setString(1, user.getActivationKey());
                     ps.setString(2, user.getEmail());
                     ps.setBoolean(3, user.isEnabled());
                     ps.setString(4, user.getFirstName());
-                    ps.setString(5, user.getLangKey());
-                    ps.setString(6, user.getLastName());
-                    ps.setString(7, user.getPassword());
-                    ps.setTimestamp(8, user.getRegisterDate());
-                    ps.setString(9, user.getUserId());
-                    ps.setString(10, user.getUsername());
-                    ps.setLong(11, user.getCurrentPlan().getId());
+                    ps.setString(5, user.getLastName());
+                    ps.setString(6, user.getPassword());
+                    ps.setTimestamp(7, user.getRegisterDate());
+                    ps.setString(8, user.getUserId());
+                    ps.setString(9, user.getUsername());
+                    ps.setLong(10, user.getCurrentPlan().getId());
                     return ps;
             }, keyHolder);
         user.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
@@ -81,20 +87,37 @@ public class UserDaoImpl implements UserDao{
     }
 
     public Optional<UserEntity> findByUsername(String username) {
-        return Optional.ofNullable(jdbcTemplate.queryForObject("select * from user where username=?", new Object[]{username}, userMapper));
+        try {
+            return Optional.ofNullable(jdbcTemplate.queryForObject("select * from user where username=?", new Object[]{username}, userMapper));
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
     public Optional<UserEntity> findByActivationKey(String token) {
-        return Optional.ofNullable(jdbcTemplate.queryForObject("select * from user where activation_key=?", new Object[]{token}, userMapper));
+        System.out.println(token);
+        try {
+            return Optional.ofNullable(jdbcTemplate.queryForObject("select * from user where activation_key=?", new Object[]{token}, userMapper));
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
     public Optional<UserEntity> findByUserId(String userId) {
-        return Optional.ofNullable(jdbcTemplate.queryForObject("select * from user where user_id=?", new Object[]{userId}, userMapper));
+        try {
+            return Optional.ofNullable(jdbcTemplate.queryForObject("select * from user where user_id=?", new Object[]{userId}, userMapper));
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
     public void deleteByUserId(String userId) {
         jdbcTemplate.update("delete from user where user_id=?", userId);
     }
     public Optional<UserEntity> findByEmail(String email) {
-        return Optional.ofNullable(jdbcTemplate.queryForObject("select * from user where email=?", new Object[]{email}, userMapper));
+        try{
+            return Optional.ofNullable(jdbcTemplate.queryForObject("select * from user where email=?", new Object[]{email}, userMapper));
+        } catch (EmptyResultDataAccessException e) {
+            return Optional.empty();
+        }
     }
 
 }

@@ -1,9 +1,7 @@
 package com.biwise.audit.domain.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.*;
 
 @Data

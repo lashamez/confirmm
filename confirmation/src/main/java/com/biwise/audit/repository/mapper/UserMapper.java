@@ -14,14 +14,13 @@ public class UserMapper implements RowMapper<UserEntity> {
         user.setId(resultSet.getLong("id"));
         user.setActivationKey(resultSet.getString("activation_key"));
         user.setEmail(resultSet.getString("email"));
-        user.setLangKey(resultSet.getString("lang_key"));
-        user.setFirstName(resultSet.getString("fist_name"));
+        user.setFirstName(resultSet.getString("first_name"));
         user.setLastName(resultSet.getString("last_name"));
         user.setEnabled(resultSet.getBoolean("enabled"));
-        user.setRegisterDate(resultSet.getDate("register_date"));
+        user.setRegisterDate(resultSet.getTimestamp("register_date"));
         user.setUserId(resultSet.getString("user_id"));
         user.setUsername(resultSet.getString("username"));
-        user.setPassword(resultSet.getString("password"));
+        user.setPassword(resultSet.getString("password_hash"));
         return user;
     }
 }

@@ -2,21 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6139e939-9e4a-4fb4-9a23-0918481a8d17" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../confirmation/logFile.2019-12-19.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/Dao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/InvitationTokenRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/SqlErrorTranslator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/PackageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/PrivilegeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/impl/PackageRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/impl/PrivilegeRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/impl/RoleRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/checkstyle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/config/DatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/config/DatabaseConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/InitialDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/InitialDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/PackageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/PackageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/PrivilegeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/PrivilegeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/RoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/RoleEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Const/ProjectDetailsConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Const/ProjectDetailsConstants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Project/ProjectManagement/ProjectManagement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement/ProjectManagement.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Project/ProjectManagement/TaskDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement/TaskDialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/PackageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/PackageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -67,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/src/components/Project/ProjectManagement/ProjectManagement.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+              <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -173,11 +177,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="380" />
-    <option name="y" value="-4" />
-    <option name="width" value="1851" />
-    <option name="height" value="1040" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="102" />
+    <option name="y" value="49" />
+    <option name="width" value="1849" />
+    <option name="height" value="1004" />
   </component>
   <component name="ProjectId" id="1UcAlnFiRXd3ob24so8gZMhZldv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -357,7 +361,7 @@
       <workItem from="1576047254884" duration="3492000" />
       <workItem from="1576051334728" duration="23314000" />
       <workItem from="1576482961713" duration="516000" />
-      <workItem from="1576496485361" duration="14695000" />
+      <workItem from="1576496485361" duration="15298000" />
     </task>
     <task id="LOCAL-00001" summary="initial frontend">
       <created>1575037645239</created>
@@ -391,13 +395,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64894000" />
+    <option name="totallyTimeSpent" value="65497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24945416" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -410,7 +414,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.2895005" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.29663607" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.29663607" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32925585" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -859,7 +863,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/Project/ProjectManagement/ProjectManagement.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

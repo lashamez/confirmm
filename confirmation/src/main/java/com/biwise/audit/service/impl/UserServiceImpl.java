@@ -7,7 +7,6 @@ import com.biwise.audit.domain.entity.PrivilegeEntity;
 import com.biwise.audit.domain.entity.RoleEntity;
 import com.biwise.audit.domain.entity.UserEntity;
 import com.biwise.audit.repository.UserDao;
-import com.biwise.audit.repository.UserDaoImpl;
 import com.biwise.audit.service.MailService;
 import com.biwise.audit.service.UserService;
 import com.biwise.audit.ui.errors.EmailAlreadyUsedException;
