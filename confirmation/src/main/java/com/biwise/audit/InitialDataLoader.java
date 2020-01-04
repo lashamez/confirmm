@@ -4,7 +4,7 @@ import com.biwise.audit.domain.entity.PrivilegeEntity;
 import com.biwise.audit.domain.entity.RoleEntity;
 import com.biwise.audit.repository.PrivilegeRepository;
 import com.biwise.audit.repository.RoleRepository;
-import com.biwise.audit.repository.UserDao;
+import com.biwise.audit.repository.UserRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,7 +20,7 @@ import java.util.List;
 public class InitialDataLoader implements ApplicationListener<ContextRefreshedEvent> {
     boolean alreadySetup = false;
 
-    private final UserDao userDao;
+    private final UserRepository userRepository;
 
     private final RoleRepository roleRepository;
 
@@ -28,8 +28,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
     private final PasswordEncoder passwordEncoder;
 
-    public InitialDataLoader(UserDao userDao, RoleRepository roleRepository, PrivilegeRepository privilegeRepository, PasswordEncoder passwordEncoder) {
-        this.userDao = userDao;
+    public InitialDataLoader(UserRepository userRepository, RoleRepository roleRepository, PrivilegeRepository privilegeRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.privilegeRepository = privilegeRepository;
         this.passwordEncoder = passwordEncoder;
@@ -64,7 +64,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     }
 
     @Transactional
-    RoleEntity createRoleIfNotFound(String name, Collection<PrivilegeEntity> privileges) {
+    void createRoleIfNotFound(String name, Collection<PrivilegeEntity> privileges) {
 
         RoleEntity role = roleRepository.findByName(name);
         if (role == null) {
@@ -72,6 +72,5 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
             role.setPrivileges(privileges);
             roleRepository.save(role);
         }
-        return role;
     }
 }
