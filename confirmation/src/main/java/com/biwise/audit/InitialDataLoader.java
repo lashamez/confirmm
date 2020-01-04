@@ -2,7 +2,6 @@ package com.biwise.audit;
 
 import com.biwise.audit.domain.entity.PrivilegeEntity;
 import com.biwise.audit.domain.entity.RoleEntity;
-import com.biwise.audit.domain.entity.UserEntity;
 import com.biwise.audit.repository.PrivilegeRepository;
 import com.biwise.audit.repository.RoleRepository;
 import com.biwise.audit.repository.UserRepository;
@@ -16,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
 @Component
 public class InitialDataLoader implements ApplicationListener<ContextRefreshedEvent> {
     boolean alreadySetup = false;
@@ -35,12 +35,12 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         this.passwordEncoder = passwordEncoder;
     }
 
-
     @Override
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        if (alreadySetup)
+        if (alreadySetup) {
             return;
+        }
         PrivilegeEntity readPrivilege
                 = createPrivilegeIfNotFound("READ_PRIVILEGE");
         PrivilegeEntity writePrivilege

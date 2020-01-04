@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -20,6 +21,7 @@ public class RoleEntity {
     private Long id;
 
     private String name;
+
     @ManyToMany(mappedBy = "roles")
     private Collection<UserEntity> users = new ArrayList<>();
 

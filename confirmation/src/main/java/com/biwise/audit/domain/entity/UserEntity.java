@@ -1,7 +1,5 @@
 package com.biwise.audit.domain.entity;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +15,7 @@ import java.util.*;
 @Data
 public class UserEntity implements UserDetails {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String username;
@@ -58,6 +56,7 @@ public class UserEntity implements UserDetails {
 
     @Column
     private boolean enabled;
+
     @JsonIgnore
     private String activationKey;
 

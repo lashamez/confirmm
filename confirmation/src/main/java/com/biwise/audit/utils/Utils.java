@@ -6,9 +6,11 @@ import java.security.SecureRandom;
 
 @Component
 public class Utils {
-    private final SecureRandom RANDOM = new SecureRandom();
-    private final String ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private final int ITERATIONS = 10000;
+    private static final SecureRandom RANDOM = new SecureRandom();
+
+    private static final String ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    private static final int ITERATIONS = 10000;
 
     public String generateUserId(int length) {
         return generateRandomString(length);
@@ -21,6 +23,7 @@ public class Utils {
     public String generateProjectId(int length) {
         return generateRandomString(length);
     }
+
     private String generateRandomString(int length) {
         StringBuilder returnValue = new StringBuilder();
         for (int i = 0; i < length; i++) {

@@ -33,8 +33,11 @@ import java.util.stream.Collectors;
 public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait {
 
     private static final String FIELD_ERRORS_KEY = "fieldErrors";
+
     private static final String MESSAGE_KEY = "message";
+
     private static final String PATH_KEY = "path";
+
     private static final String VIOLATIONS_KEY = "violations";
 
     @Value("${audit.clientApp.name}")
@@ -100,6 +103,7 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
                 .build();
         return create(ex, problem, request);
     }
+
     @ExceptionHandler
     public ResponseEntity<Problem> handleEmailAlreadyUsedException(EmailAlreadyUsedException ex, NativeWebRequest request) {
         return create(ex, request, HeaderUtils.createFailureAlert(ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
@@ -115,15 +119,17 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
     public ResponseEntity<Problem> handleInvalidPasswordException(InvalidPasswordException ex, NativeWebRequest request) {
         return create(new InvalidPasswordException(), request);
     }
+
     @ExceptionHandler
     public ResponseEntity<Problem> handleBadRequestAlertException(BadRequestAlertException ex, NativeWebRequest request) {
-        return create(ex, request, HeaderUtils.createFailureAlert( ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
+        return create(ex, request, HeaderUtils.createFailureAlert(ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
     }
 
     @ExceptionHandler
     public ResponseEntity<Problem> handleCompanyAlreadyUsedException(CompanyAlreadyUsedException ex, NativeWebRequest request) {
         return create(ex, request, HeaderUtils.createFailureAlert(ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
     }
+
     @ExceptionHandler
     public ResponseEntity<Problem> handleConcurrencyFailure(ConcurrencyFailureException ex, NativeWebRequest request) {
         Problem problem = Problem.builder()
@@ -135,6 +141,6 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
 
     @ExceptionHandler
     public ResponseEntity<Problem> handleCompanyNotFoundException(CompanyNotFoundException ex, NativeWebRequest request) {
-        return create(ex, request, HeaderUtils.createFailureAlert( ex.getTitle(), ex.getDetail(), ex.getMessage()));
+        return create(ex, request, HeaderUtils.createFailureAlert(ex.getTitle(), ex.getDetail(), ex.getMessage()));
     }
 }

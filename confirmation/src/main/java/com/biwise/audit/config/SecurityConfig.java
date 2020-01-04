@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserService userDetailsService;
+
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public SecurityConfig(UserService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
@@ -30,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/users", "/users/login", "/register")
                 .permitAll()
-                .antMatchers(HttpMethod.GET,"/users/confirm")
+                .antMatchers(HttpMethod.GET, "/users/confirm")
                 .permitAll()
                 .anyRequest().authenticated().and()
                 .addFilter(getAuthenticationFilter())

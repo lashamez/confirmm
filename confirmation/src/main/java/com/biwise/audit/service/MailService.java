@@ -1,6 +1,5 @@
 package com.biwise.audit.service;
 
-
 import com.biwise.audit.domain.dto.ProjectDto;
 import com.biwise.audit.domain.dto.UserDto;
 
@@ -34,9 +33,11 @@ public class MailService {
 
     @Value("${audit.mail.from}")
     private String mailFrom;
+
     private static final String SERVER_URL = "http://localhost:8080";
 
     private final Utils utils;
+
     private final JavaMailSender javaMailSender;
 
     private final MessageSource messageSource;
@@ -85,8 +86,8 @@ public class MailService {
     @Async
     public void sendActivationEmail(UserDto user) {
         log.debug("Sending activation email to '{}'", user.getEmail());
-        String activationUrl = "localhost:3000/confirm?token="+user.getActivationKey();
-        sendEmailFromTemplate(user, "mail/activationEmail", "email.activation.title",activationUrl);
+        String activationUrl = "localhost:3000/confirm?token=" + user.getActivationKey();
+        sendEmailFromTemplate(user, "mail/activationEmail", "email.activation.title", activationUrl);
     }
 
     @Async

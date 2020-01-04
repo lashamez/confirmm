@@ -13,7 +13,6 @@ import io.swagger.annotations.*;
 import java.security.Principal;
 import java.util.List;
 
-
 @RequestMapping("/project")
 @Api(value = "Project Api")
 public interface IProjectController {

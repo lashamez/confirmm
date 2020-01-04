@@ -14,8 +14,11 @@ import java.util.stream.Collectors;
 @Service
 public class ProjectServiceImpl implements ProjectService {
     private final Utils utils;
+
     private final ProjectRepository projectRepository;
+
     private ModelMapper modelMapper = new ModelMapper();
+
     public ProjectServiceImpl(Utils utils, ProjectRepository projectRepository) {
         this.utils = utils;
         this.projectRepository = projectRepository;
@@ -24,7 +27,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDto createProject(ProjectDto projectDto) {
         projectDto.setProjectId(utils.generateProjectId(30));
-        ProjectEntity projectEntity = modelMapper.map(projectDto,ProjectEntity.class);
+        ProjectEntity projectEntity = modelMapper.map(projectDto, ProjectEntity.class);
         ProjectEntity saved = projectRepository.save(projectEntity);
         return modelMapper.map(saved, ProjectDto.class);
     }
@@ -33,7 +36,7 @@ public class ProjectServiceImpl implements ProjectService {
     public List<ProjectDto> findAll() {
         List<ProjectEntity> allProjects = projectRepository.findAll();
         return allProjects.stream()
-                .map(project->modelMapper.map(project, ProjectDto.class))
+                .map(project -> modelMapper.map(project, ProjectDto.class))
                 .collect(Collectors.toList());
     }
 

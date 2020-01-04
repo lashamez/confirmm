@@ -43,8 +43,8 @@ public class LoggingAspect {
     /**
      * Pointcut that matches all Spring beans in the application's main packages.
      */
-    @Pointcut("within(com.biwise.audit.repository..*)"+
-        " || within(com.biwise.audit.service..*)"+
+    @Pointcut("within(com.biwise.audit.repository..*)" +
+        " || within(com.biwise.audit.service..*)" +
         " || within(com.biwise.audit.ui..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
@@ -60,11 +60,11 @@ public class LoggingAspect {
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
         if (env.acceptsProfiles(Profiles.of(ProfileConstants.SPRING_PROFILE_DEVELOPMENT))) {
             log.error("Exception in {}.{}() with cause = \'{}\' and exception = \'{}\'", joinPoint.getSignature().getDeclaringTypeName(),
-                joinPoint.getSignature().getName(), e.getCause() != null? e.getCause() : "NULL", e.getMessage(), e);
+                joinPoint.getSignature().getName(), e.getCause() != null ? e.getCause() : "NULL", e.getMessage(), e);
 
         } else {
             log.error("Exception in {}.{}() with cause = {}", joinPoint.getSignature().getDeclaringTypeName(),
-                joinPoint.getSignature().getName(), e.getCause() != null? e.getCause() : "NULL");
+                joinPoint.getSignature().getName(), e.getCause() != null ? e.getCause() : "NULL");
         }
     }
 

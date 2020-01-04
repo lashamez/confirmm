@@ -1,8 +1,4 @@
-package com.biwise.audit.config;//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
+package com.biwise.audit.config;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
@@ -13,8 +9,10 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.core.task.AsyncTaskExecutor;
 
 public class ExceptionHandlingAsyncTaskExecutor implements AsyncTaskExecutor, InitializingBean, DisposableBean {
-    static final String EXCEPTION_MESSAGE = "Caught async exception";
+    private static final String EXCEPTION_MESSAGE = "Caught async exception";
+
     private final Logger log = LoggerFactory.getLogger(ExceptionHandlingAsyncTaskExecutor.class);
+
     private final AsyncTaskExecutor executor;
 
     public ExceptionHandlingAsyncTaskExecutor(AsyncTaskExecutor executor) {
@@ -65,7 +63,7 @@ public class ExceptionHandlingAsyncTaskExecutor implements AsyncTaskExecutor, In
 
     public void destroy() throws Exception {
         if (this.executor instanceof DisposableBean) {
-            DisposableBean bean = (DisposableBean)this.executor;
+            DisposableBean bean = (DisposableBean) this.executor;
             bean.destroy();
         }
 
@@ -73,7 +71,7 @@ public class ExceptionHandlingAsyncTaskExecutor implements AsyncTaskExecutor, In
 
     public void afterPropertiesSet() throws Exception {
         if (this.executor instanceof InitializingBean) {
-            InitializingBean bean = (InitializingBean)this.executor;
+            InitializingBean bean = (InitializingBean) this.executor;
             bean.afterPropertiesSet();
         }
 

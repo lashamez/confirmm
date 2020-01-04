@@ -1,7 +1,6 @@
 package com.biwise.audit.controller;
 
 import com.biwise.audit.domain.dto.PackageDto;
-import com.biwise.audit.domain.dto.ProjectDto;
 import com.biwise.audit.domain.dto.UserDto;
 import com.biwise.audit.service.PackageService;
 import com.biwise.audit.service.UsernameAlreadyUsedException;
@@ -10,11 +9,9 @@ import com.biwise.audit.ui.errors.NotAllowedToRegisterException;
 import com.biwise.audit.ui.request.InvitedUserRequestModel;
 import com.biwise.audit.ui.request.LoginModel;
 import com.biwise.audit.service.UserService;
-import com.biwise.audit.ui.request.PackageRequestModel;
 import com.biwise.audit.ui.request.UserRequestModel;
 import com.biwise.audit.ui.response.UserRest;
 import com.biwise.audit.utils.HeaderUtils;
-import com.biwise.audit.utils.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
@@ -31,21 +28,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@SuppressWarnings("unchecked")
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/users")
-public class AccountController implements IAccountController{
+public class AccountController implements IAccountController {
     private static final Logger logger = LogManager.getLogger(AccountController.class);
+
     @Value("${audit.clientApp.name}")
     private String applicationName;
+
     @Value("${invitedUserPassword}")
     private String defaultPassword;
+
     private static final String ENTITY_NAME = "user";
+
     private ModelMapper modelMapper = new ModelMapper();
+
     private final UserService userService;
+
     private final BCryptPasswordEncoder passwordEncoder;
+
     private final PackageService packageService;
+
     public AccountController(UserService userService, BCryptPasswordEncoder passwordEncoder, PackageService packageService) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
@@ -70,6 +74,7 @@ public class AccountController implements IAccountController{
         UserRest returnValue = modelMapper.map(userDto, UserRest.class);
         return ResponseEntity.ok(returnValue);
     }
+
     @PutMapping("/{id}")
     public ResponseEntity<UserRest> update(@PathVariable String id, @Valid @RequestBody UserRequestModel userRequestModel) {
         UserDto userDto = modelMapper.map(userRequestModel, UserDto.class);
@@ -86,6 +91,7 @@ public class AccountController implements IAccountController{
         userService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtils.createEntityDeletionAlert(ENTITY_NAME, id)).build();
     }
+
     @PostMapping("/login")
     public ResponseEntity login(@Valid @RequestBody LoginModel login) {
         System.out.println("asdasda");
@@ -153,6 +159,7 @@ public class AccountController implements IAccountController{
         UserDto saved = userService.register(userDto);
         return ResponseEntity.ok(modelMapper.map(saved, UserRest.class));
     }
+
     @GetMapping("/team")
     public ResponseEntity<List<UserRest>> teamMembers(Principal principal) {
         String user = principal.getName();

@@ -8,5 +8,6 @@ import javax.validation.constraints.Email;
 public class PackageRequestModel {
     @Email(message = "გთხოვთ ჩაწერეთ სწორი ელ-ფოსტა")
     String email;
+
     String packageName;
 }

@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
@@ -35,6 +36,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         try {
             LoginModel credentials = new ObjectMapper()
                     .readValue(request.getInputStream(), LoginModel.class);
+            System.out.println(credentials);
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     credentials.getEmail(),
                     credentials.getPassword(),

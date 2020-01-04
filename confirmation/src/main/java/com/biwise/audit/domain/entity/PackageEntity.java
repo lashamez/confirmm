@@ -1,9 +1,6 @@
 package com.biwise.audit.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "plan")
+@Table(name = "package")
 
 public class PackageEntity {
     @Id
@@ -26,6 +23,7 @@ public class PackageEntity {
     private String email;
 
     private String packageName;
+
     @JsonIgnore
     @OneToMany(mappedBy = "currentPlan", fetch = FetchType.EAGER)
     private List<UserEntity> users = new ArrayList<>();

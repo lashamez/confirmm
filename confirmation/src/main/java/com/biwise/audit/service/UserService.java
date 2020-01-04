@@ -9,6 +9,7 @@ import java.util.List;
 public interface UserService extends UserDetailsService {
 
     List<UserDto> findAll();
+
     void delete(String userId);
 
     UserDto findOne(String username);

@@ -1,6 +1,5 @@
 package com.biwise.audit.utils;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,9 +7,12 @@ import org.springframework.http.HttpHeaders;
 
 public final class HeaderUtils {
     private static final Logger log = LoggerFactory.getLogger(HeaderUtils.class);
+
     @Value("${audit.clientApp.name}")
     private static String applicationName;
+
     private static final boolean enableTranslation = true;
+
     private HeaderUtils() {
     }
 

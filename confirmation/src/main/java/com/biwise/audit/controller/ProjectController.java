@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,20 +26,27 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/project")
-public class ProjectController implements IProjectController{
+public class ProjectController implements IProjectController {
     private static final Logger logger = LogManager.getLogger(ProjectController.class);
+
     private ModelMapper modelMapper = new ModelMapper();
+
     private static final String ENTITY_NAME = "project";
+
     private final ProjectService projectService;
+
     private final UserService userService;
+
     private final MailService mailService;
+
     public ProjectController(ProjectService projectService, UserService userService, MailService mailService) {
         this.projectService = projectService;
         this.userService = userService;
         this.mailService = mailService;
     }
+
     @PostMapping("")
-    public ResponseEntity<ProjectRest> createProject(@Valid @RequestBody ProjectRequestModel project, Principal principal){
+    public ResponseEntity<ProjectRest> createProject(@Valid @RequestBody ProjectRequestModel project, Principal principal) {
         LocalDate startDate = getParsedDate(project.getStartYear());
         LocalDate endDate = getParsedDate(project.getEndYear());
         ProjectDto projectDto = modelMapper.map(project, ProjectDto.class);

@@ -18,7 +18,9 @@ public class InvitationTokenEntity implements Token {
     private Long id;
 
     private String token;
+
     private String accountantMail;
+
     private Date expiryDate;
 
     @PrePersist

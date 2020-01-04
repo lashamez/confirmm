@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
     private static final int TOKEN_LENGTH = 50;
 
     private ModelMapper modelMapper = new ModelMapper();
+
     private final UserRepository userRepository;
 
     private final RoleRepository roleRepository;
@@ -39,6 +40,7 @@ public class UserServiceImpl implements UserService {
     private final Utils utils;
 
     private final MailService mailService;
+
     public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder, Utils utils, MailService mailService) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
@@ -74,7 +76,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto update(UserDto userDto) {
         Optional<UserEntity> user = userRepository.findByUserId(userDto.getUserId());
-        if(user.isPresent()) {
+        if (user.isPresent()) {
             UserEntity userEntity = user.get();
             userEntity.setFirstName(userDto.getFirstName());
             userEntity.setLastName(userDto.getLastName());
@@ -99,7 +101,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto register(UserDto user) {
-        userRepository.findByEmail(user.getEmail().toLowerCase()).ifPresent(existingUser->{
+        userRepository.findByEmail(user.getEmail().toLowerCase()).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
                 throw new EmailAlreadyUsedException();
