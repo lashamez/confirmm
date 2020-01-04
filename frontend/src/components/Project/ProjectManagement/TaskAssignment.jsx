@@ -29,6 +29,11 @@ class TaskAssignment extends Component {
         }
 
     }
+    addTask =(task, user)=>{
+        let tasks = [...this.state.tasks, {task: task, user: user}]
+        this.setState({tasks: tasks})
+        console.log(tasks)
+    }
 
     componentDidMount() {
         this.props.reloadMembers().then(res => {
@@ -45,7 +50,7 @@ class TaskAssignment extends Component {
                         <div key={member.userId}>
                             <ListItem alignItems="flex-start">
                                 <ListItemAvatar>
-                                    <Avatar>{member.firstName[0].toUpperCase()}</Avatar>
+                                    <Avatar>{member.firstName[0]}</Avatar>
                                 </ListItemAvatar>
                                 <ListItemText
                                     primary={member.firstName + " " + member.lastName}
@@ -59,12 +64,11 @@ class TaskAssignment extends Component {
                                             >
                                                 {member.email}
                                             </Typography>
-                                            {" — I'll be in your neighborhood doing errands this…"}
                                         </React.Fragment>
                                     }
                                 />
                             </ListItem>
-                            <TaskDialog user={member}/>
+                            <TaskDialog user={member} addTask={this.addTask}/>
                             <Divider variant="inset" component="li"/>
                         </div>
                     )

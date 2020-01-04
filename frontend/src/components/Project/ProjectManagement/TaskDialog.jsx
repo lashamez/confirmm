@@ -25,12 +25,7 @@ class TaskDialog extends Component {
                 deadLineDate: new Date(),
             }
         }
-        this.handleClickOpen = this.handleClickOpen.bind(this)
-        this.handleClose = this.handleClose.bind(this)
-        this.handleComplete = this.handleComplete.bind(this)
-        this.onMenuChange = this.onMenuChange.bind(this)
-        this.onPanelItemChange = this.onPanelItemChange.bind(this)
-        this.handleDateChange = this.handleDateChange.bind(this)
+
     }
 
 
@@ -42,13 +37,12 @@ class TaskDialog extends Component {
         this.setState({open: false});
     };
 
-    handleComplete() {
+    handleComplete =()=> {
+        this.props.addTask(this.state.currentTask, this.props.user)
         this.handleClose()
-
     }
 
-    onMenuChange(e) {
-        console.log(menus[e.target.value].panelItems)
+    onMenuChange =(e)=> {
         this.setState({
             currentTask: {
                 currentMenuItem: e.target.value,
@@ -59,7 +53,7 @@ class TaskDialog extends Component {
         })
     }
 
-    onPanelItemChange(e) {
+    onPanelItemChange =(e)=> {
         this.setState({
             currentTask: {
                 currentMenuItem: this.state.currentTask.currentMenuItem,
@@ -84,7 +78,7 @@ class TaskDialog extends Component {
     render() {
         return (
             <div>
-                <Button variant="outlined" color="inherit" onClick={this.handleClickOpen}>
+                <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
                     დავალება
                 </Button>
                 <Dialog fullWidth open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
@@ -126,7 +120,6 @@ class TaskDialog extends Component {
                                         value={this.state.currentTask.selectedPanelItem}
                                     >
                                         {this.state.currentTask.currentPanelItems.map(panelItem => {
-                                            console.log(panelItem)
                                             return (
                                                 <MenuItem key={panelItem.id} value={panelItem.value}>
                                                     {panelItem.label}

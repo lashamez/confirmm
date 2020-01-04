@@ -6,6 +6,7 @@ import Box from "@material-ui/core/Box";
 import TaskAssignment from "./TaskAssignment";
 import ApiService from "../../Service/ApiService";
 import {toast} from "react-toastify";
+import ProjectService from "../../Service/ProjectService";
 
 class ProjectManagement extends Component {
     constructor(props) {
@@ -13,9 +14,16 @@ class ProjectManagement extends Component {
         this.state = {
             projectId: this.props.projectId
         }
-        this.reloadMembers = this.reloadMembers.bind(this)
     }
-    reloadMembers() {
+
+    reloadUserRoles =()=> {
+        return ProjectService.fetchProjectById(this.state.projectId).catch(err => {
+            toast.error("დაფიქსირდა შეცდომა")
+            console.log(err)
+        })
+    }
+
+    reloadMembers =()=> {
         return ApiService.findMyTeamMembers().catch(error => {
             toast.error('გუნდის წევრების ჩატვირთვის დროს დაფიქსირდა შეცდომა')
             console.log(error)
@@ -24,9 +32,9 @@ class ProjectManagement extends Component {
     render() {
         return (
             <Box>
-                <CustomPanel title={panelItems.auditTeam} content={<AuditTeam reloadMembers={this.reloadMembers}  projectId={this.state.projectId}/>} projectId={this.state.projectId}/>
+                <CustomPanel title={panelItems.auditTeam} content={<AuditTeam reloadMembers={this.reloadMembers} reloadUserRoles={this.reloadUserRoles} projectId={this.state.projectId}/>} />
 
-                <CustomPanel title={panelItems.taskManagement} content={<TaskAssignment reloadMembers={this.reloadMembers} projectId={this.state.projectId}/>} projectId={this.state.projectId}/>
+                <CustomPanel title={panelItems.taskManagement} content={<TaskAssignment reloadMembers={this.reloadMembers} reloadUserRoles={this.reloadUserRoles} projectId={this.state.projectId}/>} />
             </Box>
         )
     }

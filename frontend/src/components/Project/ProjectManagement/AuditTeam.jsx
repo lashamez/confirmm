@@ -49,7 +49,8 @@ class AuditTeam extends Component {
         super(props);
         this.state = {
             projectMembers: [],
-            allMembers:[],
+            allMembers: [],
+            allMembersCopy: [],
             currentMember: {
                 email: '',
                 role: ''
@@ -60,31 +61,34 @@ class AuditTeam extends Component {
         this.onAdd = this.onAdd.bind(this)
         this.deleteMember = this.deleteMember.bind(this)
     }
+
     deleteMember(index) {
         let member = this.state.projectMembers[index]
-        const projectMembers = this.state.projectMembers.filter(user => user!==member)
-        const allMembers = [...this.state.allMembers, member]
-        this.setState({projectMembers:projectMembers, allMembers:allMembers})
+        let originalMember = this.state.allMembersCopy.find(s=>s.email === member.email)
+        const projectMembers = this.state.projectMembers.filter(user => user !== member)
+        const allMembers = [...this.state.allMembers, originalMember]
+        this.setState({projectMembers: projectMembers, allMembers: allMembers})
     }
+
     onAdd(e) {
         e.preventDefault()
         const members = [...this.state.projectMembers];
 
         if (this.state.currentMember.email === '' || this.state.currentMember.role === '') {
             toast.error('ელ-ფოსტა ან როლი ცარიელია. გთხოვთ შეავსოთ ორივე ველი')
-        }else {
+        } else {
             const current = this.state.allMembers.find(user => user.email === this.state.currentMember.email)
             current.role = this.state.currentMember.role
             members.push(current)
-            let allMembers = this.state.allMembers.filter(s=>s.email!==this.state.currentMember.email)
-            this.setState({projectMembers: members, currentMember: {email: '', role: ''}, allMembers:allMembers})
+            let allMembers = this.state.allMembers.filter(s => s.email !== this.state.currentMember.email)
+            this.setState({projectMembers: members, currentMember: {email: '', role: ''}, allMembers: allMembers})
         }
 
     }
 
     onSave() {
         let members = this.state.projectMembers
-        ProjectService.assignRoles( this.props.projectId, members).then(res => {
+        ProjectService.assignRoles(this.props.projectId, members).then(res => {
             toast.info('როლები შენახულია')
         }).catch(err => {
             console.log(err)
@@ -93,17 +97,20 @@ class AuditTeam extends Component {
     }
 
     componentDidMount() {
-        this.props.reloadMembers().then(res => {
-                this.setState({allMembers: res.data})
-            }
-        )
-        ProjectService.fetchProjectById(this.props.projectId).then(res => {
-            console.log(res)
+
+        this.props.reloadUserRoles().then(res => {
             this.setState({projectMembers: res.data.users})
+            this.props.reloadMembers().then(resp => {
+                    this.setState({allMembersCopy: resp.data})
+                    let unassignedMembers = resp.data.filter(s => this.state.projectMembers.find(user => user.email === s.email) === undefined)
+                    console.log(unassignedMembers)
+                    this.setState({allMembers: unassignedMembers})
+                }
+            )
         }).catch(err => {
-            console.log(err)
             toast.error("დაფიქსირდა შეცდომა")
         })
+
     }
 
     onChange(e) {
@@ -131,8 +138,9 @@ class AuditTeam extends Component {
                             return (
                                 <TableRow key={index}>
                                     <TableCell align="left">{member.email}</TableCell>
-                                    <TableCell align="left">{teamRoles.find(role => member.role === role.value).label}</TableCell>
-                                    <TableCell >
+                                    <TableCell
+                                        align="left">{teamRoles.find(role => member.role === role.value).label}</TableCell>
+                                    <TableCell>
                                         <DeleteIcon onClick={() => this.deleteMember(index)}/>
                                     </TableCell>
                                 </TableRow>
@@ -141,6 +149,7 @@ class AuditTeam extends Component {
 
                     </TableBody>
                 </Table>
+                {this.state.allMembers.length > 0 &&
                 <Grid item xs={12} sm={6}>
                     <FormControl fullWidth className={useStyles.formControl}>
                         <InputLabel id="role-select-label">როლი</InputLabel>
@@ -161,8 +170,10 @@ class AuditTeam extends Component {
                         </Select>
                     </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <FormControl fullWidth >
+                }
+                {this.state.allMembers.length > 0 &&
+                    <Grid item xs={12} sm={6}>
+                    <FormControl fullWidth>
                         <InputLabel id="user-select-label">მომხმარებელი</InputLabel>
                         <Select
                             variant={"outlined"}
@@ -180,7 +191,7 @@ class AuditTeam extends Component {
                         </Select>
                     </FormControl>
                 </Grid>
-
+                }
                 <Button
                     type="submit"
                     variant="contained"

@@ -1,4 +1,4 @@
 export const panelItems = {
     "auditTeam":"აუდიტის გუნდი",
-    "taskManagement":"ტასკების გადანაწილება"
+    "taskManagement":"დავალებების გადანაწილება"
 }
