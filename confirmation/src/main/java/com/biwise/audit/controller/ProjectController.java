@@ -5,6 +5,7 @@ import com.biwise.audit.domain.dto.UserDto;
 import com.biwise.audit.service.MailService;
 import com.biwise.audit.service.ProjectService;
 import com.biwise.audit.service.UserService;
+import com.biwise.audit.ui.request.AssignedRole;
 import com.biwise.audit.ui.request.ProjectRequestModel;
 import com.biwise.audit.ui.response.ProjectRest;
 import com.biwise.audit.utils.HeaderUtils;
@@ -19,7 +20,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,12 +53,12 @@ public class ProjectController implements IProjectController {
         ProjectDto projectDto = modelMapper.map(project, ProjectDto.class);
         projectDto.setStartYear(startDate);
         projectDto.setEndYear(endDate);
-        projectDto.setUsers(Arrays.asList(principal.getName()));
+        projectDto.setUsers(Collections.singletonList(new AssignedRole(principal.getName())));
         ProjectDto savedProject = projectService.createProject(projectDto);
         ProjectRest result = modelMapper.map(savedProject, ProjectRest.class);
         result.getUsers().stream()
-                .filter(user -> userService.findOne(user) == null)
-                .forEach(user -> mailService.sendProjectInvitation(projectDto, user));
+                .filter(user -> userService.findOne(user.getEmail()) == null)
+                .forEach(user -> mailService.sendProjectInvitation(projectDto, user.getEmail()));
         return ResponseEntity.ok().headers(HeaderUtils.createEntityCreationAlert("Project", result.getProjectId()))
                 .body(result);
     }
@@ -75,6 +76,7 @@ public class ProjectController implements IProjectController {
             ProjectRest projectRest = modelMapper.map(projectDto, ProjectRest.class);
             projectRests.add(projectRest);
         });
+        System.out.println(projectRests);
         return ResponseEntity.ok(projectRests);
     }
 
@@ -135,4 +137,15 @@ public class ProjectController implements IProjectController {
         return ResponseEntity.ok().headers(HeaderUtils
                 .createEntityDeletionAlert(ENTITY_NAME, id)).build();
     }
+
+    @PostMapping("/{id}/users")
+    @Transactional
+    public ResponseEntity<Void> assignRoles(@PathVariable String id, @RequestBody  List<AssignedRole> userRoles) {
+        ProjectDto projectDto = projectService.findByProjectId(id);
+        projectDto.setUsers(userRoles);
+        projectService.update(projectDto);
+        return ResponseEntity.ok().headers(HeaderUtils
+                .createEntityUpdateAlert(ENTITY_NAME, id)).build();
+    }
+
 }

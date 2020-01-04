@@ -1,10 +1,13 @@
 package com.biwise.audit;
 
 import com.biwise.audit.domain.entity.PrivilegeEntity;
+import com.biwise.audit.domain.entity.ProjectRoleEntity;
 import com.biwise.audit.domain.entity.RoleEntity;
 import com.biwise.audit.repository.PrivilegeRepository;
+import com.biwise.audit.repository.ProjectRoleRepository;
 import com.biwise.audit.repository.RoleRepository;
 import com.biwise.audit.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,11 +31,17 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
     private final PasswordEncoder passwordEncoder;
 
-    public InitialDataLoader(UserRepository userRepository, RoleRepository roleRepository, PrivilegeRepository privilegeRepository, PasswordEncoder passwordEncoder) {
+    private final ProjectRoleRepository projectRoleRepository;
+
+    @Value("${projectRoles}")
+    private List<String> projectRoles;
+
+    public InitialDataLoader(UserRepository userRepository, RoleRepository roleRepository, PrivilegeRepository privilegeRepository, PasswordEncoder passwordEncoder, ProjectRoleRepository projectRoleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.privilegeRepository = privilegeRepository;
         this.passwordEncoder = passwordEncoder;
+        this.projectRoleRepository = projectRoleRepository;
     }
 
     @Override
@@ -49,7 +58,17 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         List<PrivilegeEntity> adminPrivileges = Arrays.asList(readPrivilege, writePrivilege);
         createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
         createRoleIfNotFound("ROLE_USER", Collections.singletonList(readPrivilege));
+        createProjectRolesIfNotFound();
+        alreadySetup = true;
+    }
 
+    @Transactional
+    void createProjectRolesIfNotFound() {
+        List<ProjectRoleEntity> projectRoleEntities = projectRoleRepository.findAll();
+        if (!projectRoleEntities.isEmpty()) {
+            return;
+        }
+        projectRoles.forEach(s -> projectRoleRepository.save(new ProjectRoleEntity(s)));
     }
 
     @Transactional

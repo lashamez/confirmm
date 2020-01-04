@@ -1,5 +1,6 @@
 package com.biwise.audit.ui.response;
 
+import com.biwise.audit.ui.request.AssignedRole;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -10,7 +11,7 @@ import java.util.List;
 public class ProjectRest {
     private String projectId;
 
-    private List<String> users = new ArrayList<>();
+    private List<AssignedRole> users = new ArrayList<>();
 
     private String name;
 

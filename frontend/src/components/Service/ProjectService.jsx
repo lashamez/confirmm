@@ -1,5 +1,5 @@
 import axios from 'axios';
-const USER_API_BASE_URL = 'http://localhost:8080/project';
+const PROJECT_API_BASE_URL = 'http://localhost:8080/project';
 const config = {
     headers: {
         authorization: localStorage.getItem("token")
@@ -8,26 +8,30 @@ const config = {
 class ProjectService {
 
     createProject(project) {
-        return axios.post(USER_API_BASE_URL, project, config);
+        return axios.post(PROJECT_API_BASE_URL, project, config);
     }
     fetchProjects(){
-        return axios.get(USER_API_BASE_URL, config)
+        return axios.get(PROJECT_API_BASE_URL, config)
     }
 
     deleteProject(projectId) {
-        return axios.delete(USER_API_BASE_URL+'/'+projectId, config)
+        return axios.delete(PROJECT_API_BASE_URL+'/'+projectId, config)
     }
 
     editProject(project) {
-        return axios.put(USER_API_BASE_URL+'/'+project.projectId, project, config)
+        return axios.put(PROJECT_API_BASE_URL+'/'+project.projectId, project, config)
     }
     fetchProjectById(projectId) {
-        return axios.get(USER_API_BASE_URL+'/'+projectId, config)
+        return axios.get(PROJECT_API_BASE_URL+'/'+projectId, config)
     }
 
     assignRoles(projectId, members) {
-        //todo
-        return axios.get(USER_API_BASE_URL+'/'+projectId, config)
+        console.log(members)
+        let assignedRoles = []
+        members.forEach( member => {
+            assignedRoles.push({projectId: projectId, email: member.email, role: member.role})
+        })
+        return axios.post(PROJECT_API_BASE_URL+'/'+projectId+'/users', assignedRoles, config)
     }
 }
 

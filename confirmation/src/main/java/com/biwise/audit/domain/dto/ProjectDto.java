@@ -1,5 +1,6 @@
 package com.biwise.audit.domain.dto;
 
+import com.biwise.audit.ui.request.AssignedRole;
 import lombok.Data;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,5 +20,5 @@ public class ProjectDto {
 
     private LocalDate endYear;
 
-    private List<String> users = new ArrayList<>();
+    private List<AssignedRole> users = new ArrayList<>();
 }

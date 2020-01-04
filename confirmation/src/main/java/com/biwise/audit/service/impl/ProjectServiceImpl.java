@@ -50,7 +50,7 @@ public class ProjectServiceImpl implements ProjectService {
     public List<ProjectDto> findAllForUser(String email) {
 
         List<ProjectEntity> userProjects = projectRepository.findAll()
-                .stream().filter(project -> project.getUsers().contains(email))
+                .stream().filter(project -> project.getUsers().stream().anyMatch(user -> user.getEmail().equals(email)))
                 .collect(Collectors.toList());
         return userProjects.stream().map(project -> modelMapper.map(project, ProjectDto.class)).collect(Collectors.toList());
     }
@@ -62,6 +62,7 @@ public class ProjectServiceImpl implements ProjectService {
         projectEntity.setProjectType(project.getProjectType());
         projectEntity.setStartYear(project.getStartYear());
         projectEntity.setEndYear(project.getEndYear());
+        projectEntity.setUsers(project.getUsers());
         ProjectEntity saved = projectRepository.save(projectEntity);
         return modelMapper.map(saved, ProjectDto.class);
     }

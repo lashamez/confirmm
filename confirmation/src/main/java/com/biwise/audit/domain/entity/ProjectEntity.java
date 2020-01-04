@@ -1,5 +1,6 @@
 package com.biwise.audit.domain.entity;
 
+import com.biwise.audit.ui.request.AssignedRole;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class ProjectEntity {
 
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "project_users", joinColumns = @JoinColumn(name = "project_id"))
-    private List<String> users = new ArrayList<>();
+    private List<AssignedRole> users = new ArrayList<>();
 
     private LocalDate startYear;
 

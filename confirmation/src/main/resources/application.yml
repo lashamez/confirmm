@@ -107,6 +107,7 @@ info:
 
 tokenSecret: Bearer
 invitedUserPassword: hL4bz0CPEJ
+projectRoles: qualityControlPartner,dealPartner,partner,manager,supervisor,assistant,auditOtherPartner,projectResponsible,otherReviewer,specialist,limitedUser
 audit:
   clientApp:
     name: 'Audit App'
