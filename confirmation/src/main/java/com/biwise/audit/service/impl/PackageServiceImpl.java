@@ -32,6 +32,7 @@ public class PackageServiceImpl implements PackageService {
         packageDto.setPackageId(utils.generatePackageId(PACKAGE_ID_LENGTH));
         PackageEntity packageEntity = modelMapper.map(packageDto, PackageEntity.class);
         PackageEntity saved = packageRepository.save(packageEntity);
+        System.out.println(saved);
         return modelMapper.map(saved, PackageDto.class);
     }
 

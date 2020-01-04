@@ -65,8 +65,7 @@ public class AccountController implements IAccountController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getOne(@PathVariable String id) {
-        System.out.println("here");
+    public ResponseEntity<UserRest> getOne(@PathVariable String id) {
         UserDto userDto = userService.findByUserId(id);
         if (userDto == null) {
             throw new UsernameNotFoundException(id);
@@ -93,8 +92,7 @@ public class AccountController implements IAccountController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity login(@Valid @RequestBody LoginModel login) {
-        System.out.println("asdasda");
+    public ResponseEntity<UserRest> login(@Valid @RequestBody LoginModel login) {
         UserDto userDto = userService.findOne(login.getEmail());
         if (userDto != null && userDto.isEnabled() && userDto.getPassword().equals(passwordEncoder.encode(login.getPassword()))) {
             UserRest userRest = modelMapper.map(userDto, UserRest.class);
@@ -104,7 +102,7 @@ public class AccountController implements IAccountController {
     }
 
     @GetMapping("/confirm")
-    public ResponseEntity confirm(@RequestParam("token") String token) {
+    public ResponseEntity<UserRest> confirm(@RequestParam("token") String token) {
         UserDto userDto = userService.findByActivationKey(token);
         if (userDto == null) {
             return ResponseEntity.noContent().headers(HeaderUtils
@@ -124,7 +122,7 @@ public class AccountController implements IAccountController {
     }
 
     @PostMapping("")
-    public ResponseEntity registerUser(@RequestBody @Valid UserRequestModel user) {
+    public ResponseEntity<UserRest> registerUser(@RequestBody @Valid UserRequestModel user) {
         UserDto userDto = userService.findOne(user.getEmail());
         if (userDto != null) {
             throw new EmailAlreadyUsedException();
