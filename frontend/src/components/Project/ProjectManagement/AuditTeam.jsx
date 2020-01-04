@@ -97,6 +97,13 @@ class AuditTeam extends Component {
                 this.setState({allMembers: res.data})
             }
         )
+        ProjectService.fetchProjectById(this.props.projectId).then(res => {
+            console.log(res)
+            this.setState({projectMembers: res.data.users})
+        }).catch(err => {
+            console.log(err)
+            toast.error("დაფიქსირდა შეცდომა")
+        })
     }
 
     onChange(e) {
