@@ -1,10 +1,13 @@
 package com.biwise.audit.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
-import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+import java.util.Set;
+
+@Getter
+@Setter
 public class PackageDto {
     private Long id;
 
@@ -15,5 +18,5 @@ public class PackageDto {
     private String packageName;
 
     @JsonIgnore
-    private List<UserDto> users;
+    private Set<UserDto> users;
 }

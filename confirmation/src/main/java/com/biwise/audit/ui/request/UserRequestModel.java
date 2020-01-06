@@ -1,9 +1,14 @@
 package com.biwise.audit.ui.request;
 
-import lombok.Data;
-import javax.validation.constraints.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Getter
+@Setter
 public class UserRequestModel {
     @Email(message = "Email should be valid")
     private String email;

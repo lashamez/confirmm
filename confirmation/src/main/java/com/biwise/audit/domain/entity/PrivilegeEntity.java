@@ -1,13 +1,15 @@
 package com.biwise.audit.domain.entity;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
 @Table(name = "privilege")
@@ -23,6 +25,6 @@ public class PrivilegeEntity {
     private String name;
 
     @ManyToMany(mappedBy = "privileges")
-    private Collection<RoleEntity> roles = new ArrayList<>();
+    private Set<RoleEntity> roles = new HashSet<>();
 
 }

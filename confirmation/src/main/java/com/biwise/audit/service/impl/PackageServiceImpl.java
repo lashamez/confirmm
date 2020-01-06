@@ -8,6 +8,7 @@ import com.biwise.audit.utils.Utils;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,11 +29,11 @@ public class PackageServiceImpl implements PackageService {
     }
 
     @Override
+    @Transactional
     public PackageDto createPackage(PackageDto packageDto) {
         packageDto.setPackageId(utils.generatePackageId(PACKAGE_ID_LENGTH));
         PackageEntity packageEntity = modelMapper.map(packageDto, PackageEntity.class);
         PackageEntity saved = packageRepository.save(packageEntity);
-        System.out.println(saved);
         return modelMapper.map(saved, PackageDto.class);
     }
 
@@ -48,12 +49,13 @@ public class PackageServiceImpl implements PackageService {
 
     @Override
     public PackageDto update(PackageDto packageDto) {
+        // TODO: 1/6/20  
         return null;
     }
 
     @Override
     public void delete(PackageDto packageDto) {
-
+        // TODO: 1/6/20
     }
 
     @Override

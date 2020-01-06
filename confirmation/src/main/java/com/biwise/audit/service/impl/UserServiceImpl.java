@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void delete(String id) {
         userRepository.deleteByUserId(id);
     }
@@ -74,6 +75,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDto update(UserDto userDto) {
         Optional<UserEntity> user = userRepository.findByUserId(userDto.getUserId());
         if (user.isPresent()) {
@@ -87,6 +89,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDto save(UserDto user) {
         UserEntity userEntity = modelMapper.map(user, UserEntity.class);
         UserEntity updated = userRepository.save(userEntity);
@@ -100,6 +103,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDto register(UserDto user) {
         userRepository.findByEmail(user.getEmail().toLowerCase()).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
@@ -131,7 +135,8 @@ public class UserServiceImpl implements UserService {
         return users.stream().map(user -> modelMapper.map(user, UserDto.class)).collect(Collectors.toList());
     }
 
-    private boolean removeNonActivatedUser(UserEntity existingUser) {
+    @Transactional
+    boolean removeNonActivatedUser(UserEntity existingUser) {
         if (existingUser.isEnabled()) {
             return false;
         }
@@ -148,7 +153,7 @@ public class UserServiceImpl implements UserService {
         if (!optionalUser.isPresent()) {
             return new org.springframework.security.core.userdetails.User(
                     " ", " ", true, true, true, true,
-                    getAuthorities(Arrays.asList(
+                    getAuthorities(Collections.singletonList(
                             roleRepository.findByName("ROLE_USER"))));
         }
         UserEntity user = optionalUser.get();

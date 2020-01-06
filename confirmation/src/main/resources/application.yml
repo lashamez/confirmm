@@ -75,6 +75,8 @@ spring:
       naming:
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    show-sql: true
+
   messages:
     basename: i18n/messages
   main:
@@ -99,11 +101,6 @@ server:
     session:
       cookie:
         http-only: true
-
-# Properties to be exposed on the /info management endpoint
-info:
-  # Comma separated list of profiles that will trigger the ribbon to show
-  display-ribbon-on-profiles: 'dev'
 
 tokenSecret: Bearer
 invitedUserPassword: hL4bz0CPEJ
@@ -132,13 +129,3 @@ audit:
     contact-email:
     license:
     license-url:
-# ===================================================================
-# Application specific properties
-# Add your own application properties here, see the ApplicationProperties class
-# to have type-safe configuration, like in the JHipsterProperties above
-#
-# More documentation is available at:
-# https://www.jhipster.tech/common-application-properties/
-# ===================================================================
-
-# application:

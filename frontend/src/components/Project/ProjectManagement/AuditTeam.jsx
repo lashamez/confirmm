@@ -52,43 +52,41 @@ class AuditTeam extends Component {
             allMembers: [],
             allMembersCopy: [],
             currentMember: {
-                email: '',
-                role: ''
+                user: {
+                    email:''
+                },
+                role: {
+                    role:''
+                }
             }
         }
-        this.onChange = this.onChange.bind(this)
-        this.onSave = this.onSave.bind(this)
-        this.onAdd = this.onAdd.bind(this)
-        this.deleteMember = this.deleteMember.bind(this)
     }
 
-    deleteMember(index) {
-        let member = this.state.projectMembers[index]
-        let originalMember = this.state.allMembersCopy.find(s=>s.email === member.email)
-        const projectMembers = this.state.projectMembers.filter(user => user !== member)
-        const allMembers = [...this.state.allMembers, originalMember]
-        this.setState({projectMembers: projectMembers, allMembers: allMembers})
+    deleteMember =(index)=> {
+        const member = this.state.allMembersCopy.find(user => user.email === this.state.projectMembers[index].user.email)
+        const splicedProjectMembers = this.state.projectMembers.filter((user, ind) => ind !== index)
+        const pushedAllMembers = [...this.state.allMembers, member]
+        this.setState({projectMembers: splicedProjectMembers, allMembers: pushedAllMembers})
     }
 
-    onAdd(e) {
+    onAdd =(e)=> {
         e.preventDefault()
-        const members = [...this.state.projectMembers];
-
-        if (this.state.currentMember.email === '' || this.state.currentMember.role === '') {
+        if (this.state.currentMember.user.email === '' || this.state.currentMember.role.role === '') {
             toast.error('ელ-ფოსტა ან როლი ცარიელია. გთხოვთ შეავსოთ ორივე ველი')
         } else {
-            const current = this.state.allMembers.find(user => user.email === this.state.currentMember.email)
-            current.role = this.state.currentMember.role
-            members.push(current)
-            let allMembers = this.state.allMembers.filter(s => s.email !== this.state.currentMember.email)
-            this.setState({projectMembers: members, currentMember: {email: '', role: ''}, allMembers: allMembers})
+            let current = this.state.allMembersCopy.find(user => user.email === this.state.currentMember.user.email)
+            console.log(current)
+            current = {user:{...current}, role:{role:this.state.currentMember.role.role}}
+            const members = [...this.state.projectMembers, current];
+            let allMembers = this.state.allMembers.filter(s => s.email !== this.state.currentMember.user.email)
+            this.setState({projectMembers: members, currentMember: {user:{email: ''}, role: {role: ''}}, allMembers: allMembers})
         }
 
     }
 
-    onSave() {
+    onSave =()=> {
         let members = this.state.projectMembers
-        ProjectService.assignRoles(this.props.projectId, members).then(res => {
+        ProjectService.assignRoles(this.props.projectId, members).then(() => {
             toast.info('როლები შენახულია')
         }).catch(err => {
             console.log(err)
@@ -99,26 +97,26 @@ class AuditTeam extends Component {
     componentDidMount() {
 
         this.props.reloadUserRoles().then(res => {
-            this.setState({projectMembers: res.data.users})
+            this.setState({projectMembers: res.data.userRoles})
             this.props.reloadMembers().then(resp => {
-                    this.setState({allMembersCopy: resp.data})
-                    let unassignedMembers = resp.data.filter(s => this.state.projectMembers.find(user => user.email === s.email) === undefined)
-                    console.log(unassignedMembers)
-                    this.setState({allMembers: unassignedMembers})
+                    let allCopy = [...resp.data]
+                    let unassignedMembers = resp.data.filter(s => this.state.projectMembers.find(user => {
+                        return user.user.email === s.email
+                    }) === undefined)
+                    this.setState({allMembers: unassignedMembers, allMembersCopy: allCopy})
                 }
             )
         }).catch(err => {
             toast.error("დაფიქსირდა შეცდომა")
         })
-
     }
 
-    onChange(e) {
+    onChange =(e)=> {
         let current = this.state.currentMember;
         if (e.target.name === 'role') {
-            current.role = e.target.value
+            current.role.role = e.target.value
         } else {
-            current.email = e.target.value
+            current.user.email = e.target.value
         }
         this.setState({currentMember: current});
     }
@@ -135,11 +133,14 @@ class AuditTeam extends Component {
                     </TableHead>
                     <TableBody>
                         {this.state.projectMembers.map((member, index) => {
+                            console.log('ae',member)
                             return (
                                 <TableRow key={index}>
-                                    <TableCell align="left">{member.email}</TableCell>
+                                    <TableCell align="left">{member.user.email}</TableCell>
                                     <TableCell
-                                        align="left">{teamRoles.find(role => member.role === role.value).label}</TableCell>
+                                        align="left">{teamRoles.find(role => {
+                                            return member.role.role === role.value
+                                    }).label}</TableCell>
                                     <TableCell>
                                         <DeleteIcon onClick={() => this.deleteMember(index)}/>
                                     </TableCell>
@@ -158,7 +159,7 @@ class AuditTeam extends Component {
                             variant={"outlined"}
                             labelId="role-select-label"
                             id="role-simple-select"
-                            value={this.state.currentMember.role}
+                            value={this.state.currentMember.role.role}
                             onChange={this.onChange}
                             name={'role'}
                         >
@@ -181,8 +182,9 @@ class AuditTeam extends Component {
                             id="user-simple-select"
                             onChange={this.onChange}
                             name={'user'}
-                            value={this.state.currentMember.email}
+                            value={this.state.currentMember.user.email}
                         >
+                            {console.log(this.state.allMembers)}
                             {this.state.allMembers.map(option => (
                                 <MenuItem key={option.email} value={option.email}>
                                     {option.firstName} {option.lastName}

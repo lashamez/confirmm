@@ -14,10 +14,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Component
 public class InitialDataLoader implements ApplicationListener<ContextRefreshedEvent> {
@@ -55,9 +55,9 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         PrivilegeEntity writePrivilege
                 = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
 
-        List<PrivilegeEntity> adminPrivileges = Arrays.asList(readPrivilege, writePrivilege);
+        Set<PrivilegeEntity> adminPrivileges = Stream.of(readPrivilege, writePrivilege).collect(Collectors.toSet());
         createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
-        createRoleIfNotFound("ROLE_USER", Collections.singletonList(readPrivilege));
+        createRoleIfNotFound("ROLE_USER", Stream.of(readPrivilege).collect(Collectors.toSet()));
         createProjectRolesIfNotFound();
         alreadySetup = true;
     }
@@ -83,7 +83,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     }
 
     @Transactional
-    void createRoleIfNotFound(String name, Collection<PrivilegeEntity> privileges) {
+    void createRoleIfNotFound(String name, Set<PrivilegeEntity> privileges) {
 
         RoleEntity role = roleRepository.findByName(name);
         if (role == null) {

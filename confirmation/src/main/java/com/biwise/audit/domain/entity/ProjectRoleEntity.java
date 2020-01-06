@@ -1,10 +1,15 @@
 package com.biwise.audit.domain.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "projectRoles")
+@Entity(name = "project_roles")
+@Getter
+@Setter
 public class ProjectRoleEntity {
     @Id
     @GeneratedValue

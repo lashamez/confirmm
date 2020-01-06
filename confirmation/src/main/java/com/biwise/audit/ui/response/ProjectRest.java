@@ -1,17 +1,20 @@
 package com.biwise.audit.ui.response;
 
-import com.biwise.audit.ui.request.AssignedRole;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 public class ProjectRest {
     private String projectId;
 
-    private List<AssignedRole> users = new ArrayList<>();
+    @JsonManagedReference
+    private Set<AssignedProjectRoleRest> userRoles = new HashSet<>();
 
     private String name;
 
@@ -20,4 +23,19 @@ public class ProjectRest {
     private LocalDate startYear;
 
     private LocalDate endYear;
+
+    private UserRest creator;
+
+    @Override
+    public String toString() {
+        return "ProjectRest{" +
+                "projectId='" + projectId + '\'' +
+                ", userRoles=" + userRoles +
+                ", name='" + name + '\'' +
+                ", projectType='" + projectType + '\'' +
+                ", startYear=" + startYear +
+                ", endYear=" + endYear +
+                ", creator=" + creator.getEmail() +
+                '}';
+    }
 }

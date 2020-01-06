@@ -26,10 +26,9 @@ class ProjectService {
     }
 
     assignRoles(projectId, members) {
-        console.log(members)
         let assignedRoles = []
         members.forEach( member => {
-            assignedRoles.push({projectId: projectId, email: member.email, role: member.role})
+            assignedRoles.push({projectId: projectId, email: member.user.email, role: member.role})
         })
         return axios.post(PROJECT_API_BASE_URL+'/'+projectId+'/users', assignedRoles, config)
     }

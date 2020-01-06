@@ -1,11 +1,13 @@
 package com.biwise.audit.ui.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.List;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 public class PackageRest {
 
     private String packageId;
@@ -15,5 +17,5 @@ public class PackageRest {
     private String packageName;
 
     @JsonIgnore
-    private List<UserRest> users;
+    private Set<UserRest> users;
 }

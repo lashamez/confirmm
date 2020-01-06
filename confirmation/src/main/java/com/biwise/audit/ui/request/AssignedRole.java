@@ -1,5 +1,6 @@
 package com.biwise.audit.ui.request;
 
+import com.biwise.audit.ui.response.ProjectRoleRest;
 import lombok.Getter;
 
 import javax.persistence.Embeddable;
@@ -10,7 +11,7 @@ public class AssignedRole {
 
     private String email;
 
-    private String role;
+    private ProjectRoleRest role;
 
     protected AssignedRole() {
 
@@ -18,5 +19,13 @@ public class AssignedRole {
 
     public AssignedRole(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "AssignedRole{" +
+                "email='" + email + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

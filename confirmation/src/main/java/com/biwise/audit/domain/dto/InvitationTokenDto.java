@@ -1,10 +1,12 @@
 package com.biwise.audit.domain.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 public class InvitationTokenDto implements Token {
     private static final int EXPIRATION = 60 * 24;
 

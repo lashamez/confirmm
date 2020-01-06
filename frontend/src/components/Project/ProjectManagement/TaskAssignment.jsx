@@ -32,7 +32,6 @@ class TaskAssignment extends Component {
     addTask =(task, user)=>{
         let tasks = [...this.state.tasks, {task: task, user: user}]
         this.setState({tasks: tasks})
-        console.log(tasks)
     }
 
     componentDidMount() {

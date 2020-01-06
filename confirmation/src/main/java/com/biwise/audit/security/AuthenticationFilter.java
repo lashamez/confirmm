@@ -36,7 +36,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         try {
             LoginModel credentials = new ObjectMapper()
                     .readValue(request.getInputStream(), LoginModel.class);
-            System.out.println(credentials);
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     credentials.getEmail(),
                     credentials.getPassword(),

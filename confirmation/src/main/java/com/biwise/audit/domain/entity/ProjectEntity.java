@@ -1,14 +1,16 @@
 package com.biwise.audit.domain.entity;
 
-import com.biwise.audit.ui.request.AssignedRole;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity(name = "project")
 public class ProjectEntity {
     @Id
@@ -21,11 +23,15 @@ public class ProjectEntity {
 
     private String projectType;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "project_users", joinColumns = @JoinColumn(name = "project_id"))
-    private List<AssignedRole> users = new ArrayList<>();
+    @OneToMany(mappedBy = "project", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<AssignedProjectRoleEntity> userRoles = new HashSet<>();
 
     private LocalDate startYear;
 
     private LocalDate endYear;
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private UserEntity creator;
 }

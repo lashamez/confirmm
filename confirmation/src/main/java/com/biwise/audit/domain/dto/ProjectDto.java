@@ -1,12 +1,15 @@
 package com.biwise.audit.domain.dto;
 
-import com.biwise.audit.ui.request.AssignedRole;
-import lombok.Data;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+@Getter
+@Setter
 public class ProjectDto {
     private Long id;
 
@@ -20,5 +23,8 @@ public class ProjectDto {
 
     private LocalDate endYear;
 
-    private List<AssignedRole> users = new ArrayList<>();
+    @JsonManagedReference
+    private Set<AssignedProjectRoleDto> userRoles = new HashSet<>();
+
+    private UserDto creator;
 }

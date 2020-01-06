@@ -1,8 +1,11 @@
 package com.biwise.audit.controller;
 
+import com.biwise.audit.domain.dto.AssignedProjectRoleDto;
 import com.biwise.audit.domain.dto.ProjectDto;
+import com.biwise.audit.domain.dto.ProjectRoleDto;
 import com.biwise.audit.domain.dto.UserDto;
 import com.biwise.audit.service.MailService;
+import com.biwise.audit.service.ProjectRoleService;
 import com.biwise.audit.service.ProjectService;
 import com.biwise.audit.service.UserService;
 import com.biwise.audit.ui.request.AssignedRole;
@@ -20,8 +23,8 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -40,10 +43,13 @@ public class ProjectController implements IProjectController {
 
     private final MailService mailService;
 
-    public ProjectController(ProjectService projectService, UserService userService, MailService mailService) {
+    private final ProjectRoleService projectRoleService;
+
+    public ProjectController(ProjectService projectService, UserService userService, MailService mailService, ProjectRoleService projectRoleService) {
         this.projectService = projectService;
         this.userService = userService;
         this.mailService = mailService;
+        this.projectRoleService = projectRoleService;
     }
 
     @PostMapping("")
@@ -53,12 +59,11 @@ public class ProjectController implements IProjectController {
         ProjectDto projectDto = modelMapper.map(project, ProjectDto.class);
         projectDto.setStartYear(startDate);
         projectDto.setEndYear(endDate);
-        projectDto.setUsers(Collections.singletonList(new AssignedRole(principal.getName())));
+        UserDto userDto = userService.findOne(principal.getName());
+        projectDto.setCreator(userDto);
         ProjectDto savedProject = projectService.createProject(projectDto);
         ProjectRest result = modelMapper.map(savedProject, ProjectRest.class);
-        result.getUsers().stream()
-                .filter(user -> userService.findOne(user.getEmail()) == null)
-                .forEach(user -> mailService.sendProjectInvitation(projectDto, user.getEmail()));
+
         return ResponseEntity.ok().headers(HeaderUtils.createEntityCreationAlert("Project", result.getProjectId()))
                 .body(result);
     }
@@ -70,13 +75,13 @@ public class ProjectController implements IProjectController {
 
     @GetMapping("")
     public ResponseEntity<List<ProjectRest>> allProjectsForUser(Principal principal) {
-        List<ProjectDto> allProjects = projectService.findAllForUser(principal.getName());
+        UserDto userDto = userService.findOne(principal.getName());
+        List<ProjectDto> allProjects = projectService.findAllForUser(userDto);
         List<ProjectRest> projectRests = new ArrayList<>();
         allProjects.forEach(projectDto -> {
             ProjectRest projectRest = modelMapper.map(projectDto, ProjectRest.class);
             projectRests.add(projectRest);
         });
-        System.out.println(projectRests);
         return ResponseEntity.ok(projectRests);
     }
 
@@ -99,7 +104,7 @@ public class ProjectController implements IProjectController {
                     .createFailureAlert("user", userId, "User not found. nothing to update"))
                     .build();
         }
-        List<ProjectDto> userProjects = projectService.findAllForUser(userDto.getEmail());
+        List<ProjectDto> userProjects = projectService.findAllForUser(userDto);
         List<ProjectRest> returnValue = userProjects.stream()
                 .map(projectDto -> modelMapper.map(projectDto, ProjectRest.class))
                 .collect(Collectors.toList());
@@ -142,7 +147,16 @@ public class ProjectController implements IProjectController {
     @Transactional
     public ResponseEntity<Void> assignRoles(@PathVariable String id, @RequestBody  List<AssignedRole> userRoles) {
         ProjectDto projectDto = projectService.findByProjectId(id);
-        projectDto.setUsers(userRoles);
+        Set<AssignedProjectRoleDto> projectRoles = userRoles.stream().map(assignedRole -> {
+            UserDto userDto = userService.findOne(assignedRole.getEmail());
+            ProjectRoleDto projectRoleDto = projectRoleService.findByRoleName(assignedRole.getRole().getRole());
+            AssignedProjectRoleDto assignedProjectRoleDto = new AssignedProjectRoleDto();
+            assignedProjectRoleDto.setRole(projectRoleDto);
+            assignedProjectRoleDto.setUser(userDto);
+            assignedProjectRoleDto.setProject(projectDto);
+            return assignedProjectRoleDto;
+        }).collect(Collectors.toSet());
+        projectDto.setUserRoles(projectRoles);
         projectService.update(projectDto);
         return ResponseEntity.ok().headers(HeaderUtils
                 .createEntityUpdateAlert(ENTITY_NAME, id)).build();

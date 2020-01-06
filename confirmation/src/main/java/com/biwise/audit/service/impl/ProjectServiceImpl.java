@@ -1,7 +1,10 @@
 package com.biwise.audit.service.impl;
 
 import com.biwise.audit.domain.dto.ProjectDto;
+import com.biwise.audit.domain.dto.UserDto;
+import com.biwise.audit.domain.entity.AssignedProjectRoleEntity;
 import com.biwise.audit.domain.entity.ProjectEntity;
+import com.biwise.audit.repository.AssignedProjectRoleRepository;
 import com.biwise.audit.repository.ProjectRepository;
 import com.biwise.audit.service.ProjectService;
 import com.biwise.audit.utils.Utils;
@@ -17,11 +20,14 @@ public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository projectRepository;
 
+    private final AssignedProjectRoleRepository roleRepository;
+
     private ModelMapper modelMapper = new ModelMapper();
 
-    public ProjectServiceImpl(Utils utils, ProjectRepository projectRepository) {
+    public ProjectServiceImpl(Utils utils, ProjectRepository projectRepository, AssignedProjectRoleRepository roleRepository) {
         this.utils = utils;
         this.projectRepository = projectRepository;
+        this.roleRepository = roleRepository;
     }
 
     @Override
@@ -47,10 +53,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<ProjectDto> findAllForUser(String email) {
+    public List<ProjectDto> findAllForUser(UserDto userDto) {
 
         List<ProjectEntity> userProjects = projectRepository.findAll()
-                .stream().filter(project -> project.getUsers().stream().anyMatch(user -> user.getEmail().equals(email)))
+                .stream().filter(project -> project.getUserRoles().stream()
+                    .anyMatch(user -> user.getUser().getId().equals(userDto.getId()))
+                        || project.getCreator().getId().equals(userDto.getId()))
                 .collect(Collectors.toList());
         return userProjects.stream().map(project -> modelMapper.map(project, ProjectDto.class)).collect(Collectors.toList());
     }
@@ -58,12 +66,20 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDto update(ProjectDto project) {
         ProjectEntity projectEntity = projectRepository.findByProjectId(project.getProjectId());
+        //clear old roles
+        roleRepository.deleteAllByProject(projectEntity);
+
         projectEntity.setName(project.getName());
         projectEntity.setProjectType(project.getProjectType());
         projectEntity.setStartYear(project.getStartYear());
         projectEntity.setEndYear(project.getEndYear());
-        projectEntity.setUsers(project.getUsers());
+        projectEntity.setUserRoles(
+                project.getUserRoles().stream()
+                    .map(role -> modelMapper.map(role, AssignedProjectRoleEntity.class))
+                    .collect(Collectors.toSet())
+        );
         ProjectEntity saved = projectRepository.save(projectEntity);
+
         return modelMapper.map(saved, ProjectDto.class);
     }
 

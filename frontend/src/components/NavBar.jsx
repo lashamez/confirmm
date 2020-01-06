@@ -24,7 +24,6 @@ class NavBar extends Component {
     }
 
     loginFunction(res) {
-        console.log(res.headers.authorization)
         if (res.headers.authorization !== null) {
             localStorage.setItem('token', res.headers.authorization);
             localStorage.setItem('')
@@ -41,7 +40,6 @@ class NavBar extends Component {
         localStorage.clear()
         toast.info('See you soon !')
         this.setState({loggedIn:false})
-        console.log("here")
         window.location.reload();
     }
 

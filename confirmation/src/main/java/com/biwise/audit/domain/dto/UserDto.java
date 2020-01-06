@@ -1,13 +1,15 @@
 package com.biwise.audit.domain.dto;
 
-import com.fasterxml.jackson.annotation.*;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
 
-@Data
+@Getter
+@Setter
 @RequiredArgsConstructor
 @ToString(exclude = "currentPlan")
 public class UserDto {

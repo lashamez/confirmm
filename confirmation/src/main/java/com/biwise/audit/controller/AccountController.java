@@ -3,12 +3,12 @@ package com.biwise.audit.controller;
 import com.biwise.audit.domain.dto.PackageDto;
 import com.biwise.audit.domain.dto.UserDto;
 import com.biwise.audit.service.PackageService;
+import com.biwise.audit.service.UserService;
 import com.biwise.audit.service.UsernameAlreadyUsedException;
 import com.biwise.audit.ui.errors.EmailAlreadyUsedException;
 import com.biwise.audit.ui.errors.NotAllowedToRegisterException;
 import com.biwise.audit.ui.request.InvitedUserRequestModel;
 import com.biwise.audit.ui.request.LoginModel;
-import com.biwise.audit.service.UserService;
 import com.biwise.audit.ui.request.UserRequestModel;
 import com.biwise.audit.ui.response.UserRest;
 import com.biwise.audit.utils.HeaderUtils;
@@ -163,7 +163,6 @@ public class AccountController implements IAccountController {
         String user = principal.getName();
         UserDto userDto = userService.findOne(user);
         PackageDto packageDto = userDto.getCurrentPlan();
-        System.out.println(packageDto);
         List<UserRest> userRests = packageDto.getUsers().stream().map(member -> modelMapper.map(member, UserRest.class)).collect(Collectors.toList());
         return ResponseEntity.ok(userRests);
     }
