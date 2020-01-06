@@ -33,9 +33,6 @@ management:
         all: 0, 0.5, 0.75, 0.95, 0.99, 1.0
     tags:
       application: ${spring.application.name}
-    web:
-      server:
-        auto-time-requests: true
 
 spring:
   datasource:
@@ -101,21 +98,9 @@ server:
     session:
       cookie:
         http-only: true
-
-tokenSecret: Bearer
-invitedUserPassword: hL4bz0CPEJ
-projectRoles: qualityControlPartner,dealPartner,partner,manager,supervisor,assistant,auditOtherPartner,projectResponsible,otherReviewer,specialist,limitedUser
 audit:
   clientApp:
     name: 'Audit App'
-  # By default CORS is disabled. Uncomment to enable.
-  # cors:
-  #     allowed-origins: "*"
-  #     allowed-methods: "*"
-  #     allowed-headers: "*"
-  #     exposed-headers: "Authorization,Link,X-Total-Count"
-  #     allow-credentials: true
-  #     max-age: 1800
   mail:
     from: lashakapanadze50@gmail.com
   swagger:
@@ -129,3 +114,8 @@ audit:
     contact-email:
     license:
     license-url:
+logging:
+  level: [debug, info, error, fatal, trace, warn, off]
+tokenSecret: Bearer
+invitedUserPassword: hL4bz0CPEJ
+projectRoles: qualityControlPartner,dealPartner,partner,manager,supervisor,assistant,auditOtherPartner,projectResponsible,otherReviewer,specialist,limitedUser

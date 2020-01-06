@@ -31,7 +31,7 @@ public class ProjectEntity {
 
     private LocalDate endYear;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private UserEntity creator;
 }

@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "project_roles")
+@Entity(name = "project_role")
 @Getter
 @Setter
 public class ProjectRoleEntity {

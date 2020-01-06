@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/project")
-public class ProjectController implements IProjectController {
+public class ProjectController {
     private static final Logger logger = LogManager.getLogger(ProjectController.class);
 
     private ModelMapper modelMapper = new ModelMapper();
@@ -145,7 +145,7 @@ public class ProjectController implements IProjectController {
 
     @PostMapping("/{id}/users")
     @Transactional
-    public ResponseEntity<Void> assignRoles(@PathVariable String id, @RequestBody  List<AssignedRole> userRoles) {
+    public ResponseEntity<Void> assignRoles(@PathVariable String id, @Valid @RequestBody  List<AssignedRole> userRoles) {
         ProjectDto projectDto = projectService.findByProjectId(id);
         Set<AssignedProjectRoleDto> projectRoles = userRoles.stream().map(assignedRole -> {
             UserDto userDto = userService.findOne(assignedRole.getEmail());

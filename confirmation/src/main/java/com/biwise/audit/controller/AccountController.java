@@ -31,8 +31,9 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/users")
-public class AccountController implements IAccountController {
+public class AccountController {
     private static final Logger logger = LogManager.getLogger(AccountController.class);
+
 
     @Value("${audit.clientApp.name}")
     private String applicationName;
@@ -80,7 +81,6 @@ public class AccountController implements IAccountController {
         userDto.setUserId(id);
         UserDto updatedUser = userService.update(userDto);
         UserRest returnValue = modelMapper.map(updatedUser, UserRest.class);
-
         return ResponseEntity.ok().headers(HeaderUtils.createEntityUpdateAlert(ENTITY_NAME, returnValue.getUserId()))
                 .body(returnValue);
     }

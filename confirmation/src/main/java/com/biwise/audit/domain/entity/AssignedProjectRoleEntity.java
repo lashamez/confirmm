@@ -7,7 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "project_users_roles")
+@Table(name = "project_users_role")
 @Getter
 @Setter
 public class AssignedProjectRoleEntity {
