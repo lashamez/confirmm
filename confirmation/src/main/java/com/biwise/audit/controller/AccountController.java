@@ -34,7 +34,6 @@ import java.util.stream.Collectors;
 public class AccountController {
     private static final Logger logger = LogManager.getLogger(AccountController.class);
 
-
     @Value("${audit.clientApp.name}")
     private String applicationName;
 

@@ -2,9 +2,13 @@ package com.biwise.audit.domain.dto;
 
 public class ProjectTasksDTO {
     private Long id;
+
     private Long projectId;
+
     private Long assignedUserId;
+
     private Long taskAssignerUserId;
+
     private Integer taskId;
 
     public Long getId() {

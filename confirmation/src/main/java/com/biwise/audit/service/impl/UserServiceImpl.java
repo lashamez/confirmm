@@ -151,10 +151,13 @@ public class UserServiceImpl implements UserService {
 
         Optional<UserEntity> optionalUser = userRepository.findByUsername(email);
         if (!optionalUser.isPresent()) {
-            return new org.springframework.security.core.userdetails.User(
-                    " ", " ", true, true, true, true,
-                    getAuthorities(Collections.singletonList(
-                            roleRepository.findByName("ROLE_USER"))));
+            optionalUser = userRepository.findByEmail(email);
+            if (!optionalUser.isPresent()) {
+                return new org.springframework.security.core.userdetails.User(
+                        " ", " ", true, true, true, true,
+                        getAuthorities(Collections.singletonList(
+                                roleRepository.findByName("ROLE_USER"))));
+            }
         }
         UserEntity user = optionalUser.get();
         return new org.springframework.security.core.userdetails.User(
