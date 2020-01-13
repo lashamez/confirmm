@@ -3,9 +3,11 @@ package com.biwise.audit.ui.response;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
+@ToString
 public class AssignedProjectRoleRest {
     private UserRest user;
 
@@ -14,12 +16,4 @@ public class AssignedProjectRoleRest {
     @JsonBackReference
     private ProjectRest project;
 
-    @Override
-    public String toString() {
-        return "AssignedProjectRoleRest{" +
-                "user=" + user.getEmail() +
-                ", role=" + role +
-                ", project=" + project.getName() +
-                '}';
-    }
 }

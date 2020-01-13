@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         UserEntity newUser = modelMapper.map(user, UserEntity.class);
         newUser.setUserId(utils.generateUserId(30));
-        newUser.setUsername(user.getUsername());
+        newUser.setAlias(user.getAlias());
         UserEntity createdUser = userRepository.save(newUser);
         UserDto saved = modelMapper.map(createdUser, UserDto.class);
         mailService.sendActivationEmail(saved);
@@ -124,8 +124,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto findByUsername(String username) {
-        Optional<UserEntity> userEntity = userRepository.findByUsername(username);
+    public UserDto findByAlias(String username) {
+        Optional<UserEntity> userEntity = userRepository.findByAlias(username);
         return userEntity.map(entity -> modelMapper.map(entity, UserDto.class)).orElse(null);
     }
 
@@ -149,7 +149,7 @@ public class UserServiceImpl implements UserService {
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
 
-        Optional<UserEntity> optionalUser = userRepository.findByUsername(email);
+        Optional<UserEntity> optionalUser = userRepository.findByAlias(email);
         if (!optionalUser.isPresent()) {
             optionalUser = userRepository.findByEmail(email);
             if (!optionalUser.isPresent()) {

@@ -126,7 +126,7 @@ public class AccountController {
         if (userDto != null) {
             throw new EmailAlreadyUsedException();
         }
-        userDto = userService.findByUsername(user.getUsername());
+        userDto = userService.findByAlias(user.getAlias());
         if (userDto != null) {
             throw new UsernameAlreadyUsedException();
         }

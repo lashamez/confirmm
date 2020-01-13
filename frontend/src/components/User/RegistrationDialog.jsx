@@ -14,7 +14,7 @@ class RegistrationDialog extends Component {
         this.state = {
             open: false,
             email:"",
-            username: "",
+            alias: "",
             password: "",
             firstName:"",
             lastName:""
@@ -36,7 +36,7 @@ class RegistrationDialog extends Component {
 
     tryRegister() {
         let login = {
-            username: this.state.username,
+            alias: this.state.alias,
             password: this.state.password,
             email: this.state.email,
             firstName: this.state.firstName,
@@ -76,12 +76,12 @@ class RegistrationDialog extends Component {
                         />
                         <TextField
                             margin="dense"
-                            id="username"
+                            id="alias"
                             label="ალიასი"
                             type="text"
-                            name="username"
+                            name="alias"
                             required={true}
-                            value={this.state.username}
+                            value={this.state.alias}
                             onChange={this.onChange}
                             fullWidth
                         />

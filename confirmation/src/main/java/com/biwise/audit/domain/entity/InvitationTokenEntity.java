@@ -3,6 +3,7 @@ package com.biwise.audit.domain.entity;
 import com.biwise.audit.domain.dto.Token;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -10,6 +11,7 @@ import java.util.Date;
 
 @Getter
 @Setter
+@ToString
 public class InvitationTokenEntity implements Token {
     private static final int EXPIRATION = 60 * 24;
 

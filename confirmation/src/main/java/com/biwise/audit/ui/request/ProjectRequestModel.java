@@ -2,11 +2,13 @@ package com.biwise.audit.ui.request;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
+@ToString
 public class ProjectRequestModel {
 
     @NotBlank(message = "Project name cannot be empty")

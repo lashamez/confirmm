@@ -24,7 +24,7 @@ public interface UserService extends UserDetailsService {
 
     UserDto register(UserDto userDto);
 
-    UserDto findByUsername(String username);
+    UserDto findByAlias(String username);
 
     List<UserDto> findAllForPackage(PackageDto packageDto);
 }

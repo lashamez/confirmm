@@ -3,6 +3,7 @@ package com.biwise.audit.domain.dto;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@ToString
 public class ProjectDto {
     private Long id;
 

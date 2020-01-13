@@ -3,6 +3,7 @@ package com.biwise.audit.ui.response;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Getter
 @Setter
+@ToString
 public class ProjectRest {
     private String projectId;
 
@@ -26,16 +28,4 @@ public class ProjectRest {
 
     private UserRest creator;
 
-    @Override
-    public String toString() {
-        return "ProjectRest{" +
-                "projectId='" + projectId + '\'' +
-                ", userRoles=" + userRoles +
-                ", name='" + name + '\'' +
-                ", projectType='" + projectType + '\'' +
-                ", startYear=" + startYear +
-                ", endYear=" + endYear +
-                ", creator=" + creator.getEmail() +
-                '}';
-    }
 }

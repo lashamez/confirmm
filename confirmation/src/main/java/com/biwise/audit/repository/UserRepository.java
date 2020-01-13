@@ -16,7 +16,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     Optional<UserEntity> findByActivationKey(String token);
 
-    Optional<UserEntity> findByUsername(String username);
+    Optional<UserEntity> findByAlias(String alias);
 
     List<UserEntity> findAllByCurrentPlan(PackageEntity packageEntity);
 }

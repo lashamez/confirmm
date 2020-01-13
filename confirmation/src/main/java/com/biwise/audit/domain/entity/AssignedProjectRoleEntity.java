@@ -3,6 +3,7 @@ package com.biwise.audit.domain.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "project_users_role")
 @Getter
 @Setter
+@ToString
 public class AssignedProjectRoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

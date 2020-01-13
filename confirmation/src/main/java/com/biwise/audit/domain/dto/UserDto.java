@@ -17,7 +17,7 @@ public class UserDto {
 
     private String userId;
 
-    private String username;
+    private String alias;
 
     private String firstName;
 

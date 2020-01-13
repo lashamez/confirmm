@@ -2,6 +2,7 @@ package com.biwise.audit.ui.request;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotBlank;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public class CompanyRequestModel {
     @NotBlank(message = "Company name is required")
     @Size(min = 1, max = 100, message = "Company name length must be in range 1-100")

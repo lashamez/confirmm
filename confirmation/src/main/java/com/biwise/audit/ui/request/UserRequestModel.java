@@ -2,6 +2,7 @@ package com.biwise.audit.ui.request;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -9,13 +10,14 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
+@ToString
 public class UserRequestModel {
     @Email(message = "Email should be valid")
     private String email;
 
-    @NotBlank(message = "Username is required")
+    @NotBlank(message = "alias is required")
     @Size(min = 6, max = 50)
-    private String username;
+    private String alias;
 
     @NotBlank(message = "First name is required")
     @Size(min = 1, max = 50, message = "First name length must be in range 1-50")
