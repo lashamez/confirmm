@@ -15,7 +15,7 @@ import java.util.*;
 @Entity(name = "user")
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "currentPlan")
 public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

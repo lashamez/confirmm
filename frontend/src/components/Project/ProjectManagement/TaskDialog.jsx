@@ -12,16 +12,23 @@ import FormControl from "@material-ui/core/FormControl";
 import {KeyboardDatePicker, KeyboardTimePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import ListItem from "@material-ui/core/ListItem";
+import List from "@material-ui/core/List";
+import {Table, TableCell, TableHead, Typography} from "@material-ui/core";
+import TableRow from "@material-ui/core/TableRow";
+import TableBody from "@material-ui/core/TableBody";
 
 class TaskDialog extends Component {
     constructor(props) {
         super(props);
         this.state = {
             open: false,
+            tasksOpen: false,
             currentTask: {
-                currentMenuItem: '',
-                currentPanelItems: [],
-                selectedPanelItem: '',
+                tasksTitleId: '',
+                concreteTasks: [],
+                selectedTask: '',
                 deadLineDate: new Date(),
             }
         }
@@ -36,6 +43,13 @@ class TaskDialog extends Component {
     handleClose = () => {
         this.setState({open: false});
     };
+    handleTasksClose = () => {
+        this.setState({tasksOpen: false})
+    }
+
+    handleTasksOpen = () => {
+        this.setState({tasksOpen: true})
+    }
 
     handleComplete =()=> {
         this.props.addTask(this.state.currentTask, this.props.user)
@@ -45,10 +59,10 @@ class TaskDialog extends Component {
     onMenuChange =(e)=> {
         this.setState({
             currentTask: {
-                currentMenuItem: e.target.value,
-                currentPanelItems: menus[e.target.value].panelItems,
+                tasksTitleId: e.target.value,
+                concreteTasks: menus[e.target.value].panelItems,
                 deadLineDate: this.state.currentTask.deadLineDate,
-                selectedPanelItem: ''
+                selectedTask: ''
             }
         })
     }
@@ -56,10 +70,10 @@ class TaskDialog extends Component {
     onPanelItemChange =(e)=> {
         this.setState({
             currentTask: {
-                currentMenuItem: this.state.currentTask.currentMenuItem,
-                currentPanelItems: this.state.currentTask.currentPanelItems,
+                tasksTitleId: this.state.currentTask.tasksTitleId,
+                concreteTasks: this.state.currentTask.concreteTasks,
                 deadLineDate: this.state.currentTask.deadLineDate,
-                selectedPanelItem: e.target.value
+                selectedTask: e.target.value
             }
         })
     }
@@ -67,20 +81,29 @@ class TaskDialog extends Component {
     handleDateChange = date => {
         this.setState({
             currentTask: {
-                currentMenuItem: this.state.currentTask.currentMenuItem,
-                currentPanelItems: this.state.currentTask.currentPanelItems,
+                tasksTitleId: this.state.currentTask.tasksTitleId,
+                concreteTasks: this.state.currentTask.concreteTasks,
                 deadLineDate: date,
-                selectedPanelItem: this.state.currentTask.selectedPanelItem
+                selectedTask: this.state.currentTask.selectedTask
             }
         })
+    }
+
+    findLabel = value => {
+        let flatPanelItems = []
+        menus.forEach(item => {
+            item.panelItems.forEach(panelItem => flatPanelItems.push(panelItem))
+        })
+        return flatPanelItems.find(item => item.value === value).label
     }
 
     render() {
         return (
             <div>
-                <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
-                    დავალება
-                </Button>
+                <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+                    <Button onClick={this.handleTasksOpen}>მიმდინარე დავალებები</Button>
+                    <Button onClick={this.handleClickOpen}>ახალი დავალება</Button>
+                </ButtonGroup>
                 <Dialog fullWidth open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                     <DialogTitle id="form-dialog-title">აირჩიეთ დავალებები</DialogTitle>
                     <DialogContent>
@@ -93,8 +116,8 @@ class TaskDialog extends Component {
                                         labelId="task-select-label"
                                         id="task-simple-select"
                                         onChange={this.onMenuChange}
-                                        name={'currentMenuItem'}
-                                        value={this.state.currentTask.currentMenuItem}
+                                        name={'tasksTitleId'}
+                                        value={this.state.currentTask.tasksTitleId}
                                     >
                                         {menus.filter(menuItem => menuItem.stepNum > 1).map(menuItem => {
                                             return (
@@ -116,10 +139,10 @@ class TaskDialog extends Component {
                                         labelId="exact-task-select-label"
                                         id="exact-task-simple-select"
                                         onChange={this.onPanelItemChange}
-                                        name={'selectedPanelItem'}
-                                        value={this.state.currentTask.selectedPanelItem}
+                                        name={'selectedTask'}
+                                        value={this.state.currentTask.selectedTask}
                                     >
-                                        {this.state.currentTask.currentPanelItems.map(panelItem => {
+                                        {this.state.currentTask.concreteTasks.map(panelItem => {
                                             return (
                                                 <MenuItem key={panelItem.id} value={panelItem.value}>
                                                     {panelItem.label}
@@ -183,6 +206,28 @@ class TaskDialog extends Component {
                             დასრულება
                         </Button>
                     </DialogActions>
+                </Dialog>
+                <Dialog fullWidth open={this.state.tasksOpen} onClose={this.handleTasksClose}>
+                    <DialogTitle id="form-dialog-title2">მიმდინარე დავალებები</DialogTitle>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell><Typography color={"textPrimary"} >დავალება</Typography></TableCell>
+                                <TableCell><Typography color={"textPrimary"}>დედლაინი</Typography></TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {this.props.tasks.map((task, index) => {
+                                    return (
+                                        <TableRow key={index}>
+                                            <TableCell><Typography color={"textPrimary"}>{this.findLabel(task.task)}</Typography> </TableCell>
+                                            <TableCell><Typography color={"textPrimary"}>{new Date(task.deadline).toUTCString()}</Typography></TableCell>
+                                        </TableRow>
+                                    )
+                                }
+                            )}
+                        </TableBody>
+                    </Table>
                 </Dialog>
             </div>
         );

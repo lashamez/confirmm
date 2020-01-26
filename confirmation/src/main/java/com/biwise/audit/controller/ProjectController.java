@@ -1,16 +1,14 @@
 package com.biwise.audit.controller;
 
-import com.biwise.audit.domain.dto.AssignedProjectRoleDto;
 import com.biwise.audit.domain.dto.ProjectDto;
-import com.biwise.audit.domain.dto.ProjectRoleDto;
+import com.biwise.audit.domain.dto.ProjectTaskDto;
 import com.biwise.audit.domain.dto.UserDto;
-import com.biwise.audit.service.MailService;
-import com.biwise.audit.service.ProjectRoleService;
-import com.biwise.audit.service.ProjectService;
-import com.biwise.audit.service.UserService;
+import com.biwise.audit.service.*;
 import com.biwise.audit.ui.request.AssignedRole;
 import com.biwise.audit.ui.request.ProjectRequestModel;
+import com.biwise.audit.ui.request.ProjectTaskRequestModel;
 import com.biwise.audit.ui.response.ProjectRest;
+import com.biwise.audit.ui.response.ProjectTaskRest;
 import com.biwise.audit.utils.HeaderUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,11 +43,17 @@ public class ProjectController {
 
     private final ProjectRoleService projectRoleService;
 
-    public ProjectController(ProjectService projectService, UserService userService, MailService mailService, ProjectRoleService projectRoleService) {
+    private final TaskAssignmentService taskAssignmentService;
+
+    private final AssignedProjectRoleService assignedProjectRoleService;
+
+    public ProjectController(ProjectService projectService, UserService userService, MailService mailService, ProjectRoleService projectRoleService, TaskAssignmentService taskAssignmentService, AssignedProjectRoleService assignedProjectRoleService) {
         this.projectService = projectService;
         this.userService = userService;
         this.mailService = mailService;
         this.projectRoleService = projectRoleService;
+        this.taskAssignmentService = taskAssignmentService;
+        this.assignedProjectRoleService = assignedProjectRoleService;
     }
 
     @PostMapping("")
@@ -92,6 +96,7 @@ public class ProjectController {
             return ResponseEntity.noContent()
                     .headers(HeaderUtils.createFailureAlert(ENTITY_NAME, id, "Project not found")).build();
         }
+
         ProjectRest returnValue = modelMapper.map(projectDto, ProjectRest.class);
         return ResponseEntity.ok(returnValue);
     }
@@ -146,20 +151,27 @@ public class ProjectController {
     @PostMapping("/{id}/users")
     @Transactional
     public ResponseEntity<Void> assignRoles(@PathVariable String id, @Valid @RequestBody  List<AssignedRole> userRoles) {
-        ProjectDto projectDto = projectService.findByProjectId(id);
-        Set<AssignedProjectRoleDto> projectRoles = userRoles.stream().map(assignedRole -> {
-            UserDto userDto = userService.findOne(assignedRole.getEmail());
-            ProjectRoleDto projectRoleDto = projectRoleService.findByRoleName(assignedRole.getRole().getRole());
-            AssignedProjectRoleDto assignedProjectRoleDto = new AssignedProjectRoleDto();
-            assignedProjectRoleDto.setRole(projectRoleDto);
-            assignedProjectRoleDto.setUser(userDto);
-            assignedProjectRoleDto.setProject(projectDto);
-            return assignedProjectRoleDto;
-        }).collect(Collectors.toSet());
-        projectDto.setUserRoles(projectRoles);
-        projectService.update(projectDto);
+        assignedProjectRoleService.saveRoles(userRoles, id);
         return ResponseEntity.ok().headers(HeaderUtils
                 .createEntityUpdateAlert(ENTITY_NAME, id)).build();
+    }
+
+    @PostMapping("/{id}/users/{userId}/task")
+    @Transactional
+    public ResponseEntity<Void> assignTask (@PathVariable String id, @PathVariable String userId, @Valid @RequestBody ProjectTaskRequestModel taskRequest, Principal assigner) {
+        taskAssignmentService.insertTask(taskRequest, id, userId, assigner.getName());
+        return ResponseEntity.ok()
+                .headers(HeaderUtils.createEntityCreationAlert("Task Role", taskRequest.getTask()))
+                .build();
+    }
+
+    @GetMapping("/{projectId}/task")
+    public ResponseEntity<Set<ProjectTaskRest>> getProjectTasks(@PathVariable String projectId) {
+        Set<ProjectTaskDto> projectTaskDtos = taskAssignmentService.getTasksForProject(projectId);
+        Set<ProjectTaskRest> projectTasks = projectTaskDtos.stream()
+                .map(projectTaskDto -> modelMapper.map(projectTaskDto, ProjectTaskRest.class))
+                .collect(Collectors.toSet());
+        return ResponseEntity.ok(projectTasks);
     }
 
 }

@@ -3,10 +3,8 @@ package com.biwise.audit;
 import com.biwise.audit.domain.entity.PrivilegeEntity;
 import com.biwise.audit.domain.entity.ProjectRoleEntity;
 import com.biwise.audit.domain.entity.RoleEntity;
-import com.biwise.audit.repository.PrivilegeRepository;
-import com.biwise.audit.repository.ProjectRoleRepository;
-import com.biwise.audit.repository.RoleRepository;
-import com.biwise.audit.repository.UserRepository;
+import com.biwise.audit.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -32,6 +30,9 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     private final PasswordEncoder passwordEncoder;
 
     private final ProjectRoleRepository projectRoleRepository;
+
+    @Autowired
+    private AssignedProjectRoleRepository assignedProjectRoleRepository;
 
     @Value("${projectRoles}")
     private List<String> projectRoles;

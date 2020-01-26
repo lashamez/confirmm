@@ -1,8 +1,8 @@
 package com.biwise.audit.service.impl;
 
+import com.biwise.audit.domain.dto.AssignedProjectRoleDto;
 import com.biwise.audit.domain.dto.ProjectDto;
 import com.biwise.audit.domain.dto.UserDto;
-import com.biwise.audit.domain.entity.AssignedProjectRoleEntity;
 import com.biwise.audit.domain.entity.ProjectEntity;
 import com.biwise.audit.repository.AssignedProjectRoleRepository;
 import com.biwise.audit.repository.ProjectRepository;
@@ -12,6 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -49,12 +50,17 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDto findByProjectId(String id) {
         ProjectEntity projectEntity = projectRepository.findByProjectId(id);
-        return modelMapper.map(projectEntity, ProjectDto.class);
+        projectEntity.setUserRoles(roleRepository.findAllByProject(projectEntity));
+        ProjectDto projectDto = modelMapper.map(projectEntity, ProjectDto.class);
+        Set<AssignedProjectRoleDto> roleDtos = projectEntity.getUserRoles()
+                .stream().map(role -> modelMapper.map(role, AssignedProjectRoleDto.class))
+                .collect(Collectors.toSet());
+        projectDto.setUserRoles(roleDtos);
+        return projectDto;
     }
 
     @Override
     public List<ProjectDto> findAllForUser(UserDto userDto) {
-
         List<ProjectEntity> userProjects = projectRepository.findAll()
                 .stream().filter(project -> project.getUserRoles().stream()
                     .anyMatch(user -> user.getUser().getId().equals(userDto.getId()))
@@ -65,22 +71,8 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDto update(ProjectDto project) {
-        ProjectEntity projectEntity = projectRepository.findByProjectId(project.getProjectId());
-        //clear old roles
-        roleRepository.deleteAllByProject(projectEntity);
-
-        projectEntity.setName(project.getName());
-        projectEntity.setProjectType(project.getProjectType());
-        projectEntity.setStartYear(project.getStartYear());
-        projectEntity.setEndYear(project.getEndYear());
-        projectEntity.setUserRoles(
-                project.getUserRoles().stream()
-                    .map(role -> modelMapper.map(role, AssignedProjectRoleEntity.class))
-                    .collect(Collectors.toSet())
-        );
-        ProjectEntity saved = projectRepository.save(projectEntity);
-
-        return modelMapper.map(saved, ProjectDto.class);
+        //todo
+        return null;
     }
 
     @Override

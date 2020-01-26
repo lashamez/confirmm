@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "project")
 public class AssignedProjectRoleDto {
 
     private Long id;

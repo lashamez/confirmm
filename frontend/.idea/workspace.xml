@@ -2,33 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6139e939-9e4a-4fb4-9a23-0918481a8d17" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/ProjectTaskDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/ProjectTaskRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/AssignedProjectRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/TaskAssignmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/AssignedProjectRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/TaskAssignmentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/ProjectTaskRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectTaskRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement/TableComponent.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/InitialDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/InitialDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/controller/ProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/AssignedProjectRoleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/AssignedProjectRoleDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/InvitationTokenDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/InvitationTokenDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/PackageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/PackageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/ProjectDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/ProjectDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/ProjectRoleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/ProjectRoleDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/dto/ProjectTasksDTO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/AssignedProjectRoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/AssignedProjectRoleEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/InvitationTokenEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/InvitationTokenEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/PackageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/PackageEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/PrivilegeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/PrivilegeEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectRoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectRoleEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/RoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/RoleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/ProjectTaskEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/domain/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/AssignedRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/AssignedRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/CompanyRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/CompanyRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/InvitedUserRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/InvitedUserRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/LoginModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/PackageRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/PackageRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/ProjectRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/ProjectRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/UserRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/request/UserRequestModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/AssignedProjectRoleRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/AssignedProjectRoleRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/PackageRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/PackageRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRoleRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/ProjectRoleRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/UserRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/ui/response/UserRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/User/RegistrationDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/User/RegistrationDialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/AssignedProjectRoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/AssignedProjectRoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/ProjectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/java/com/biwise/audit/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../confirmation/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../confirmation/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Const/ProjectDetailsConstants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Const/ProjectDetailsConstants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Project/ProjectGeneralPrinciples.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectGeneralPrinciples.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Project/ProjectManagement/ProjectManagement.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement/ProjectManagement.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Project/ProjectManagement/TaskAssignment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement/TaskAssignment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Project/ProjectManagement/TaskDialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Project/ProjectManagement/TaskDialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Service/ProjectService.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Service/ProjectService.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +86,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -143,7 +152,8 @@
       <workItem from="1576482961713" duration="516000" />
       <workItem from="1576496485361" duration="6222000" />
       <workItem from="1578337101344" duration="121000" />
-      <workItem from="1578942654141" duration="645000" />
+      <workItem from="1578942654141" duration="1281000" />
+      <workItem from="1580028474471" duration="14105000" />
     </task>
     <task id="LOCAL-00001" summary="initial frontend">
       <created>1575037645239</created>
@@ -213,13 +223,15 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1575647922457" />
-    <state x="490" y="267" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575917195077">
-      <screen x="67" y="27" width="1533" height="873" />
+    <state x="530" y="303" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580052352022">
+      <screen x="0" y="34" width="1920" height="980" />
     </state>
+    <state x="530" y="303" key="#com.intellij.fileTypes.FileTypeChooser/0.34.1920.980@0.34.1920.980" timestamp="1580052352022" />
     <state x="490" y="267" width="676" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1533.873@67.27.1533.873" timestamp="1575917195077" />
-    <state x="566" y="211" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575715671881">
-      <screen x="67" y="27" width="1533" height="873" />
+    <state x="625" y="241" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580030266198">
+      <screen x="0" y="34" width="1920" height="980" />
     </state>
+    <state x="625" y="241" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.34.1920.980@0.34.1920.980" timestamp="1580030266198" />
     <state x="566" y="211" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1533.873@67.27.1533.873" timestamp="1575715671881" />
     <state x="507" y="152" width="642" height="620" key="#run" timestamp="1575645718329">
       <screen x="67" y="27" width="1533" height="873" />
@@ -249,19 +261,19 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state width="1510" height="218" key="GridCell.Tab.0.right/67.27.1533.873@67.27.1533.873" timestamp="1575647908593" />
-    <state x="319" y="102" width="1269" height="912" key="SettingsEditor" timestamp="1578337222038">
+    <state x="319" y="102" width="1269" height="912" key="SettingsEditor" timestamp="1580029619151">
       <screen x="0" y="34" width="1920" height="980" />
     </state>
-    <state x="319" y="102" width="1269" height="912" key="SettingsEditor/0.34.1920.980@0.34.1920.980" timestamp="1578337222038" />
+    <state x="319" y="102" width="1269" height="912" key="SettingsEditor/0.34.1920.980@0.34.1920.980" timestamp="1580029619151" />
     <state x="322" y="97" key="SettingsEditor/67.27.1533.873@67.27.1533.873" timestamp="1575792816075" />
     <state x="428" y="198" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1575728744534">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="428" y="198" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1533.873@67.27.1533.873" timestamp="1575728744534" />
-    <state x="519" y="80" width="1148" height="886" key="find.popup" timestamp="1578945903650">
+    <state x="519" y="80" width="1157" height="886" key="find.popup" timestamp="1580064306941">
       <screen x="0" y="34" width="1920" height="980" />
     </state>
-    <state x="519" y="80" width="1148" height="886" key="find.popup/0.34.1920.980@0.34.1920.980" timestamp="1578945903650" />
+    <state x="519" y="80" width="1157" height="886" key="find.popup/0.34.1920.980@0.34.1920.980" timestamp="1580064306941" />
     <state x="481" y="68" width="916" height="789" key="find.popup/67.27.1533.873@67.27.1533.873" timestamp="1575929542021" />
     <state x="497" y="208" key="run.anything.popup" timestamp="1575914889306">
       <screen x="67" y="27" width="1533" height="873" />

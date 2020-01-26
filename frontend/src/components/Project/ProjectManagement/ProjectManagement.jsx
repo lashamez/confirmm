@@ -29,12 +29,19 @@ class ProjectManagement extends Component {
             console.log(error)
         })
     }
+
+    reloadTasks =(projectId)=> {
+        return ProjectService.fetchTasks(projectId).catch(error => {
+            toast.error('გუნდის წევრების ჩატვირთვის დროს დაფიქსირდა შეცდომა')
+            console.log(error)
+        })
+    }
     render() {
         return (
             <Box>
                 <CustomPanel title={panelItems.auditTeam} content={<AuditTeam reloadMembers={this.reloadMembers} reloadUserRoles={this.reloadUserRoles} projectId={this.state.projectId}/>} />
 
-                <CustomPanel title={panelItems.taskManagement} content={<TaskAssignment reloadMembers={this.reloadMembers} reloadUserRoles={this.reloadUserRoles} projectId={this.state.projectId}/>} />
+                <CustomPanel title={panelItems.taskManagement} content={<TaskAssignment reloadMembers={this.reloadMembers} reloadTasks={this.reloadTasks} projectId={this.state.projectId}/>} />
             </Box>
         )
     }

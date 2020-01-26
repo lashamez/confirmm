@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,10 +18,13 @@ public class InvitationTokenEntity implements Token {
 
     private Long id;
 
+    @NotNull
     private String token;
 
+    @NotNull
     private String accountantMail;
 
+    @NotNull
     private Date expiryDate;
 
     private void calculateExpiryDate() {

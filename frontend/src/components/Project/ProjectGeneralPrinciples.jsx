@@ -10,6 +10,7 @@ class ProjectGeneralPrinciples extends Component{
 
     }
     render() {
+        console.log("ssssssss")
         return (
             <div>
                 <CustomPanel title={panelItems.scope} content={"Content1"} projectId={this.state.projectId}/>

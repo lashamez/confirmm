@@ -63,26 +63,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto findOne(String username) {
-        Optional<UserEntity> userEntity = userRepository.findByEmail(username);
-        return userEntity.map(entity -> modelMapper.map(entity, UserDto.class)).orElse(null);
+        UserEntity userEntity = userRepository.findByEmail(username);
+        return  modelMapper.map(userEntity, UserDto.class);
     }
 
     @Override
     public UserDto findByUserId(String userId) {
-        Optional<UserEntity> optionalUser = userRepository.findByUserId(userId);
-        Optional<UserDto> returnValue = optionalUser.map(userEntity -> modelMapper.map(userEntity, UserDto.class));
-        return returnValue.orElse(null);
+        UserEntity optionalUser = userRepository.findByUserId(userId);
+        return modelMapper.map(optionalUser, UserDto.class);
     }
 
     @Override
     @Transactional
     public UserDto update(UserDto userDto) {
-        Optional<UserEntity> user = userRepository.findByUserId(userDto.getUserId());
-        if (user.isPresent()) {
-            UserEntity userEntity = user.get();
-            userEntity.setFirstName(userDto.getFirstName());
-            userEntity.setLastName(userDto.getLastName());
-            UserEntity entity = userRepository.save(userEntity);
+        UserEntity user = userRepository.findByUserId(userDto.getUserId());
+        if (user != null) {
+            user.setFirstName(userDto.getFirstName());
+            user.setLastName(userDto.getLastName());
+            UserEntity entity = userRepository.save(user);
             return modelMapper.map(entity, UserDto.class);
         }
         return null;
@@ -105,7 +103,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserDto register(UserDto user) {
-        userRepository.findByEmail(user.getEmail().toLowerCase()).ifPresent(existingUser -> {
+        Optional.ofNullable(userRepository.findByEmail(user.getEmail().toLowerCase())).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
                 throw new EmailAlreadyUsedException();
@@ -151,7 +149,7 @@ public class UserServiceImpl implements UserService {
 
         Optional<UserEntity> optionalUser = userRepository.findByAlias(email);
         if (!optionalUser.isPresent()) {
-            optionalUser = userRepository.findByEmail(email);
+            optionalUser = Optional.ofNullable(userRepository.findByEmail(email));
             if (!optionalUser.isPresent()) {
                 return new org.springframework.security.core.userdetails.User(
                         " ", " ", true, true, true, true,

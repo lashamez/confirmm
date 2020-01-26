@@ -74,6 +74,7 @@ spring:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     show-sql: true
 
+
   messages:
     basename: i18n/messages
   main:

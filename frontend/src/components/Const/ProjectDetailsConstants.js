@@ -2,6 +2,7 @@ const menus = [
     {
         stepNum : 0,
         title: 'პროექტის მენეჯმენტი',
+        value: 'projectManagement',
         panelItems : [
             {
                 id:0,
@@ -18,6 +19,7 @@ const menus = [
     {
         stepNum : 1,
         title: 'რისკის მართვა და დაკონტრაქტება',
+        value: 'riskManagementAndContracting',
         panelItems:[
             {
                 id:0,
@@ -56,10 +58,10 @@ const menus = [
             }
         ]
     },
-
     {
         stepNum : 2,
         title: 'პროექტის ძირითადი პრინციპები',
+        value: 'projectGeneralPrinciples',
         panelItems : [
             {
                 id:0,
@@ -81,6 +83,7 @@ const menus = [
     {
         stepNum : 3,
         title: 'რისკის შეფასება',
+        value: 'riskRate',
         panelItems:[
             {
                 id:0,
@@ -147,6 +150,7 @@ const menus = [
     {
         stepNum : 4,
         title: 'ტესტირება',
+        value: 'testing',
         panelItems:[
             {
                 id:0,
@@ -168,6 +172,7 @@ const menus = [
     {
         stepNum : 5,
         title: 'პროექტის დასრულება',
+        value: 'projectCompletion',
         panelItems:[
             {
                 id:0,
@@ -204,6 +209,7 @@ const menus = [
     {
         stepNum : 6,
         title: 'მუდმივი დოკუმენტაცია',
+        value: 'constantDocumentation',
         panelItems:[
 
         ]

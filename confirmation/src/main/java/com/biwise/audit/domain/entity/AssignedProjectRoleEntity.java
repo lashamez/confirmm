@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "project_users_role")
@@ -18,15 +19,18 @@ public class AssignedProjectRoleEntity {
     private Long id;
 
     @OneToOne
-    @JoinColumn(referencedColumnName = "id")
+    @NotNull
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserEntity user;
 
     @OneToOne
-    @JoinColumn(referencedColumnName = "id")
+    @NotNull
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
     private ProjectRoleEntity role;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
+    @NotNull
+    @JoinColumn(name = "project_id", referencedColumnName = "id")
     @JsonBackReference
     private ProjectEntity project;
 }

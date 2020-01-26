@@ -36,6 +36,20 @@ class ProjectService {
         })
         return axios.post(PROJECT_API_BASE_URL + '/' + projectId + '/users', assignedRoles, config)
     }
+
+    assignTask(task, user, projectId) {
+        console.log(task)
+        const projectTask = {
+            task: task.selectedTask,
+            deadLineDate: task.deadLineDate,
+        }
+        return axios.post(PROJECT_API_BASE_URL + '/' + projectId + '/users/' + user.userId + '/task', projectTask, config)
+    }
+
+    fetchTasks(projectId) {
+        return axios.get(PROJECT_API_BASE_URL + '/' + projectId + '/task', config)
+    }
+
 }
 
 export default new ProjectService();
